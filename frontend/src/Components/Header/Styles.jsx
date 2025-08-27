@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const header = styled.header`
-    background-color: #EEEEEE;
+    background-color: #ffff;
     height: 100px;
     display: flex;
     align-items: center;
@@ -24,7 +24,22 @@ export const header = styled.header`
         }
     }
 
+    @media (min-width: 768px) {
+
+        img {
+            width: 120px;
+        }
+
+    }
+
+
     @media (min-width: 1024px) {
+        padding: 50px;
+
+        img {
+            width: 150px;
+        }
+
         svg {
             display: none;
         }
@@ -89,13 +104,13 @@ export const navLinks = styled.nav`
     }
 
     @media (min-width: 1024px) {
-        width: 90%;
-        max-height: 100%;
-        height: 100%;
+        width: 80%;
+        max-height: 100px;
+        height: 100px;
         opacity: 1;
         top: 0;
         position: relative;
-        background-color: #eee;
+        background-color: #fff;
         box-shadow: none;
 
         ul {
@@ -105,7 +120,7 @@ export const navLinks = styled.nav`
             align-items: center;
             height: 100%;
             font-size: 17px;
-            gap: 20px;
+            gap: 25px;
             font-weight: 800;
         }
             
