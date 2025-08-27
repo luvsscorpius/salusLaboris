@@ -16,7 +16,10 @@ export const Hero = () => {
               Cuidamos da sua empresa com responsabilidade, atenção e soluções personalizadas.
             </p>
         </H.titleContainer>
-        <button>Quero agendar um atendimento </button>
+
+        <H.buttonContainer>
+          <button>Quero agendar um atendimento </button>
+        </H.buttonContainer>
         <H.bar/>
     </H.hero>
   )

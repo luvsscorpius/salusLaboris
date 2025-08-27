@@ -20,8 +20,89 @@ export const hero = styled.div`
         z-index: 0;
     }
 
-    button {
+    @media (min-width: 1024px) {
+        align-items: start;
+        padding: 50px;
+        height: 600px; 
+
+        img {
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+`
+
+export const bar = styled.div`
+    background-color: #4A7C59;
+    width: 90%;
+    height: 10px;
+    z-index: 10;
+    border-radius: 10px;
+    margin: 20px;
+
+    @media (min-width: 1024px) {
+        width: 50%;
+    }
+`
+
+export const titleContainer = styled.div`
+    z-index: 10;
+    padding: 0 20px 0 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+
+    h1 {
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 33px;
+        line-height: 1.3;
+
+        span {
+            background-color: #fff;
+            color: #4A7C59;
+        }
+    }
+
+    p {
+        color: #eee;
+        font-family: "Poppins", sans-serif;
+        font-weight: 550;
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    @media (min-width: 768px) {
         width: 90%;
+        padding: 0 300px 0 0px;
+    }
+
+    @media (min-width: 1024px) {
+        width: 50%;
+        padding: 0 20px 0 10px;
+        margin-left: 20px;
+
+        h1 {
+            font-size: 38px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+`
+
+export const buttonContainer = styled.div` 
+    z-index: 10;
+    width: 90%;
+    margin-left: 20px;
+
+    button {
+        width: 100%;
         height: 50px;
         background-color: #4A7C59;
         border: none;
@@ -39,44 +120,15 @@ export const hero = styled.div`
             transition: 0.9s ease-in-out;
         }
     }
-`
 
-export const bar = styled.div`
-    background-color: #4A7C59;
-    width: 90%;
-    height: 10px;
-    z-index: 10;
-    border-radius: 10px;
-    margin: 20px;
-`
+    @media (min-width: 768px) {
+        width: 90%;
 
-export const titleContainer = styled.div`
-    z-index: 10;
-    padding: 0 23px 0 23px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-
-    h1 {
-        color: #fff;
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 1.3;
-
-        span {
-            background-color: #fff;
-            color: #4A7C59;
+        button {
+            width: 335px;
+            height: 55px;
+            font-size: 20px;
+            font-weight: 550;
         }
-    }
-
-    p {
-        color: #eee;
-        font-family: "Poppins", sans-serif;
-        font-weight: 550;
-        font-size: 15px;
-        text-align: justify;
     }
 `
