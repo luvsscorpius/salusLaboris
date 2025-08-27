@@ -55,6 +55,7 @@ export const navLinks = styled.nav`
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     overflow: hidden;
+    z-index: 10000;
   
     max-height: ${({ open }) => (open ? "500px" : "0")};
     opacity: ${({ open }) => (open ? "1" : "0.7")};
