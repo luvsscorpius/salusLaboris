@@ -6,6 +6,16 @@
 * **globalstyle:** creating a globalstyle for styled-components ([f170b6e](https://github.com/luvsscorpius/salusLaboris/commit/f170b6e0ddfd1053229708e52f2f5af1fa00270d))
 * **header.jsx:** done: developing header ([27efeea](https://github.com/luvsscorpius/salusLaboris/commit/27efeea361cab1bba6d6c92e5ba3061c8239dd0e))
 * **header:** creating header folder and files ([c43af29](https://github.com/luvsscorpius/salusLaboris/commit/c43af2900b7ebfab268a37fe8c2f137a4379fee3))
+* **home.jsx:** creating home folder and files ([7690a3a](https://github.com/luvsscorpius/salusLaboris/commit/7690a3a70741417198cfe76ebd28eb2d315f2152))
+
+# 1.0.0 (2025-08-27)
+
+
+### Features
+
+* **globalstyle:** creating a globalstyle for styled-components ([f170b6e](https://github.com/luvsscorpius/salusLaboris/commit/f170b6e0ddfd1053229708e52f2f5af1fa00270d))
+* **header.jsx:** done: developing header ([27efeea](https://github.com/luvsscorpius/salusLaboris/commit/27efeea361cab1bba6d6c92e5ba3061c8239dd0e))
+* **header:** creating header folder and files ([c43af29](https://github.com/luvsscorpius/salusLaboris/commit/c43af2900b7ebfab268a37fe8c2f137a4379fee3))
 
 # 1.0.0 (2025-08-25)
 
