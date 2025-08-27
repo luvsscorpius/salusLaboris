@@ -6,6 +6,18 @@ export const Hero = () => {
   return (
     <H.hero>
         <img src={background} alt="Imagem de fundo" />
+        <H.bar/>
+        <H.titleContainer>
+            <h1>
+                Ambientes de trabalho mais seguros e saudáveis começam aqui na <span>Salus Laboris</span>
+            </h1>
+
+            <p>
+              Cuidamos da sua empresa com responsabilidade, atenção e soluções personalizadas.
+            </p>
+        </H.titleContainer>
+        <button>Quero agendar um atendimento </button>
+        <H.bar/>
     </H.hero>
   )
 }
