@@ -28,6 +28,7 @@ export const hero = styled.div`
         img {
             object-fit: cover;
             object-position: top;
+            opacity: 0.2;
         }
     }
 `
@@ -41,7 +42,7 @@ export const bar = styled.div`
     margin: 20px;
 
     @media (min-width: 1024px) {
-        width: 50%;
+        width: 580px;
     }
 `
 
@@ -82,12 +83,13 @@ export const titleContainer = styled.div`
     }
 
     @media (min-width: 1024px) {
-        width: 50%;
-        padding: 0 20px 0 10px;
+        width: 580px;
+        padding: 0 20px 0 0px;
         margin-left: 20px;
 
         h1 {
             font-size: 38px;
+            text-align: justify;
         }
 
         p {
