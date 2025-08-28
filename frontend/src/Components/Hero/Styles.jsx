@@ -101,7 +101,6 @@ export const titleContainer = styled.div`
 export const buttonContainer = styled.div` 
     z-index: 10;
     width: 90%;
-    margin-left: 20px;
 
     button {
         width: 100%;
@@ -125,6 +124,17 @@ export const buttonContainer = styled.div`
 
     @media (min-width: 768px) {
         width: 90%;
+
+        button {
+            width: 335px;
+            height: 55px;
+            font-size: 20px;
+            font-weight: 550;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        margin-left: 20px;
 
         button {
             width: 335px;
