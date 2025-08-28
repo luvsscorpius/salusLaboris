@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const main = styled.main`
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,6 +15,10 @@ export const main = styled.main`
         object-fit: cover;
         object-position: right;
     }
+
+    .cardInfoEquipe {
+        width: 80%;
+    }
 `
 
 export const titleContainer = styled.div`
@@ -29,6 +32,49 @@ export const titleContainer = styled.div`
         color: #4A7C59;
         font-size: 32px;
         font-weight: 800;
+    }
+
+    @media (min-width: 768px) {
+        width: 90%;
+    }
+`
+
+export const quemSomosContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    .spanContainer {
+        gap: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    img {
+        width: 80%;
+        height: 330px;
+        object-fit: cover;
+    }
+
+    @media (min-width: 768px) {
+        flex-direction: row;  
+        align-items: flex-start;
+        width: 90%;    
+
+        .quemSomosTitle {
+            width: 100%;
+        }
+
+        img {
+            width: 315px;
+            height: 330px;
+            object-fit: cover;
+        }
     }
 `
 
@@ -53,6 +99,10 @@ export const cardInfo = styled.div`
             font-weight: 800;
         }
     }
+
+    @media (min-width: 768px) {
+        width: 100%;
+    }
 `
 
 export const cardContainer = styled.div`
@@ -61,6 +111,12 @@ export const cardContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 30px;
+
+    @media (min-width: 768px) {
+        width: 87%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 `
 
 export const card = styled.div`
@@ -97,5 +153,10 @@ export const card = styled.div`
         opacity: 0.85;
         font-weight: 800;
         font-size: 24px;
+    }
+
+    @media (min-width: 768px) {
+        width: 47%;
+        height: auto;
     }
 `
