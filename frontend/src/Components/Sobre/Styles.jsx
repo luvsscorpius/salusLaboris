@@ -19,6 +19,12 @@ export const main = styled.main`
     .cardInfoEquipe {
         width: 80%;
     }
+
+    @media (min-width: 768px) {
+        .cardInfoEquipe {
+            width: 90%;
+        }
+    }
 `
 
 export const titleContainer = styled.div`
@@ -128,6 +134,7 @@ export const card = styled.div`
     padding: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.30);
     border-radius: 5px;
+    height: auto;
     transition: transform 0.3s ease-in-out;
 
     &:hover {
@@ -137,7 +144,7 @@ export const card = styled.div`
 
     img {
         width: 100%;
-        height: 390px;
+        height: auto;
     }
 
     h3 {
@@ -153,10 +160,14 @@ export const card = styled.div`
         opacity: 0.85;
         font-weight: 800;
         font-size: 24px;
+        text-align: center;
     }
 
     @media (min-width: 768px) {
         width: 47%;
-        height: auto;
+        
+        img {
+            height: 390px;
+        }
     }
 `
