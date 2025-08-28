@@ -7,6 +7,7 @@ export const main = styled.main`
     align-items: center;
     justify-content: center;
     gap: 20px;
+    padding: 50px 0 50px 0;
     height: 100%;
 
     img {
@@ -31,7 +32,7 @@ export const titleContainer = styled.div`
     }
 `
 
-export const cardContainer = styled.div`
+export const cardInfo = styled.div`
     width: 80%;
     border-radius: 5px;
     background-color: #fff;
@@ -51,5 +52,50 @@ export const cardContainer = styled.div`
             color: #4A7C59;
             font-weight: 800;
         }
+    }
+`
+
+export const cardContainer = styled.div`
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+`
+
+export const card = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.30);
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(0.98);
+    }
+
+    img {
+        width: 100%;
+        height: 390px;
+    }
+
+    h3 {
+        margin-top: 20px;
+        color: #4A7C59;
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: 0.2px
+    }
+
+    h2 {
+        color: #1d1d1d;
+        opacity: 0.85;
+        font-weight: 800;
+        font-size: 24px;
     }
 `
