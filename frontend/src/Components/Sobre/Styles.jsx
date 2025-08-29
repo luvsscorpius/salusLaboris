@@ -25,6 +25,12 @@ export const main = styled.main`
             width: 90%;
         }
     }
+
+    @media (min-width: 1024px) {
+        .cardInfoEquipe {
+            width: 60%;
+        }
+    }
 `
 
 export const titleContainer = styled.div`
@@ -42,6 +48,13 @@ export const titleContainer = styled.div`
 
     @media (min-width: 768px) {
         width: 90%;
+    }
+
+    @media (min-width: 1024px) {
+        width: 60%;
+
+        text-align: start;
+        padding: 0px 0px 0px 10px;
     }
 `
 
@@ -82,6 +95,22 @@ export const quemSomosContainer = styled.div`
             object-fit: cover;
         }
     }
+
+    @media (min-width: 1024px) {
+        flex-direction: row;  
+        align-items: flex-start;
+        width: 60%;    
+
+        .quemSomosTitle {
+            width: 100%;
+        }
+
+        img {
+            width: 315px;
+            height: 330px;
+            object-fit: cover;
+        }
+    }
 `
 
 export const cardInfo = styled.div`
@@ -97,7 +126,7 @@ export const cardInfo = styled.div`
         font-size: 22px;
         font-weight: 100;
         text-align: justify;
-        opacity: 0.97;
+        opacity: 0.95;
 
         span {
             background-color: #EEEEEE;
@@ -108,6 +137,15 @@ export const cardInfo = styled.div`
 
     @media (min-width: 768px) {
         width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+        width: 100%;
+        line-height: 25px;
+
+        p {
+            font-size: 18px;
+        }
     }
 `
 
@@ -120,6 +158,12 @@ export const cardContainer = styled.div`
 
     @media (min-width: 768px) {
         width: 87%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    @media (min-width: 768px) {
+        width: 60%;
         flex-direction: row;
         flex-wrap: wrap;
     }
@@ -165,6 +209,14 @@ export const card = styled.div`
 
     @media (min-width: 768px) {
         width: 47%;
+        
+        img {
+            height: 390px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        width: 325px;
         
         img {
             height: 390px;
