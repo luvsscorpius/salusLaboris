@@ -5,22 +5,25 @@ import background from '../../assets/occupational-health.webp'
 export const Hero = () => {
   return (
     <H.hero>
-        <img src={background} alt="Imagem de fundo" />
-        <H.bar/>
-        <H.titleContainer>
-            <h1>
-                Ambientes de trabalho mais seguros e saudáveis começam aqui na <span>Salus Laboris</span>
-            </h1>
+      <img src={background} alt="Imagem de fundo" />
 
-            <p>
-              Cuidamos da sua empresa com responsabilidade, atenção e soluções personalizadas.
-            </p>
+      <span>
+        <H.bar />
+        <H.titleContainer>
+          <h1>
+            Ambientes de trabalho mais seguros e saudáveis começam aqui na <span>Salus Laboris</span>
+          </h1>
+
+          <p>
+            Cuidamos da sua empresa com responsabilidade, atenção e soluções personalizadas.
+          </p>
         </H.titleContainer>
 
         <H.buttonContainer>
           <button>Quero agendar um atendimento </button>
         </H.buttonContainer>
-        <H.bar/>
+        <H.bar />
+      </span>
     </H.hero>
   )
 }

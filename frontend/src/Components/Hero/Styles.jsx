@@ -7,7 +7,11 @@ export const hero = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 20px;
+    padding: 30px;
+
+    span {
+        z-index: 10;
+    }
 
     img {
         position: absolute;
@@ -21,8 +25,7 @@ export const hero = styled.div`
     }
 
     @media (min-width: 1024px) {
-        align-items: start;
-        padding: 50px;
+        align-items: center;
         height: 600px; 
 
         img {
@@ -30,16 +33,20 @@ export const hero = styled.div`
             object-position: top;
             opacity: 0.2;
         }
+
+        span {
+            width: 62%;
+        }
     }
 `
 
 export const bar = styled.div`
     background-color: #4A7C59;
-    width: 90%;
+    width: 100%;
     height: 10px;
     z-index: 10;
     border-radius: 10px;
-    margin: 20px;
+    margin: 20px 0px 20px 0px;
 
     @media (min-width: 1024px) {
         width: 580px;
@@ -48,13 +55,13 @@ export const bar = styled.div`
 
 export const titleContainer = styled.div`
     z-index: 10;
-    padding: 0 20px 0 0px;
+    padding: 0 0px 0 0px;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
     gap: 20px;
-    width: 90%;
+    width: 100%;
 
     h1 {
         color: #fff;
@@ -62,7 +69,8 @@ export const titleContainer = styled.div`
         font-weight: 700;
         font-size: 33px;
         line-height: 1.3;
-
+        width: 100%;
+        
         span {
             background-color: #fff;
             color: #4A7C59;
@@ -78,14 +86,13 @@ export const titleContainer = styled.div`
     }
 
     @media (min-width: 768px) {
-        width: 90%;
+        width: 100%;
         padding: 0 300px 0 0px;
     }
 
     @media (min-width: 1024px) {
         width: 580px;
         padding: 0 20px 0 0px;
-        margin-left: 20px;
 
         h1 {
             font-size: 38px;
@@ -100,7 +107,8 @@ export const titleContainer = styled.div`
 
 export const buttonContainer = styled.div` 
     z-index: 10;
-    width: 90%;
+    width: 100%;
+    margin-left: 20px 0x 0px 0px;
 
     button {
         width: 100%;
@@ -134,7 +142,6 @@ export const buttonContainer = styled.div`
     }
 
     @media (min-width: 1024px) {
-        margin-left: 20px;
 
         button {
             width: 335px;
