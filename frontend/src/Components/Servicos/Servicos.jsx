@@ -53,23 +53,26 @@ export const Servicos = () => {
                         <h2>FASES DE ATENDIMENTO</h2>
                     </S.headerFasesContainer>
 
-                    <S.fasesCard>
-                        <img src={laudoIcon} alt="Icone da fase 1 de laudos" />
-                        <h3>Laudos e Regularização</h3>
-                        <p>Elaboração de documentos técnicos e regularização (LTCAT, PCMSO, PGR etc.).</p>
-                    </S.fasesCard>
+                    <S.cardsContainer>
+                        <S.fasesCard>
+                            <img src={laudoIcon} alt="Icone da fase 1 de laudos" />
+                            <h3>Laudos e Regularização</h3>
+                            <p>Elaboração de documentos técnicos e regularização (LTCAT, PCMSO, PGR etc.).</p>
+                        </S.fasesCard>
 
-                    <S.fasesCard>
-                        <img src={capacitacaoIcon} alt="Icone da fase 1 de capacitação" />
-                        <h3>Capacitação Contínua</h3>
-                        <p>Treinamentos e campanhas práticas para reforçar a segurança.</p>
-                    </S.fasesCard>
+                        <S.fasesCard>
+                            <img src={capacitacaoIcon} alt="Icone da fase 1 de capacitação" />
+                            <h3>Capacitação Contínua</h3>
+                            <p>Treinamentos e campanhas práticas para reforçar a segurança.</p>
+                        </S.fasesCard>
 
-                    <S.fasesCard>
-                        <img src={capacitacaoIcon} alt="Icone da fase 1 de capacitação" />
-                        <h3>Capacitação Contínua</h3>
-                        <p>Treinamentos e campanhas práticas para reforçar a segurança.</p>
-                    </S.fasesCard>
+                        <S.fasesCard>
+                            <img src={capacitacaoIcon} alt="Icone da fase 1 de capacitação" />
+                            <h3>Capacitação Contínua</h3>
+                            <p>Treinamentos e campanhas práticas para reforçar a segurança.</p>
+                        </S.fasesCard>
+                    </S.cardsContainer>
+
                 </S.cardFases>
             </S.cardFasesContainer>
         </S.main>

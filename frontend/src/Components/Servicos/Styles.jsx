@@ -40,6 +40,22 @@ export const TitleContainer = styled.div`
         font-size: 28px;
         height: 100%;
     }
+
+    @media (min-width: 768px) {
+        .fases {
+            font-size: 26px;
+        }
+
+        p {
+            width: 50%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .fases {
+            font-size: 24px;
+        }
+    }
 `
 
 export const cardContainer = styled.div`
@@ -49,11 +65,16 @@ export const cardContainer = styled.div`
     justify-content: center;
     padding: 10px;
     gap: 20px;
+
+    @media (min-width: 768px) {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
 `
 
 export const card = styled.div`
     width: 90%;
-    height: 355px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,7 +86,7 @@ export const card = styled.div`
     position: relative;
     padding: 20px 0px 10px 0;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.5) 2px 4px 4px 2px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px 0px;
     transition: transform 0.3s ease-in-out;
 
     .icon {
@@ -107,6 +128,34 @@ export const card = styled.div`
         cursor: pointer;
         transform: scale(0.98)
     }
+
+    @media (min-width: 768px) {
+        width: 45%;
+        height: 365px;
+
+        h3 {
+            font-size: 22px;
+        }
+
+        p {
+            font-size: 18px;
+            height: 30%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        width: 335px;
+        height: 365px;
+
+        h3 {
+            font-size: 22px;
+        }
+
+        p {
+            font-size: 18px;
+            height: 30%;
+        }
+    }
 `
 
 export const cardFasesContainer = styled.div`
@@ -117,6 +166,21 @@ export const cardFasesContainer = styled.div`
     justify-content: center;
     gap: 10px;
     padding: 20px 0 20px 0px;
+`
+
+export const cardsContainer = styled.div`
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;  
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        padding: 0px 20px 0px 20px;
+    }
 `
 
 export const cardFases = styled.div`
@@ -144,6 +208,15 @@ export const cardFases = styled.div`
         border-radius: 5px;
         opacity: 0.4;
     }
+
+    @media (min-width: 768px) {
+        width: 60%;
+    }
+
+    @media (min-width: 1024px) {
+        width: 880px;
+    }
+
 `
 
 export const headerFasesContainer = styled.div`
@@ -167,7 +240,14 @@ export const headerFasesContainer = styled.div`
         width: 100%;
         text-align: center;
         color: #fff;
-        opacity: 0.90;
+        opacity: 0.80;
+    }
+
+    @media (min-width: 768px) {
+    
+        h2 {
+            font-size: 22px;
+        }
     }
 `
 
@@ -200,11 +280,33 @@ export const fasesCard = styled.div`
         padding: 0px 20px 0 20px;
         font-weight: 500;
         text-align: center;
-        opacity: 0.85;
+        opacity: 0.75;
     }
 
     img {
         width: 55px;
         height: 55px;
+    }
+
+    @media (min-width: 768px) {
+        h3 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            padding: 0px 50px 0 50px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        width: 300px;
+        height: 180px;
+
+        p {
+            font-size: 16px;
+            padding: 0px 20px 0 20px;
+            height: 100%;
+        }
     }
 `
