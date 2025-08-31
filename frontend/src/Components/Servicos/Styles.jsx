@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 export const main = styled.main`
     background-color: #233D4D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `
 
 export const TitleContainer = styled.div`
@@ -17,7 +21,7 @@ export const TitleContainer = styled.div`
         font-size: 22px;
         color: #4A7C59;
         font-weight: 800;
-        height: 22px;
+        padding: 10px;
     }
 
     h2 {
@@ -25,6 +29,7 @@ export const TitleContainer = styled.div`
         font-weight: 800;
         color: #fff;
         opacity: 0.85;
+        padding: 0px 10px 0px 10px;
     }
 
     p {
@@ -52,6 +57,10 @@ export const TitleContainer = styled.div`
     }
 
     @media (min-width: 1024px) {
+        h3 {
+            height: 35px;
+        }
+
         .fases {
             font-size: 24px;
         }
@@ -69,6 +78,10 @@ export const cardContainer = styled.div`
     @media (min-width: 768px) {
         flex-wrap: wrap;
         flex-direction: row;
+    }
+
+    @media (min-width: 1024px) {
+        width: 65%;
     }
 `
 
@@ -241,6 +254,7 @@ export const headerFasesContainer = styled.div`
         text-align: center;
         color: #fff;
         opacity: 0.80;
+        padding: 0px 10px 0px 10px;
     }
 
     @media (min-width: 768px) {
