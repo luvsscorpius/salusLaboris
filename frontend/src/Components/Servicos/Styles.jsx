@@ -8,6 +8,10 @@ export const TitleContainer = styled.div`
     text-align: center;
     font-family: "Poppins", sans-serif;
     padding: 50px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     h3 {
         font-size: 22px;
@@ -21,6 +25,20 @@ export const TitleContainer = styled.div`
         font-weight: 800;
         color: #fff;
         opacity: 0.85;
+    }
+
+    p {
+        padding: 0px 10px 0px 10px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        opacity: 0.70;
+        width: 90%;
+    }
+
+    .fases {
+        font-size: 28px;
+        height: 100%;
     }
 `
 
@@ -88,5 +106,105 @@ export const card = styled.div`
     &:hover {
         cursor: pointer;
         transform: scale(0.98)
+    }
+`
+
+export const cardFasesContainer = styled.div`
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 0 20px 0px;
+`
+
+export const cardFases = styled.div`
+    width: 80%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 30px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px 0px;
+    padding: 20px 0 20px 0px;
+    border-radius: 5px;
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+        z-index: 0;
+        border-radius: 5px;
+        opacity: 0.4;
+    }
+`
+
+export const headerFasesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    gap: 10px;
+    font-family: "Poppins", sans-serif;
+
+    .icon {
+        z-index: 10;
+        width: 120px;
+        height: 120px;
+    }
+
+    h2 {
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        opacity: 0.90;
+    }
+`
+
+export const fasesCard = styled.div` 
+    z-index: 10;
+    width: 90%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #233D4D;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0 10px 0px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px 0px;
+
+    h3 {
+        font-size: 22px;
+        padding: 0px 10px 0 10px;
+        font-weight: 600;
+        text-align: center;
+        opacity: 0.85;
+    }
+
+    p {
+        font-size: 18px;
+        padding: 0px 20px 0 20px;
+        font-weight: 500;
+        text-align: center;
+        opacity: 0.85;
+    }
+
+    img {
+        width: 55px;
+        height: 55px;
     }
 `
