@@ -14,6 +14,7 @@ export const main = styled.main`
 
     .secondTitle {
         gap: 40px;
+        padding: 0px 0px 50px 0px;
     }
 `
 
@@ -38,6 +39,7 @@ export const titleContainer = styled.div`
         text-align: center;
         opacity: 0.90;
         padding: 0px 10px 0px 10px;
+        width: 90%;
     }
 
     h4 {
@@ -63,6 +65,36 @@ export const titleContainer = styled.div`
             transform: scale(0.98);
         }
     }
+
+    @media (min-width: 768px) {
+
+        h4 {
+            width: 70%;
+        }
+
+        button {
+            border: none;
+            height: 60px;
+            width: 50%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+
+        h3 {
+            width: 60%;
+        }
+
+        h4 {
+            width: 100%;
+        }
+
+        button {
+            border: none;
+            height: 55px;
+            width: 265px;
+        }
+    }
 `
 
 export const textContainer = styled.div`
@@ -78,6 +110,14 @@ export const textContainer = styled.div`
         background-color: #eee;
         color: #4A7C59;
         font-weight: 800;
+    }
+
+    @media (min-width: 1024px) {
+        width: 60%;
+        
+        p {
+            font-size: 20px;
+        }
     }
 `
 
@@ -100,10 +140,28 @@ export const empresasContainer = styled.div`
     img {
         width: 150px;
         scroll-snap-align: start;
+        -webkit-user-drag: none; /* Chrome, Safari */
+        -khtml-user-drag: none;  /* Konqueror */
+        -moz-user-drag: none;     /* Firefox antigo */
+        -o-user-drag: none;       /* Opera */
+        user-drag: none;          /* padrão futuro */
+  
+        user-select: none;        /* impede seleção do texto/elemento */
+        pointer-events: none;     /* impede interação (opcional) */
+    }
+
+    @media (min-width: 768px) {
+        justify-content: start;
+        width: 90%;
+
+        &::-webkit-scrollbar {
+            display: grid;
+        }
     }
 
     @media (min-width: 1024px) {
-        justify-content: center;
+        justify-content: start;
+        width: 60%;
 
         &::-webkit-scrollbar {
             display: grid;
