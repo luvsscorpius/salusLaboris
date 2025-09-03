@@ -51,9 +51,11 @@ export const Parceiros = () => {
             </P.textContainer>
 
             <P.empresasContainer>
-                {logos.map((logo) => (
-                    <img src={logo.path} alt={logo.alt} key={logo.id} />
-                ))}
+                <div className="logos-track">
+                    {[...logos, ...logos].map((logo, index) => (
+                        <img src={logo.path} alt={logo.alt} key={index} />
+                    ))}
+                </div>
             </P.empresasContainer>
 
             <P.titleContainer className='secondTitle'>

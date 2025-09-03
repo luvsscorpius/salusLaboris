@@ -1,4 +1,9 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
+
+const rotate = keyframes`
+    0% { transform: translateX(0) }
+    100% { transform: translateX(-50%) }
+`
 
 export const main = styled.main`
     font-family: "Poppins", sans-serif; 
@@ -129,12 +134,20 @@ export const empresasContainer = styled.div`
     justify-content: start;
     align-items: center;
     gap: 25px;
-    overflow-x: auto; 
+    overflow-x: hidden; 
     overflow-y: hidden; 
     scroll-behavior: smooth;
 
     &::-webkit-scrollbar {
         display: none;
+    }
+
+    .logos-track {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 25px;
+        animation: ${rotate} 20s linear infinite;
     }
 
     img {
@@ -145,7 +158,7 @@ export const empresasContainer = styled.div`
         -moz-user-drag: none;     /* Firefox antigo */
         -o-user-drag: none;       /* Opera */
         user-drag: none;          /* padrão futuro */
-  
+
         user-select: none;        /* impede seleção do texto/elemento */
         pointer-events: none;     /* impede interação (opcional) */
     }
