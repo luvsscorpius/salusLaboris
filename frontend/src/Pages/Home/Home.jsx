@@ -4,6 +4,7 @@ import { Hero } from '../../Components/Hero/Hero'
 import { Sobre } from '../../Components/Sobre/Sobre'
 import { Servicos } from '../../Components/Servicos/Servicos'
 import { Parceiros } from '../../Components/Parceiros/Parceiros'
+import { Missao } from '../../Components/Missao/Missao'
 
 export const Home = () => {
   return (
@@ -12,6 +13,7 @@ export const Home = () => {
         <Sobre/>
         <Servicos/>
         <Parceiros/>
+        <Missao/>
     </H.home>
   )
 }
