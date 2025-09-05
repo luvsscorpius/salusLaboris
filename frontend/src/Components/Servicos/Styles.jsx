@@ -179,6 +179,10 @@ export const cardFasesContainer = styled.div`
     justify-content: center;
     gap: 10px;
     padding: 20px 0 20px 0px;
+
+    @media (min-width: 1024px) {
+        width: 60%;
+    }
 `
 
 export const cardsContainer = styled.div`
@@ -223,11 +227,11 @@ export const cardFases = styled.div`
     }
 
     @media (min-width: 768px) {
-        width: 60%;
+        width: 90%;
     }
 
     @media (min-width: 1024px) {
-        width: 880px;
+        width: 100%;
     }
 
 `
@@ -315,12 +319,11 @@ export const fasesCard = styled.div`
 
     @media (min-width: 1024px) {
         width: 300px;
-        height: 180px;
+        height: 230px;
 
         p {
             font-size: 16px;
             padding: 0px 20px 0 20px;
-            height: 100%;
         }
     }
 `
