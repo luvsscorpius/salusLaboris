@@ -122,6 +122,7 @@ export const textContainer = styled.div`
         
         p {
             font-size: 20px;
+            padding: 0;
         }
     }
 `
