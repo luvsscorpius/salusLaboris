@@ -26,6 +26,7 @@ export const titleContainer = styled.div`
     justify-content: center;
     display: flex;
     width: 100%;
+    padding: 0 30px 0 30px;
 
     h1 {
         color: #4A7C59;
@@ -33,6 +34,9 @@ export const titleContainer = styled.div`
         z-index: 10;
         padding: 2px;
         font-size: 34px;
+        font-weight: 800;
+        width: object-fit;
+        text-align: center;
     }
 `
 
@@ -41,6 +45,10 @@ export const infoContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media (min-width: 1024px) {
+        width: 60%;
+    }
 ` 
 
 export const infoContent = styled.div` 
@@ -66,5 +74,25 @@ export const infoContent = styled.div`
         color: #fff;
         z-index: 10;
         font-weight: 100;
+    }
+
+    @media (min-width: 768px) {
+        p {
+            font-size: 22px;
+            font-weight: 100;
+            opacity: 0.9;   
+        }
+    }
+
+    @media (min-width: 1024px) {
+        h2 {
+            font-size: 22px;
+            width: 150px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 20px;
+        }
     }
 `
