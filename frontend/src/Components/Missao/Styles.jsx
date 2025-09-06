@@ -47,7 +47,7 @@ export const infoContainer = styled.div`
     gap: 20px;
 
     @media (min-width: 1024px) {
-        width: 60%;
+        width: 70%;
     }
 ` 
 

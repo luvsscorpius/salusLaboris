@@ -11,6 +11,7 @@ export const hero = styled.div`
 
     span {
         z-index: 10;
+        width: 100%;
     }
 
     img {
@@ -29,10 +30,6 @@ export const hero = styled.div`
         height: 600px; 
         padding: 0;
 
-        span {
-            border: 1px solid red;
-        }
-
         img {
             object-fit: cover;
             object-position: top;
@@ -40,7 +37,7 @@ export const hero = styled.div`
         }
 
         span {
-            width: 62%;
+            width: 70%;
         }
     }
 `
