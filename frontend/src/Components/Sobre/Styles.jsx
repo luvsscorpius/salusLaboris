@@ -17,7 +17,7 @@ export const main = styled.main`
     }
 
     .cardInfoEquipe {
-        width: 80%;
+        width: 90%;
     }
 
     @media (min-width: 768px) {
@@ -28,14 +28,14 @@ export const main = styled.main`
 
     @media (min-width: 1024px) {
         .cardInfoEquipe {
-            width: 60%;
+            width: 70%;
         }
     }
 `
 
 export const titleContainer = styled.div`
     background-color: #EEEEEE;
-    width: 80%;
+    width: 90%;
     text-align: center;
     border-radius: 2px;
 
@@ -51,7 +51,7 @@ export const titleContainer = styled.div`
     }
 
     @media (min-width: 1024px) {
-        width: 60%;
+        width: 70%;
 
         text-align: start;
         padding: 0px 0px 0px 10px;
@@ -99,7 +99,7 @@ export const quemSomosContainer = styled.div`
     @media (min-width: 1024px) {
         flex-direction: row;  
         align-items: flex-start;
-        width: 60%;    
+        width: 70%;    
 
         .quemSomosTitle {
             width: 100%;
@@ -114,7 +114,7 @@ export const quemSomosContainer = styled.div`
 `
 
 export const cardInfo = styled.div`
-    width: 80%;
+    width: 90%;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -163,9 +163,10 @@ export const cardContainer = styled.div`
     }
 
     @media (min-width: 768px) {
-        width: 60%;
+        width: 70%;
         flex-direction: row;
         flex-wrap: wrap;
+        gap: 10px;
     }
 `
 

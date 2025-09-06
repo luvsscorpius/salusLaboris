@@ -14,11 +14,13 @@ export const main = styled.main`
     gap: 60px;
 
     .firstTitle {
+        width: 90%;
         padding: 50px 0px 0px 0px;
     }
 
     .secondTitle {
         gap: 40px;
+        width: 90%;
         padding: 0px 0px 50px 0px;
     }
 `
@@ -28,6 +30,7 @@ export const titleContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
 
     h2 {
         font-size: 30px;
@@ -103,8 +106,9 @@ export const titleContainer = styled.div`
 `
 
 export const textContainer = styled.div`
+    width: 90%;
+
     p {
-        padding: 0px 40px 0px 40px;
         text-align: justify;
         font-size: 24px;
         font-weight: 100;
@@ -118,7 +122,8 @@ export const textContainer = styled.div`
     }
 
     @media (min-width: 1024px) {
-        width: 60%;
+        width: 70%;
+        padding: 0 5px 0 5px;
         
         p {
             font-size: 20px;
@@ -128,7 +133,7 @@ export const textContainer = styled.div`
 `
 
 export const empresasContainer = styled.div`
-    width: 100%;
+    width: 90%;
     padding: 5px;
     display: flex;
     flex-direction: row;
@@ -148,7 +153,7 @@ export const empresasContainer = styled.div`
         flex-direction: row;
         align-items: center;
         gap: 25px;
-        animation: ${rotate} 20s linear infinite;
+        animation: ${rotate} 30s linear infinite;
     }
 
     img {
@@ -175,7 +180,7 @@ export const empresasContainer = styled.div`
 
     @media (min-width: 1024px) {
         justify-content: start;
-        width: 60%;
+        width: 70%;
 
         &::-webkit-scrollbar {
             display: grid;

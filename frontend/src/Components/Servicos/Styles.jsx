@@ -72,8 +72,9 @@ export const cardContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 10px 0 0 0;
     gap: 20px;
+    width: 90%;
 
     @media (min-width: 768px) {
         flex-wrap: wrap;
@@ -81,12 +82,14 @@ export const cardContainer = styled.div`
     }
 
     @media (min-width: 1024px) {
-        width: 65%;
+        width: 70%;
+        gap: 10px;
+        padding: 0;
     }
 `
 
 export const card = styled.div`
-    width: 90%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -157,7 +160,7 @@ export const card = styled.div`
     }
 
     @media (min-width: 1024px) {
-        width: 335px;
+        width: 325px;
         height: 365px;
 
         h3 {
@@ -178,10 +181,12 @@ export const cardFasesContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
+    width: 90%;
     padding: 20px 0 20px 0px;
 
     @media (min-width: 1024px) {
-        width: 60%;
+        width: 70%;
+        padding: 20px 5px 20px 5px;
     }
 `
 
@@ -201,7 +206,7 @@ export const cardsContainer = styled.div`
 `
 
 export const cardFases = styled.div`
-    width: 80%;
+    width: 100%;
     z-index: 10;
     display: flex;
     flex-direction: column;

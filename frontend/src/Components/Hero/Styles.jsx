@@ -27,6 +27,11 @@ export const hero = styled.div`
     @media (min-width: 1024px) {
         align-items: center;
         height: 600px; 
+        padding: 0;
+
+        span {
+            border: 1px solid red;
+        }
 
         img {
             object-fit: cover;
