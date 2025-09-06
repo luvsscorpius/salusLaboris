@@ -33,7 +33,7 @@ export const titleContainer = styled.div`
         background-color: #eee;
         z-index: 10;
         padding: 2px;
-        font-size: 34px;
+        font-size: 30px;
         font-weight: 800;
         width: object-fit;
         text-align: center;
