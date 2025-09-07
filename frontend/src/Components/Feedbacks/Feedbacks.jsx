@@ -1,10 +1,16 @@
 import React from 'react'
 import * as F from './Styles'
 import exxerLogo from '../../assets/logos/exxerLogo.webp'
+import enterplakLogo from '../../assets/logos/enterplakLogo.webp'
+import petrobrasLogo from '../../assets/logos/petrobrasLogo.webp'
 
 export const Feedbacks = () => {
     const feedbacks = [
-        {id: 0, empresa: "Logo empresa Exxer", logo: exxerLogo, feedback: "Com a parceria da Salus Laboris conseguimos reduzir significativamente os índices de afastamento por questões ocupacionais. O suporte da equipe foi fundamental para a implementação de programas de saúde preventiva.", nome: "Carlos Mendes", cargo: "Diretor de Operações"}
+        {id: 0, empresa: "Logo empresa Exxer", logo: exxerLogo, feedback: "Com a parceria da Salus Laboris conseguimos reduzir significativamente os índices de afastamento por questões ocupacionais. O suporte da equipe foi fundamental para a implementação de programas de saúde preventiva.", nome: "Carlos Mendes", cargo: "Diretor de Operações"},
+
+        {id: 1, empresa: "Logo empresa EnterPlak", logo: enterplakLogo, feedback: "A atuação da Salus Laboris trouxe mais confiança para nossos colaboradores. Hoje temos um ambiente de trabalho mais saudável, produtivo e alinhado às normas de segurança.", nome: "Fernanda Oliveira", cargo: "Gerente de RH"},
+        
+        {id: 2, empresa: "Logo empresa Petrobras", logo: petrobrasLogo, feedback: "A Salus Laboris nos apoia na gestão de saúde ocupacional em grande escala, com soluções técnicas e acompanhamento próximo. Uma parceria estratégica para manter nossa força de trabalho segura e engajada.", nome: "João Ribeiro", cargo: "Coordenador de Saúde"},
     ]
 
   return (
