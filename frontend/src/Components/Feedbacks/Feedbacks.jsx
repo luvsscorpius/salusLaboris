@@ -32,12 +32,12 @@ export const Feedbacks = () => {
                     </F.cardHeader>
 
                     <F.cardBody>
-                        <p>Com a parceria da Salus Laboris conseguimos reduzir significativamente os índices de afastamento por questões ocupacionais. O suporte da equipe foi fundamental para a implementação de programas de saúde preventiva.</p>
+                        <p>{feedback.feedback}</p>
                     </F.cardBody>
 
                     <F.cardFooter>
-                        <h3>Carlos Mendes</h3>
-                        <h2>Diretor de Operações</h2>
+                        <h3>{feedback.nome}</h3>
+                        <h2>{feedback.cargo}</h2>
                     </F.cardFooter>
                 </F.card>
             ))}

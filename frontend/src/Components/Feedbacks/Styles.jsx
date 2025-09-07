@@ -7,7 +7,7 @@ export const main = styled.main`
     justify-content: center;
     font-family: "Poppins", sans-serif;
     padding: 50px 0 50px 0;
-    gap: 50px;
+    gap: 70px;
 `
 
 export const titleContainer = styled.div`
@@ -60,10 +60,11 @@ export const cardsContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     width: 90%;
     padding: 0 10px 10px 10px;
     overflow: auto;
+    overflow-y: hidden;
     gap: 20px;
 
     @media (min-width: 1024px) {
@@ -74,6 +75,7 @@ export const cardsContainer = styled.div`
 
 export const card = styled.div`
     width: 100%;
+    height: 600px;
 
     @media (min-width: 1024px) {
         width: 340px;
@@ -110,6 +112,8 @@ export const cardBody = styled.div`
     padding: 50px 20px 20px 20px;
     z-index: 1;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 5px 0px;
+    height: 300px;
+    width: 300px;
 
     p {
         text-align: justify;
@@ -129,6 +133,7 @@ export const cardFooter = styled.div`
     padding: 20px 20px 20px 20px;
     position: relative;
     z-index: 0;
+    width: 300px;
 
     h3 {
         color: #1d1d1d;
@@ -140,9 +145,10 @@ export const cardFooter = styled.div`
 
     h2 {
         color: #4A7C59;
-        font-size: 24px;
+        font-size: 22px;
         opacity: 0.85;
         font-weight: 700;
         text-align: center;
+        flex-wrap: wrap;
     }
 `
