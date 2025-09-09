@@ -106,7 +106,7 @@ export const cardHeader = styled.div`
 
 export const cardBody = styled.div`
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     background-color: #fff;
     padding: 50px 20px 20px 20px;
