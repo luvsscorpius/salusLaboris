@@ -98,10 +98,6 @@ export const cardHeader = styled.div`
         width: 250px;
         padding: 50px 10px 50px 10px;
     }
-
-    @media (min-width: 1024px) {
-        width: 100%;
-    }
 `
 
 export const cardBody = styled.div`
