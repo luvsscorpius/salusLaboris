@@ -36,14 +36,62 @@ export const cardsContainer = styled.div`
 `
 
 export const card = styled.div`
-    border: 1px solid red;
+    height: 100%;
 `
 
 export const cardHeader = styled.div`
-    border: 1px solid red;
-    height: 100px;
+    position: relative;
+    height: 200px;
+    border-radius: 10px 10px 0px 0px;
+
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        border-radius: 10px 10px 0px 0px;
+    }
+        
+    span {
+        position: relative;
+        display: inline-block;
+        z-index: 2;
+        background-color: #4A7C59;
+        top: 10px;
+        left: 10px;
+        border-radius: 3px;
+    }
     
     p {
-        padding: 10px 0px 0 10px;
+        position: relative;
+        padding: 10px;
+        z-index: 10;
+        font-weight: 800;
+        text-align: center;
+        color: #fff;
+    }
+`
+
+export const postInfo = styled.div`
+    background-color: #fff;
+    padding: 10px 0px 10px 5px;
+
+    span {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        padding: 10px 5px 0 10px;
+
+        p {
+            color: #4A7C59;
+        }
+
+        svg {
+            color: #4A7C59;     
+        }
     }
 `

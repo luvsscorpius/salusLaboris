@@ -1,5 +1,8 @@
 import React from 'react'
 import * as B from './Styles'
+import blogSeg from '../../assets/blogSeg.png'
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaRegUser } from "react-icons/fa";
 
 export const Blog = () => {
   return (
@@ -13,10 +16,23 @@ export const Blog = () => {
         <B.cardsContainer>
             <B.card>
                 <B.cardHeader>
-                    <span>
+                        <img src={blogSeg} alt="Imagem de fundo do post do blog" />
+                        <span>
                         <p>Segurança do Trabalho</p>
-                    </span>
+                        </span>
                 </B.cardHeader>
+
+                <B.postInfo>
+                  <span>
+                    <FaRegCalendarAlt/>
+                    <p>17/08/2025</p>
+                  </span>
+                  
+                  <span>
+                    <FaRegUser/>
+                    <p>Wander Delgado</p>
+                  </span>
+                </B.postInfo>
             </B.card>
         </B.cardsContainer>
     </B.main>
