@@ -5,6 +5,12 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 
 export const Blog = () => {
+
+  const posts = [
+    {id: 0, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
+    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
+  ]
+
   return (
     <B.main>
         
@@ -14,26 +20,35 @@ export const Blog = () => {
         </B.titleContainer>
 
         <B.cardsContainer>
-            <B.card>
+            {posts.map((post, index) => (
+              <B.card key={index}>
                 <B.cardHeader>
                         <img src={blogSeg} alt="Imagem de fundo do post do blog" />
                         <span>
-                        <p>Segurança do Trabalho</p>
+                        <p>{post.category}</p>
                         </span>
                 </B.cardHeader>
 
                 <B.postInfo>
                   <span>
                     <FaRegCalendarAlt/>
-                    <p>17/08/2025</p>
+                    <p>{post.date}</p>
                   </span>
                   
                   <span>
                     <FaRegUser/>
-                    <p>Wander Delgado</p>
+                    <p>{post.author}</p>
                   </span>
                 </B.postInfo>
-            </B.card>
+
+                <B.cardInfo>
+                    <h3>{post.title}</h3>
+                    <p>{post.desc}</p>
+                    <button>Ler mais</button>
+                </B.cardInfo>
+              </B.card>
+            ))}
+       
         </B.cardsContainer>
     </B.main>
   )

@@ -33,6 +33,9 @@ export const titleContainer = styled.div`
 export const cardsContainer = styled.div` 
     width: 90%;
     padding: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 `
 
 export const card = styled.div`
@@ -62,7 +65,7 @@ export const cardHeader = styled.div`
         z-index: 2;
         background-color: #4A7C59;
         top: 10px;
-        left: 10px;
+        left: 15px;
         border-radius: 3px;
     }
     
@@ -92,6 +95,41 @@ export const postInfo = styled.div`
 
         svg {
             color: #4A7C59;     
+        }
+    }
+`
+
+export const cardInfo = styled.div`
+    padding: 15px 15px 30px 15px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 0 0 10px 10px;
+
+    h3 {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 18px;
+        font-weight: 100;
+        text-align: justify;
+    }
+
+    button {
+        width: 120px;
+        height: 30px;
+        font-size: 18px;
+        font-weight: 800;
+        background-color: #4A7C59;
+        border: none;
+        color: #fff;
+
+
+        &:hover {
+            cursor: pointer;
         }
     }
 `
