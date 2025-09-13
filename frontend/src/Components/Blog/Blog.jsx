@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as B from './Styles'
 import blogSeg from '../../assets/blogSeg.png'
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
+import ReactPaginate from 'react-paginate'
 
 export const Blog = () => {
 
   const posts = [
     {id: 0, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
     {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
+    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
+    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
+    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
+    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
+    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
+    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
+    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
   ]
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPage = 2
+
+  const handlePageClick = ({selected}) => {
+    setCurrentPage(selected)
+  }
+
+  const offSet = currentPage * itemsPage
+  const currentPageData = posts.slice(offSet, offSet + itemsPage)
 
   return (
     <B.main>
@@ -20,7 +38,7 @@ export const Blog = () => {
         </B.titleContainer>
 
         <B.cardsContainer>
-            {posts.map((post, index) => (
+            {posts.length > 0 && currentPageData.map((post, index) => (
               <B.card key={index}>
                 <B.cardHeader>
                         <img src={blogSeg} alt="Imagem de fundo do post do blog" />
@@ -48,6 +66,19 @@ export const Blog = () => {
                 </B.cardInfo>
               </B.card>
             ))}
+
+            <ReactPaginate
+                pageCount={Math.ceil(posts.length / itemsPage)}
+                pageRangeDisplayed={1} // Número de páginas a serem exibidas
+                marginPagesDisplayed={2} // Número de páginas a serem exibidas nas extremidades
+                onPageChange={handlePageClick}
+                containerClassName={'pagination'}
+                activeClassName={'active'}
+                nextLinkClassName={"next"}
+                nextLabel=">"
+                previousLabel="<"
+                previousLinkClassName={"previous"}
+                pageClassName={"page"}/>
        
         </B.cardsContainer>
     </B.main>

@@ -36,6 +36,36 @@ export const cardsContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 50px;
+    align-items: center;
+
+    .pagination {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+        list-style-type: none;
+        font-size: 20px;
+        background-color: #eee;
+        border: none;
+        border-radius: 5px;
+
+        li a {
+            border: 2px solid #4A7C59;
+            padding: 5px 10px 5px 10px;
+            color: #4A7C59;
+            text-decoration: none;
+            display: block;
+            transition: 0.2s;
+            margin-left: -3px;
+            font-weight: 800;
+       }
+
+        li.active a {
+            background-color: #4A7C59;
+            color: #fff;
+        }
+
+    }
 `
 
 export const card = styled.div`
