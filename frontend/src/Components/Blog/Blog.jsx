@@ -13,14 +13,10 @@ export const Blog = () => {
     {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
     {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
     {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
-    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
-    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
-    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
-    {id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...."},
   ]
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const itemsPage = 2
+  const [currentPage, setCurrentPage] = useState(0)
+  const itemsPage = 3
 
   const handlePageClick = ({selected}) => {
     setCurrentPage(selected)
@@ -61,16 +57,19 @@ export const Blog = () => {
 
                 <B.cardInfo>
                     <h3>{post.title}</h3>
-                    <p>{post.desc}</p>
+                    <p>{post.desc.length > 120 
+                      ? post.desc.substring(0, 150) + "..." 
+                      : post.desc}</p>
                     <button>Ler mais</button>
                 </B.cardInfo>
               </B.card>
             ))}
+        </B.cardsContainer>
 
-            <ReactPaginate
+        <ReactPaginate
                 pageCount={Math.ceil(posts.length / itemsPage)}
-                pageRangeDisplayed={1} // Número de páginas a serem exibidas
-                marginPagesDisplayed={2} // Número de páginas a serem exibidas nas extremidades
+                pageRangeDisplayed={3} // Número de páginas a serem exibidas
+                marginPagesDisplayed={1} // Número de páginas a serem exibidas nas extremidades
                 onPageChange={handlePageClick}
                 containerClassName={'pagination'}
                 activeClassName={'active'}
@@ -79,8 +78,6 @@ export const Blog = () => {
                 previousLabel="<"
                 previousLinkClassName={"previous"}
                 pageClassName={"page"}/>
-       
-        </B.cardsContainer>
     </B.main>
   )
 }

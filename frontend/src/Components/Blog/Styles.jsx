@@ -9,6 +9,41 @@ export const main = styled.main`
     font-family: "Poppins", sans-serif;
     padding: 50px 0 50px 0;
     gap: 50px;
+
+     .pagination {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+        list-style-type: none;
+        font-size: 20px;
+        background-color: #eee;
+        border: none;
+        border-radius: 5px;
+
+        li a {
+            border: 2px solid #4A7C59;
+            padding: 5px 10px 5px 10px;
+            color: #4A7C59;
+            text-decoration: none;
+            display: block;
+            transition: 0.2s;
+            margin-left: -3px;
+            font-weight: 800;
+
+            &:hover {
+                cursor: pointer;
+                background-color: #4A7C59;
+                color: #fff;
+                transition: ease-in-out 0.6s;
+            }
+        }
+
+        li.active a {
+            background-color: #4A7C59;
+            color: #fff;
+        }
+    }
 `
 
 export const titleContainer = styled.div`
@@ -37,39 +72,26 @@ export const cardsContainer = styled.div`
     flex-direction: column;
     gap: 50px;
     align-items: center;
+    justify-content: center;
 
-    .pagination {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0px;
-        list-style-type: none;
-        font-size: 20px;
-        background-color: #eee;
-        border: none;
-        border-radius: 5px;
-
-        li a {
-            border: 2px solid #4A7C59;
-            padding: 5px 10px 5px 10px;
-            color: #4A7C59;
-            text-decoration: none;
-            display: block;
-            transition: 0.2s;
-            margin-left: -3px;
-            font-weight: 800;
-       }
-
-        li.active a {
-            background-color: #4A7C59;
-            color: #fff;
-        }
-
+    @media (min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 0;
     }
 `
 
 export const card = styled.div`
     height: 100%;
+
+    @media (min-width: 768px) {
+        width: 48%;
+    }
+
+    @media (min-width: 1024px) {
+        width: 345px;
+    }
 `
 
 export const cardHeader = styled.div`
@@ -111,7 +133,7 @@ export const cardHeader = styled.div`
 
 export const postInfo = styled.div`
     background-color: #fff;
-    padding: 10px 0px 10px 5px;
+    padding: 10px 0px 5px 5px;
 
     span {
         display: flex;
@@ -127,6 +149,7 @@ export const postInfo = styled.div`
             color: #4A7C59;     
         }
     }
+
 `
 
 export const cardInfo = styled.div`
@@ -156,10 +179,12 @@ export const cardInfo = styled.div`
         background-color: #4A7C59;
         border: none;
         color: #fff;
-
+        border-radius: 2px;
 
         &:hover {
             cursor: pointer;
+            opacity: 0.94;
+            transition: ease-in-out 0.7s;
         }
     }
 `
