@@ -80,6 +80,11 @@ export const cardsContainer = styled.div`
         gap: 20px;
         padding: 0;
     }
+
+    @media (min-width: 1024px) {
+        width: 70%;
+        flex-wrap: nowrap;
+    }
 `
 
 export const card = styled.div`
