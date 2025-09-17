@@ -45,6 +45,10 @@ export const mapContainer = styled.div`
         width: 100%;
         height: 400px;
     }
+
+    @media (min-width: 1024px) {
+        width: 70%;
+    }
 `
 
 export const descContainer = styled.div`
