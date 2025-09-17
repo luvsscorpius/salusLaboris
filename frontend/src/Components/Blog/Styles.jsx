@@ -191,4 +191,13 @@ export const cardInfo = styled.div`
             transition: ease-in-out 0.7s;
         }
     }
+
+    @media (min-width: 1024px) {
+        button {
+            font-size: 14px;
+            font-weight: 700;
+            text-align: start;
+            padding: 0px 10px;
+        }
+    }
 `
