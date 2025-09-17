@@ -109,10 +109,11 @@ export const textContainer = styled.div`
     width: 90%;
 
     p {
-        text-align: justify;
-        font-size: 24px;
-        font-weight: 100;
         color: #1d1d1d;
+        font-size: 20px;
+        font-weight: 100;
+        text-align: justify;
+        opacity: 0.95;
     }
 
     span {

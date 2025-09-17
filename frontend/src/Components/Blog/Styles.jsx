@@ -163,12 +163,16 @@ export const cardInfo = styled.div`
     h3 {
         font-size: 22px;
         font-weight: 700;
+        color: #1d1d1d;
+        opacity: 0.95;
     }
 
     p {
+        color: #1d1d1d;
         font-size: 18px;
         font-weight: 100;
         text-align: justify;
+        opacity: 0.95;
     }
 
     button {

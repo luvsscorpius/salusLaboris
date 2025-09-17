@@ -40,9 +40,11 @@ export const textContainer = styled.div`
     padding: 0 10px 0 10px;
 
     p {
-        font-size: 22px;
-        text-align: justify;
+        color: #1d1d1d;
+        font-size: 20px;
         font-weight: 100;
+        text-align: justify;
+        opacity: 0.95;
     }
 
     span {
@@ -112,9 +114,12 @@ export const cardBody = styled.div`
     width: 300px;
 
     p {
-        text-align: justify;
+        font-family: "Poppins", sans-serif;
+        color: #1d1d1d;
         font-size: 20px;
         font-weight: 100;
+        text-align: justify;
+        opacity: 0.95;
     }
 `
 
