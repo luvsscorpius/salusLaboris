@@ -38,6 +38,35 @@ export const Footer = () => {
 
         </F.mailingCard>
       </F.mailingContainer>
+
+      <div className="linksBox">
+        <F.linksContainer>
+          <h4>REDES SOCIAIS</h4>
+
+          <ul>
+            <li><a href="#">LINKEDIN</a></li>
+            <li><a href="#">INSTAGRAM</a></li>
+            <li><a href="#">YOUTUBE</a></li>
+            <li><a href="#">FACEBOOK</a></li>
+          </ul>
+        </F.linksContainer>
+
+        <F.linksContainer className='acesso'>
+          <h4>ACESSO RÁPIDO</h4>
+
+          <ul>
+            <li><a href="#">AGENDAMENTO</a></li>
+            <li><a href="#">ESTATUTO</a></li>
+            <li><a href="#">TERMOS DE USO</a></li>
+            <li><a href="#">POLÍTICAS DE PRIVACIDADE</a></li>
+          </ul>
+        </F.linksContainer>
+      </div>
+
+      <F.developedContainer>
+        <p>© 2025 Salus Laboris – Instituto de Saúde Ocupacional</p>
+        <a href='#'>Desenvolvido por Anderson Vitor</a>
+      </F.developedContainer>
     </F.footer>
   )
 }

@@ -9,6 +9,21 @@ export const footer = styled.footer`
     font-family: "Poppins", sans-serif;
     background-color: #233D4D;
     gap: 50px;
+
+    .linksBox {
+        display: flex;
+        
+        @media (min-width: 1024px) {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 70%;
+
+
+            .acesso {
+                align-items: end;
+            }
+        }
+    }
 `
 
 export const titleContainer = styled.div` 
@@ -34,6 +49,27 @@ export const titleContainer = styled.div`
         opacity: 0.85;
         font-size: 30px;
     }
+
+    @media (min-width: 768px) {
+        width: 70%;
+
+        h3 {
+            font-size: 22px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        width: 70%;
+
+        h2 {
+            font-size: 34px;
+        }
+
+        h3 {
+            padding: 0 200px;
+            font-size: 22px;
+        }
+    }
 `
 
 export const atendimentoContainer = styled.div`
@@ -56,10 +92,33 @@ export const atendimentoContainer = styled.div`
         font-weight: 400;
         font-size: 16px;
     }
+
+    @media (min-width: 768px) {
+        h4 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        width: 70%;
+        align-items: start;
+
+        p {
+            text-align: start;
+        }
+    }
 `
 
 export const mailingContainer = styled.div` 
     width: 90%;
+
+    @media (min-width: 768px) {
+        width: 70%;
+    }
 `
 
 export const mailingCard = styled.div`
@@ -138,6 +197,81 @@ export const mainlingBody = styled.div`
         &:hover {
             cursor: pointer;
             opacity: 0.96;
+            transition: 0.3s ease-in-out;
+        }
+    }
+`
+
+export const linksContainer = styled.div`
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: #fff;
+    opacity: 0.85;
+
+    h4 {
+        font-size: 18px;
+        font-weight: 800;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        
+        li {
+            list-style: none;
+            text-align: center;
+            
+            a {
+                text-decoration: none;
+                color: #fff;
+                opacity: 0.85;
+            }
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.85;
+                transition: 0.3s ease-in-out;
+            }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        align-items: flex-start;
+
+        h4 {
+            width: 223px;
+        }
+
+        ul {
+            li {
+                text-align: start;
+            }
+        }
+    }
+`
+
+export const developedContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    opacity: 0.85;
+    gap: 5px;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        opacity: 0.85;
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.70;
             transition: 0.3s ease-in-out;
         }
     }
