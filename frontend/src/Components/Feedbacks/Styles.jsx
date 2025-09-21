@@ -67,11 +67,11 @@ export const cardsContainer = styled.div`
     padding: 0 10px 10px 10px;
     overflow: auto;
     overflow-y: hidden;
-    gap: 20px;
+    gap: 50px;
 
     @media (min-width: 1024px) {
         width: 70%;
-        justify-content: center;
+        justify-content: start;
     }
 `
 

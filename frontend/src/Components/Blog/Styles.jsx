@@ -122,8 +122,10 @@ export const cardHeader = styled.div`
         z-index: 2;
         background-color: #4A7C59;
         top: 10px;
-        left: 15px;
+        left: 10px;
         border-radius: 3px;
+        width: fit-content;
+        flex-wrap: wrap;
     }
     
     p {

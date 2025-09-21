@@ -12,6 +12,11 @@ export const footer = styled.footer`
 
     .linksBox {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        width: 100%;
         
         @media (min-width: 1024px) {
             flex-direction: row;
@@ -207,7 +212,7 @@ export const linksContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 20px;
     color: #fff;
     opacity: 0.85;
@@ -225,6 +230,7 @@ export const linksContainer = styled.div`
         li {
             list-style: none;
             text-align: center;
+            font-size: 16px;    
             
             a {
                 text-decoration: none;
@@ -263,11 +269,17 @@ export const developedContainer = styled.div`
     color: #fff;
     opacity: 0.85;
     gap: 5px;
+    padding: 0 10px;
+
+    p {
+        text-align: center;
+    }
 
     a {
         text-decoration: none;
         color: #fff;
         opacity: 0.85;
+        text-align: center;
 
         &:hover {
             cursor: pointer;
