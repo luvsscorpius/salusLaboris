@@ -26,7 +26,7 @@ export const Blog = () => {
   const currentPageData = posts.slice(offSet, offSet + itemsPage)
 
   return (
-    <B.main>
+    <B.main id="blog">
         
         <B.titleContainer>
             <h2>BLOG DA SALUS LABORIS</h2>

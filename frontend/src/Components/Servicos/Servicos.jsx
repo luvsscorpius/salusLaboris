@@ -10,7 +10,7 @@ import Blob from '../../assets/blob-scene-haikei.svg'
 
 export const Servicos = () => {
     return (
-        <S.main>
+        <S.main id="servicos">
             <S.TitleContainer>
                 <h3>SOLUÇÕES EM DESTAQUE</h3>
                 <h2>NOSSOS SERVIÇOS</h2>

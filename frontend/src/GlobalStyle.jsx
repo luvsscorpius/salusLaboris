@@ -1,17 +1,23 @@
-import { createGlobalStyle } from 'styled-components';
+  import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
-  /* Reset básico de CSS */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  const GlobalStyle = createGlobalStyle`
+    /* Reset básico de CSS */
 
-  a {
-    text-decoration: none;
-  }
+      html, body, #root {
+        height: 100%; /* Aplica a altura de 100% apenas nesses elementos */
+        scroll-behavior: smooth;
+    }
 
-`;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-export default GlobalStyle;
+    a {
+      text-decoration: none;
+    }
+
+  `;
+
+  export default GlobalStyle;

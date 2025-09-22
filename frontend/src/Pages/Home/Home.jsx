@@ -13,8 +13,8 @@ export const Home = () => {
   return (
     <H.home>
         <Hero/>
-        <Sobre/>
-        <Servicos/>
+        <Sobre />
+        <Servicos />
         <Parceiros/>
         <Missao/>
         <Feedbacks/>

@@ -30,7 +30,7 @@ export const Sobre = () => {
 
 
     return (
-        <S.main>
+        <S.main id="sobre">
             <S.quemSomosContainer>
                 <span className='spanContainer'>
                     <S.titleContainer className='quemSomosTitle'>

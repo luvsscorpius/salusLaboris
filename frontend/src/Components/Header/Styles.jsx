@@ -61,6 +61,11 @@ export const navLinks = styled.nav`
     opacity: ${({ open }) => (open ? "1" : "0.7")};
     transition: all 0.5s ease;
 
+    a {
+        color: #4A7C59;
+        list-style: none;
+    }
+
     ul {
         display: flex;
         flex-direction: column;
