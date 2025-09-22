@@ -69,9 +69,13 @@ export const cardsContainer = styled.div`
     overflow-y: hidden;
     gap: 50px;
 
+    @media (min-width: 768px) {
+        justify-content: start;
+    }
+
     @media (min-width: 1024px) {
         width: 70%;
-        justify-content: start;
+        justify-content: center;
     }
 `
 
