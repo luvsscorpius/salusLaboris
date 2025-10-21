@@ -20,7 +20,7 @@ export const Hero = () => {
         </H.titleContainer>
 
         <H.buttonContainer>
-          <button>Quero agendar um atendimento </button>
+          <button onClick={() => window.open("https://wa.link/i82shq", "_blank")}>Quero agendar um atendimento </button>
         </H.buttonContainer>
         <H.bar />
       </span>
