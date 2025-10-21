@@ -10,6 +10,21 @@ export const footer = styled.footer`
     background-color: #233D4D;
     gap: 50px;
 
+    .footerContent {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .div {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+    }
+
     .linksBox {
         display: flex;
         flex-direction: column;
@@ -21,12 +36,21 @@ export const footer = styled.footer`
         @media (min-width: 1024px) {
             flex-direction: row;
             justify-content: space-between;
-            width: 70%;
-
+            width: 100%;
 
             .acesso {
                 align-items: end;
             }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .footerContent {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 50px;
+            width: 80%;
         }
     }
 `
@@ -109,7 +133,7 @@ export const atendimentoContainer = styled.div`
     }
 
     @media (min-width: 768px) {
-        width: 70%;
+        width: 100%;
         align-items: start;
 
         p {
@@ -119,14 +143,18 @@ export const atendimentoContainer = styled.div`
 `
 
 export const mailingContainer = styled.div` 
-    width: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media (min-width: 768px) {
-        width: 70%;
+        width: 100%;
     }
 `
 
 export const mailingCard = styled.div`
+    width: 90%;
 `
 
 export const mainlingHeader = styled.div` 

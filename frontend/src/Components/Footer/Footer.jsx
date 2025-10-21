@@ -10,57 +10,63 @@ export const Footer = () => {
         <h2>SEGURANÇA NÃO É CUSTO. <br /> É VALOR.</h2>
       </F.titleContainer>
 
-      <F.atendimentoContainer>
-        <h4>ATENDIMENTO</h4>
+      <div className="footerContent">
 
-        <p>SEGUNDA – SEXTA: 09h30 – 17h30 <br />SÁBADO – DOMINGO: FECHADO</p>
-      </F.atendimentoContainer>
+        <F.mailingContainer className='mailingContainer'>
+          <F.mailingCard>
 
-      <F.mailingContainer>
-        <F.mailingCard>
+            <F.mainlingHeader>
+              <h3>MAILING LIST</h3>
+            </F.mainlingHeader>
 
-          <F.mainlingHeader>
-            <h3>MAILING LIST</h3>
-          </F.mainlingHeader>
+            <F.mainlingBody>
+              <img src={Blob} alt="Fundo do card" />
 
-          <F.mainlingBody>
-            <img src={Blob} alt="Fundo do card" />
+              <p>Cadastre seu e-mail e faça parte da nossa comunidade comprometida com ambientes de trabalho mais seguros e saudáveis.</p>
 
-            <p>Cadastre seu e-mail e faça parte da nossa comunidade comprometida com ambientes de trabalho mais seguros e saudáveis.</p>
+              <span className="inputContainer">
+                <label>Email:</label>
+                <input type="email" name="email" />
+              </span>
 
-            <span className="inputContainer">
-              <label>Email:</label>
-              <input type="email" name="email" />
-            </span>
+              <button>QUERO RECEBER</button>
+            </F.mainlingBody>
 
-            <button>QUERO RECEBER</button>
-          </F.mainlingBody>
+          </F.mailingCard>
+        </F.mailingContainer>
 
-        </F.mailingCard>
-      </F.mailingContainer>
+        <div className="div">
+          <F.atendimentoContainer className='atendimentoContainer'>
+            <h4>ATENDIMENTO</h4>
 
-      <div className="linksBox">
-        <F.linksContainer>
-          <h4>REDES SOCIAIS</h4>
+            <p>SEGUNDA – SEXTA: 09h30 – 17h30 <br />SÁBADO – DOMINGO: FECHADO</p>
+          </F.atendimentoContainer>
 
-          <ul>
-            <li><a href="#">LINKEDIN</a></li>
-            <li><a href="#">INSTAGRAM</a></li>
-            <li><a href="#">YOUTUBE</a></li>
-            <li><a href="#">FACEBOOK</a></li>
-          </ul>
-        </F.linksContainer>
+          <div className="linksBox">
+            <F.linksContainer className='linksContainer'>
+              <h4>REDES SOCIAIS</h4>
 
-        <F.linksContainer className='acesso'>
-          <h4>ACESSO RÁPIDO</h4>
+              <ul>
+                <li><a href="https://www.linkedin.com/company/salus-laboris-instituto-de-saude-ocupacional" target='_blank'>LINKEDIN</a></li>
+                <li><a href="https://www.instagram.com/saluslaboris.instituto/" target='_blank'>INSTAGRAM</a></li>
+                <li><a href="https://www.youtube.com/channel/UCPweEbFrPqQjpwM_AwFwY7g" target='_blank'>YOUTUBE</a></li>
+                <li><a href="#">FACEBOOK</a></li>
+              </ul>
+            </F.linksContainer>
 
-          <ul>
-            <li><a href="#">AGENDAMENTO</a></li>
-            <li><a href="#">ESTATUTO</a></li>
-            <li><a href="#">TERMOS DE USO</a></li>
-            <li><a href="#">POLÍTICAS DE PRIVACIDADE</a></li>
-          </ul>
-        </F.linksContainer>
+            <F.linksContainer className='acesso'>
+              <h4>ACESSO RÁPIDO</h4>
+
+              <ul>
+                <li><a href="https://outlook.office365.com/book/AgendamentoSalusLaboris@saluslaboris.com.br/?ismsaljsauthenabled=true" target='_blank'>AGENDAMENTO</a></li>
+                <li><a href="#">ESTATUTO</a></li>
+                <li><a href="#">TERMOS DE USO</a></li>
+                <li><a href="#">POLÍTICAS DE PRIVACIDADE</a></li>
+              </ul>
+            </F.linksContainer>
+          </div>
+        </div>
+
       </div>
 
       <F.developedContainer>
