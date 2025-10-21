@@ -61,7 +61,7 @@ export const Parceiros = () => {
             <P.titleContainer className='secondTitle'>
                 <h4>Quer transformar os resultados do seu negócio?</h4>
 
-                <button>
+                <button onClick={() => window.open("https://wa.link/i82shq", "_blank")}>
                     FALE COM UM CONSULTOR
                 </button>
             </P.titleContainer>
