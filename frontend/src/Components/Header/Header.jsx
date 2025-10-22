@@ -18,35 +18,49 @@ export default function Header() {
 
       <H.navLinks open={open}>
         <ul>
-          <span>
-            <TiHome />
-            <li href="">Home</li>
-          </span>
-          <span>
-            <MdOutlineMedicalServices />
-            <li href="">Serviços</li>
-          </span>
-          <span>
-            <IoIosPeople />
-            <li href="">Sobre</li>
-          </span>
+          <li>
+            <span>
+              <TiHome />
+              <a href="#home">Home</a>
+            </span>
+          </li>
 
-          <span>
-            <FaBloggerB />
-            <li href="">Blog</li>
-          </span>
+          <li>
+            <span>
+              <MdOutlineMedicalServices />
+              <a href="#servicos">Serviços</a>
+            </span>
+          </li>
 
-          <span>
-            <IoCall />
-            <li href="">Contato</li>
-          </span>
+          <li>
+            <span>
+              <IoIosPeople />
+              <a href="#sobre">Sobre</a>
+            </span>
+          </li>
 
-          <span>
-            <BiSolidLogInCircle />
-            <li href="">Login</li>
-          </span>
+          <li>
+            <span>
+              <FaBloggerB />
+              <a href="#blog">Blog</a>
+            </span>
+          </li>
 
+          <li>
+            <span>
+              <IoCall />
+              <a href='#contato'>Contato</a>
+            </span>
+          </li>
+
+          <li>
+            <span>
+              <BiSolidLogInCircle />
+              <span>Login</span>
+            </span>
+          </li>
         </ul>
+
       </H.navLinks>
 
       <IoMenuSharp onClick={() => setOpen(!open)} />
