@@ -21,7 +21,7 @@ export default function Header() {
           <li>
             <span>
               <TiHome />
-              <a href="#home">Home</a>
+              <a href="/">Home</a>
             </span>
           </li>
 
@@ -56,7 +56,7 @@ export default function Header() {
           <li>
             <span>
               <BiSolidLogInCircle />
-              <span>Login</span>
+              <span><a href="/login">Login</a></span>
             </span>
           </li>
         </ul>
