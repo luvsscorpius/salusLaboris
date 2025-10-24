@@ -42,7 +42,9 @@ export const Login = () => {
                 <button><LuEyeClosed size={45} /></button>
               </span>
 
-              <button id='entrar'>ENTRAR</button>
+              <div className="buttonContainer">
+                <button id='entrar'>ENTRAR</button>
+              </div>
 
               <a href="#">Esqueceu a senha?</a>
             </L.inputContainer>

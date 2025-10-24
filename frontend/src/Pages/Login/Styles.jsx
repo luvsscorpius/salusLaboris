@@ -25,7 +25,7 @@ export const loginContainer = styled.div`
 
         .containers {
             
-            width: 80%;
+            width: 70%;
 
             .firstLogin {
                 display: flex;
@@ -74,7 +74,11 @@ export const loginHeader = styled.div`
     }
 
     @media (min-width: 1024px) {
-        width: 80%;
+        width: 70%;
+
+        p {
+            font-size: 20px;
+        }
     }
 `
 
@@ -106,7 +110,7 @@ export const loginFooter = styled.div`
     }
 
     @media (min-width: 1024px) {
-        width: 80%;
+        width: 70%;
     }
 `
 
@@ -122,18 +126,24 @@ export const inputContainer = styled.div`
         opacity: 0.75;
     }
 
-    #entrar {
-        margin-top: 20px;
-        height: 68px;
-        background-color: #4A7C59;
-        border: 0;
-        color: #fff;
-        border-radius: 5px;
-        font-size: 20px;
-        font-weight: 800;
+    .buttonContainer {
 
-        &:hover {
-            cursor: pointer;
+        #entrar {
+            width: 100%;
+            margin-top: 20px;
+            height: 60px;
+            background-color: #4A7C59;
+            border: 0;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: 800;
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.90;
+                transition: 0.5s ease-in-out;
+            }
         }
     }
 
@@ -189,5 +199,14 @@ export const inputContainer = styled.div`
     }
 
     @media (min-width: 1024px) {
+
+        .buttonContainer {
+            display: flex;
+            justify-content: center;
+
+            #entrar {
+                width: 50%;
+            }
+        }
     }
 `
