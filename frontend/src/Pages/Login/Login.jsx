@@ -11,18 +11,25 @@ export const Login = () => {
     <L.login>
       <L.loginContainer>
 
-          <L.loginHeader>
-              <FaRegCircleUser size={32}/>
-              <p>Login</p>
-          </L.loginHeader>
+        <L.loginHeader>
+          <FaRegCircleUser size={32} />
+          <p>Login</p>
+        </L.loginHeader>
+
+        <div className="containers">
+          <L.loginBody className='firstLogin'>
+            <img src={logo} alt="Logo da empresa" />
+
+            <p>Conectando cuidado, segurança e inovação no ambiente de trabalho.</p>
+          </L.loginBody>
 
           <L.loginBody>
             <L.inputContainer>
               <label htmlFor="email">Email</label>
 
               <span>
-                <HiOutlineMail size={45}/>
-                <input type="email" name="email" />
+                <HiOutlineMail size={45} />
+                <input type="email" name="email" placeholder='Digite seu e-mail' />
               </span>
             </L.inputContainer>
 
@@ -30,19 +37,22 @@ export const Login = () => {
               <label htmlFor="senha">Senha</label>
 
               <span>
-                <MdOutlineLock size={45}/>
-                <input type="senha" name="senha" />
-                <button><LuEyeClosed size={45}/></button>
+                <MdOutlineLock size={45} />
+                <input type="password" name="senha" placeholder='Digite sua senha' />
+                <button><LuEyeClosed size={45} /></button>
               </span>
 
               <button id='entrar'>ENTRAR</button>
+
+              <a href="#">Esqueceu a senha?</a>
             </L.inputContainer>
 
           </L.loginBody>
+        </div>
 
-          <L.loginFooter>
-              <img src={logo} alt="Logo da empresa" />
-          </L.loginFooter>
+        <L.loginFooter>
+          <img src={logo} alt="Logo da empresa" />
+        </L.loginFooter>
       </L.loginContainer>
     </L.login>
   )
