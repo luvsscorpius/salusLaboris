@@ -6,6 +6,7 @@ import "leaflet/dist/leaflet.css";
 import { Home } from "./Pages/Home/Home";
 import { Footer } from "./Components/Footer/Footer";
 import { Login } from "./Pages/Login/Login";
+import { EsqueceuSenha } from "./Pages/EsqueceuSenha/EsqueceuSenha";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/login/esqueceuasenha" element={<EsqueceuSenha/>}/>
         </Routes>
       </Router>
       <Footer/>

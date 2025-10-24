@@ -90,6 +90,13 @@ export const loginBody = styled.div`
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
     width: 100%;
     padding: 15px 0;
+
+    p {
+        text-align: justify;
+        color: #1d1d1d;
+        opacity: 0.85;
+        padding: 10px 20px;
+    }
 `
 
 export const loginFooter = styled.div`
@@ -136,7 +143,7 @@ export const inputContainer = styled.div`
             border: 0;
             color: #fff;
             border-radius: 5px;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
 
             &:hover {
@@ -206,6 +213,7 @@ export const inputContainer = styled.div`
 
             #entrar {
                 width: 50%;
+                height: 50px;
             }
         }
     }

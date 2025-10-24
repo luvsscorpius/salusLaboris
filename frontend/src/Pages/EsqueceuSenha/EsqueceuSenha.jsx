@@ -1,19 +1,16 @@
 import React from 'react'
-import * as L from './Styles'
-import { FaRegCircleUser } from "react-icons/fa6";
-import { HiOutlineMail } from "react-icons/hi";
+import * as L from '../Login/Styles'
 import logo from '../../assets/logo.webp'
-import { MdOutlineLock } from "react-icons/md";
-import { LuEyeClosed } from "react-icons/lu";
+import { HiOutlineMail } from "react-icons/hi";
+import { FaClockRotateLeft } from "react-icons/fa6";
 
-export const Login = () => {
+export const EsqueceuSenha = () => {
   return (
     <L.login>
       <L.loginContainer>
-
         <L.loginHeader>
-          <FaRegCircleUser size={32} />
-          <p>Login</p>
+          <FaClockRotateLeft size={28}/>
+          <p>Esqueceu a senha</p>
         </L.loginHeader>
 
         <div className="containers">
@@ -24,7 +21,11 @@ export const Login = () => {
           </L.loginBody>
 
           <L.loginBody>
+            
+            <p>Informe o e-mail cadastrado da conta que enviaremos um link para recuperação da conta.</p>
+
             <L.inputContainer>
+
               <label htmlFor="email">Email</label>
 
               <span>
@@ -34,19 +35,12 @@ export const Login = () => {
             </L.inputContainer>
 
             <L.inputContainer>
-              <label htmlFor="senha">Senha</label>
-
-              <span>
-                <MdOutlineLock size={45} />
-                <input type="password" name="senha" placeholder='Digite sua senha' />
-                <button><LuEyeClosed size={45} /></button>
-              </span>
 
               <div className="buttonContainer">
-                <button id='entrar'>ENTRAR</button>
+                <button id='entrar'>ENVIAR LINK</button>
               </div>
 
-              <a href="/login/esqueceuasenha">Esqueceu a senha?</a>
+              <a href="/login">Entrar</a>
             </L.inputContainer>
 
           </L.loginBody>
