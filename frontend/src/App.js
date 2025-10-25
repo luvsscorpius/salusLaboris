@@ -22,7 +22,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/login/esqueceuasenha" element={<EsqueceuSenha/>}/>
           <Route path="/login/recuperarasenha" element={<RecuperarSenha/>}/>
-          <Route path="/blog" element={<Blog/>}/>
+          <Route path="/adm/blog" element={<Blog/>}/>
         </Routes>
       </Router>
       <Footer/>

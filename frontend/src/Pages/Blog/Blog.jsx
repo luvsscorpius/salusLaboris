@@ -5,6 +5,10 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import ReactPaginate from 'react-paginate'
 import logo from '../../assets/logo.webp'
+import { RxDashboard } from "react-icons/rx";
+import { MdPostAdd } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
+import { FaFilter } from "react-icons/fa6";
 
 export const Blog = () => {
 
@@ -34,6 +38,38 @@ export const Blog = () => {
                     <img src={logo} alt="Imagem da logo da empresa no menu" />
                     <hr />
                 </B.logoContainer>
+
+                <B.linksContainer>
+                    <div>
+                        <h3>PRINCIPAL</h3>
+
+                        <ul>
+                            <span>
+                                <RxDashboard size={25} />
+                                <li>Dashboard</li>
+                            </span>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>GERENCIAMENTO</h3>
+
+                        <ul>
+                            <span className='active'>
+                                <MdPostAdd size={26}/>
+                                <li>Posts</li>
+                            </span>
+                            <span>
+                                <FaUsers size={25}/>
+                                <li>Usuários</li>
+                            </span>
+                            <span>
+                                <FaFilter size={24}/>
+                                <li>Categorias</li>
+                            </span>
+                        </ul>
+                    </div>
+                </B.linksContainer>
             </B.menu>
 
             <B.blogContainer>
