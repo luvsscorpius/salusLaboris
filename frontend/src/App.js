@@ -8,6 +8,7 @@ import { Footer } from "./Components/Footer/Footer";
 import { Login } from "./Pages/Login/Login";
 import { EsqueceuSenha } from "./Pages/EsqueceuSenha/EsqueceuSenha";
 import { RecuperarSenha } from "./Pages/RecuperarSenha/RecuperarSenha";
+import { Blog } from "./Pages/Blog/Blog";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/login/esqueceuasenha" element={<EsqueceuSenha/>}/>
           <Route path="/login/recuperarasenha" element={<RecuperarSenha/>}/>
+          <Route path="/blog" element={<Blog/>}/>
         </Routes>
       </Router>
       <Footer/>
