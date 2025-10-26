@@ -157,7 +157,7 @@ export const cardInfo = styled.div`
 export const menu = styled.menu`
     display: none;
     box-shadow: 0 5px 2px rgba(0, 0, 0, 0.2);  
-    width: 230px;
+    width: 250px;
     padding: 20px 0;
     gap: 20px;
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useLocation } from "react-router-dom"
 import * as B from './Styles'
 import { CiCirclePlus } from "react-icons/ci";
 import { FaRegCalendarAlt } from "react-icons/fa";
@@ -15,8 +16,8 @@ export const Blog = () => {
     const posts = [
         { id: 0, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
         { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
-        { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
-        { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
+        { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Karin", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
+        { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Karin", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
         { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
     ]
 
@@ -29,6 +30,13 @@ export const Blog = () => {
 
     const offSet = currentPage * itemsPage
     const currentPageData = posts.slice(offSet, offSet + itemsPage)
+
+    // lógica para mudar o active
+    const [active, setActive] = useState("active")
+
+    const location = useLocation()
+
+    console.log(location)
 
     return (
         <B.blog>
@@ -55,15 +63,15 @@ export const Blog = () => {
                         <h3>GERENCIAMENTO</h3>
 
                         <ul>
-                            <span className='active'>
+                            <span className={location.pathname === "/adm/blog" ? active : ""}>
                                 <MdPostAdd size={26}/>
                                 <li>Posts</li>
                             </span>
-                            <span>
+                            <span className={location.pathname === "/adm/usuarios" ? active : ""}>
                                 <FaUsers size={25}/>
                                 <li>Usuários</li>
                             </span>
-                            <span>
+                            <span className={location.pathname === "/adm/usuarios" ? active : ""}>
                                 <FaFilter size={24}/>
                                 <li>Categorias</li>
                             </span>
@@ -85,23 +93,23 @@ export const Blog = () => {
                 <B.blogBody>
                     <B.cardsContainer>
                         {posts.length > 0 && currentPageData.map((post, index) => (
-                            <B.card>
+                            <B.card key={index}>
                                 <B.postInfo>
                                     <span>
                                         <FaRegCalendarAlt />
-                                        <p>18/01/2025</p>
+                                        <p>{post.date}</p>
                                     </span>
 
                                     <span>
                                         <FaRegUser />
-                                        <p>Wander Delgado</p>
+                                        <p>{post.author}</p>
                                     </span>
                                 </B.postInfo>
 
                                 <B.cardInfo>
-                                    <h3>NR-35: Segurança em trabalhos em altura</h3>
+                                    <h3>{post.title}</h3>
 
-                                    <p>Trabalhar em altura é uma das atividades mais críticas dentro das empresas. Neste artigo, você vai entender os principais requisitos da NR-35, o checklist de EPIs obrigatórios e os procedimentos fundamentais para reduzir riscos e garantir a segurança de todos os profissionais envolvidos....</p>
+                                    <p>{post.desc}</p>
 
                                     <button>Ler mais</button>
                                 </B.cardInfo>
