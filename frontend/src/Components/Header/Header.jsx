@@ -21,42 +21,42 @@ export default function Header() {
           <li>
             <span>
               <TiHome />
-              <a href="/">Home</a>
+              <a href="/" rel="noreferrer">Home</a>
             </span>
           </li>
 
           <li>
             <span>
               <MdOutlineMedicalServices />
-              <a href="#servicos">Serviços</a>
+              <a href="#servicos" rel="noreferrer">Serviços</a>
             </span>
           </li>
 
           <li>
             <span>
               <IoIosPeople />
-              <a href="#sobre">Sobre</a>
+              <a href="#sobre" rel="noreferrer">Sobre</a>
             </span>
           </li>
 
           <li>
             <span>
               <FaBloggerB />
-              <a href="#blog">Blog</a>
+              <a href="#blog" rel="noreferrer">Blog</a>
             </span>
           </li>
 
           <li>
             <span>
               <IoCall />
-              <a href='#contato'>Contato</a>
+              <a href='#contato' rel="noreferrer">Contato</a>
             </span>
           </li>
 
           <li>
             <span>
               <BiSolidLogInCircle />
-              <span><a href="/login">Login</a></span>
+              <span><a href="/login" rel="noreferrer">Login</a></span>
             </span>
           </li>
         </ul>

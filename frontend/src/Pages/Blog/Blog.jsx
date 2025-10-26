@@ -32,6 +32,7 @@ export const Blog = () => {
             <Menu/>
 
             <B.blogContainer>
+
                 <B.blogHeader>
                     <div>
                         <h2>Posts recentes</h2>

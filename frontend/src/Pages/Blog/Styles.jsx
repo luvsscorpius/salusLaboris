@@ -153,3 +153,4 @@ export const cardInfo = styled.div`
         }
     }
 `
+
