@@ -8,13 +8,10 @@ import { FaUsers } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
 
 export const Menu = () => {
-
     // lógica para mudar o active
     const [active, setActive] = useState("active")
 
     const location = useLocation()
-
-    console.log(location)
 
     return (
         <B.menu>
@@ -28,7 +25,7 @@ export const Menu = () => {
                     <h3>PRINCIPAL</h3>
 
                     <ul>
-                        <span className={location.pathname === "/adm/dashboard" ? active : ""}>
+                        <span className={location.pathname === "/adm/dashboard" ? active : ""} onClick={() => window.open("/adm/dashboard", "_self")}>
                             <RxDashboard size={25} />
                             <li>Dashboard</li>
                         </span>
@@ -39,15 +36,15 @@ export const Menu = () => {
                     <h3>GERENCIAMENTO</h3>
 
                     <ul>
-                        <span className={location.pathname === "/adm/blog" ? active : ""}>
+                        <span className={location.pathname === "/adm/blog" ? active : ""} onClick={() => window.open("/adm/blog", "_self")}>
                             <MdPostAdd size={26} />
                             <li>Posts</li>
                         </span>
-                        <span className={location.pathname === "/adm/usuarios" ? active : ""}>
+                        <span className={location.pathname === "/adm/usuarios" ? active : ""} onClick={() => window.open("/adm/usuarios", "_self")}>
                             <FaUsers size={25} />
                             <li>Usuários</li>
                         </span>
-                        <span className={location.pathname === "/adm/categorias" ? active : ""}>
+                        <span className={location.pathname === "/adm/categorias" ? active : ""} onClick={() => window.open("/adm/categorias", "_self")}>
                             <FaFilter size={24} />
                             <li>Categorias</li>
                         </span>
