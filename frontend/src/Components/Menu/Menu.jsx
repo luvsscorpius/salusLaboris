@@ -29,6 +29,11 @@ export const Menu = () => {
                             <RxDashboard size={25} />
                             <li>Dashboard</li>
                         </span>
+
+                        <span className={location.pathname === "/adm/blog" ? active : ""} onClick={() => window.open("/adm/blog", "_self")}>
+                            <MdPostAdd size={26} />
+                            <li>Posts Recentes</li>
+                        </span>
                     </ul>
                 </div>
 
@@ -36,7 +41,7 @@ export const Menu = () => {
                     <h3>GERENCIAMENTO</h3>
 
                     <ul>
-                        <span className={location.pathname === "/adm/blog" ? active : ""} onClick={() => window.open("/adm/blog", "_self")}>
+                        <span className={location.pathname === "/adm/gerenciarposts" ? active : ""} onClick={() => window.open("/adm/gerenciarposts", "_self")}>
                             <MdPostAdd size={26} />
                             <li>Posts</li>
                         </span>

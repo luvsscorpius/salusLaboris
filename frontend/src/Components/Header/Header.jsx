@@ -31,8 +31,14 @@ export default function Header() {
             </li>
             <li>
               <span>
-                <FaBloggerB />
-                <a href="/adm/blog" rel="noreferrer">Posts</a>
+                <TiHome />
+                <a href="/adm/blog" rel="noreferrer">Posts recentes</a>
+              </span>
+            </li>
+            <li>
+              <span>
+                <TiHome />
+                <a href="/adm/gerenciarposts" rel="noreferrer">Posts</a>
               </span>
             </li>
             <li>

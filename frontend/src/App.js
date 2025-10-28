@@ -10,6 +10,7 @@ import { EsqueceuSenha } from "./Pages/EsqueceuSenha/EsqueceuSenha";
 import { RecuperarSenha } from "./Pages/RecuperarSenha/RecuperarSenha";
 import { Blog } from "./Pages/Blog/Blog";
 import { Usuarios } from "./Pages/Usuarios/Usuarios";
+import { GerenciarPosts } from "./Pages/GerenciarPosts/GerenciarPosts";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login/esqueceuasenha" element={<EsqueceuSenha/>}/>
           <Route path="/login/recuperarasenha" element={<RecuperarSenha/>}/>
           <Route path="/adm/blog" element={<Blog/>}/>
+          <Route path="/adm/gerenciarposts" element={<GerenciarPosts/>}/>
           <Route path="/adm/usuarios" element={<Usuarios/>}/>
         </Routes>
       </Router>
