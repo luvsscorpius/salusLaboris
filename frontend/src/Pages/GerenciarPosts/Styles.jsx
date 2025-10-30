@@ -3,7 +3,43 @@ import styled from "styled-components";
 export const main = styled.main`
     font-family: "Poppins", sans-serif;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding: 10px 0;
+
+    .pagination {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+        list-style-type: none;
+        font-size: 15px;
+        background-color: #eee;
+        border: none;
+        border-radius: 5px;
+
+        li a {
+            border: 2px solid #4A7C59;
+            padding: 5px 10px 5px 10px;
+            color: #4A7C59;
+            text-decoration: none;
+            display: block;
+            transition: 0.2s;
+            margin-left: -3px;
+            font-weight: 800;
+
+            &:hover {
+                cursor: pointer;
+                background-color: #4A7C59;
+                color: #fff;
+                transition: ease-in-out 0.6s;
+            }
+        }
+
+        li.active a {
+            background-color: #4A7C59;
+            color: #fff;
+        }
+    }
 `
 
 export const gerenciarPostsBody = styled.div`
