@@ -11,10 +11,11 @@ export const blog = styled.main`
         align-items: center;
         gap: 0px;
         list-style-type: none;
-        font-size: 20px;
+        font-size: 15px;
         background-color: #eee;
         border: none;
         border-radius: 5px;
+        margin-bottom: 10px;
 
         li a {
             border: 2px solid #4A7C59;
@@ -79,8 +80,7 @@ export const blogHeader = styled.div`
     }
 
     @media (min-width: 1024px) {
-        padding: 10px 60px;
-
+        padding: 30px 20px;
     }
 `
 
@@ -89,7 +89,6 @@ export const blogBody = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px 0;
 `
 
 export const cardsContainer = styled.div`
@@ -107,6 +106,10 @@ export const card = styled.div`
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);  
     border-radius: 5px;
     padding: 15px 0px;
+
+    @media (min-width: 1024px) {
+        width: 97%;
+    }
 `
 
 export const postInfo = styled.div`

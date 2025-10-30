@@ -133,6 +133,17 @@ export const navLinks = styled.nav`
         position: relative;
         background-color: #fff;
         box-shadow: none;
+        padding: 0;
+
+        div {
+            flex-direction: row;
+            gap: 15px;
+            margin-top: 0;
+
+            h4 {
+                display: none;
+            }
+        }
 
         ul {
             font-weight: 600;
@@ -141,7 +152,7 @@ export const navLinks = styled.nav`
             align-items: center;
             height: 100%;
             font-size: 17px;
-            gap: 25px;
+            gap: 15px;
             font-weight: 800;
         }
             

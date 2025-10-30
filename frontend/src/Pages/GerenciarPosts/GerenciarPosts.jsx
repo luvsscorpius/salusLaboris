@@ -69,9 +69,8 @@ export const GerenciarPosts = () => {
 
           </tbody>
         </table>
-      </G.gerenciarPostsBody>
 
-      <ReactPaginate
+              <ReactPaginate
                         pageCount={Math.ceil(posts.length / itemsPage)}
                         pageRangeDisplayed={3} // Número de páginas a serem exibidas
                         marginPagesDisplayed={1} // Número de páginas a serem exibidas nas extremidades
@@ -83,6 +82,7 @@ export const GerenciarPosts = () => {
                         previousLabel="<"
                         previousLinkClassName={"previous"}
                         pageClassName={"page"} />
+      </G.gerenciarPostsBody>
     </G.main>
   )
 }

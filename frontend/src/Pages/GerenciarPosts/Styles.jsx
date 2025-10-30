@@ -4,7 +4,6 @@ export const main = styled.main`
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: column;
-    padding: 10px 0;
 
     .pagination {
         display: inline-flex;
@@ -16,6 +15,7 @@ export const main = styled.main`
         background-color: #eee;
         border: none;
         border-radius: 5px;
+        margin-top: 10px;
 
         li a {
             border: 2px solid #4A7C59;
@@ -40,6 +40,10 @@ export const main = styled.main`
             color: #fff;
         }
     }
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+    }
 `
 
 export const gerenciarPostsBody = styled.div`
@@ -49,10 +53,11 @@ export const gerenciarPostsBody = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 10px 20px;
+    gap: 10px;
 
     .header {
         width: 100%;
-        padding: 10px 0;
+        padding: 20px 0;
     }
 
     table {
@@ -93,4 +98,14 @@ export const gerenciarPostsBody = styled.div`
             }
         }
     }
+
+    @media (min-width: 1024px) {
+
+    table {
+        .icon {
+            text-align: start;
+            }
+        }    
+    }
+
 `
