@@ -35,7 +35,7 @@ export const GerenciarPosts = () => {
         <B.blogHeader className='header'>
           <div>
             <h2>Gerenciar posts</h2>
-            <button><CiCirclePlus size={45} /></button>
+            <button onClick={() => window.open("/adm/criarpost", "_self")}><CiCirclePlus size={45} /></button>
           </div>
 
           <hr />
