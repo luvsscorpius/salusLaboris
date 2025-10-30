@@ -20,16 +20,17 @@ export const GerenciarPosts = () => {
     <G.main>
       <Menu />
 
-      <B.blogHeader>
-        <div>
-          <h2>Gerenciar posts</h2>
-          <button><CiCirclePlus size={45} /></button>
-        </div>
-
-        <hr />
-      </B.blogHeader>
-
       <G.gerenciarPostsBody>
+        <B.blogHeader className='header'>
+          <div>
+            <h2>Gerenciar posts</h2>
+            <button><CiCirclePlus size={45} /></button>
+          </div>
+
+          <hr />
+        </B.blogHeader>
+
+
         <table>
           <thead>
             <tr>
@@ -43,18 +44,18 @@ export const GerenciarPosts = () => {
           <tbody>
             {posts.map((post, index) => (
               <tr>
-              <td>{post.title.length > 20 
-                      ? post.title.substring(0, 15) + "..." 
-                      : post.title}</td>
-              <td>{post.date.length > 5 ? post.date.substring(0, 5) + "..." : post.date}</td>
-              <td>{post.author.length > 5 ? post.author.substring(0, 5) + "..." : post.author}</td>
-              <td className='icon'>
-                <FaRegEdit size={25} />
-                <MdDeleteOutline size={25} />
-              </td>
-            </tr>
+                <td>{post.title.length > 20
+                  ? post.title.substring(0, 15) + "..."
+                  : post.title}</td>
+                <td>{post.date.length > 5 ? post.date.substring(0, 5) + "..." : post.date}</td>
+                <td>{post.author.length > 5 ? post.author.substring(0, 5) + "..." : post.author}</td>
+                <td className='icon'>
+                  <FaRegEdit size={25} />
+                  <MdDeleteOutline size={25} />
+                </td>
+              </tr>
             ))}
-          
+
           </tbody>
         </table>
       </G.gerenciarPostsBody>
