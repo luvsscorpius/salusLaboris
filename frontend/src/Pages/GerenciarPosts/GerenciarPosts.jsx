@@ -61,7 +61,7 @@ export const GerenciarPosts = () => {
                 <td>{post.date.length > 5 ? post.date.substring(0, 5) + "..." : post.date}</td>
                 <td>{post.author.length > 5 ? post.author.substring(0, 5) + "..." : post.author}</td>
                 <td className='icon'>
-                  <FaRegEdit size={25} />
+                  <FaRegEdit size={25} onClick={() => window.open("/adm/editarpost", "_self")} />
                   <MdDeleteOutline size={25} />
                 </td>
               </tr>

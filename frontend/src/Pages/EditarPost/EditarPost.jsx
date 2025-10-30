@@ -3,8 +3,9 @@ import { Menu } from '../../Components/Menu/Menu';
 import * as B from '../Blog/Styles'
 import * as A from './Styles'
 import { IoIosSave } from "react-icons/io";
+import { CiCirclePlus } from "react-icons/ci";
 
-export const AdicionarPost = () => {
+export const editarPost = () => {
 
     const blogCategories = [
         "Fundamentos da Segurança do Trabalho",
@@ -56,7 +57,8 @@ export const AdicionarPost = () => {
 
                 <B.blogHeader className='header'>
                     <div>
-                        <h2>Novo Post</h2>
+                        <h2>Editar Post</h2>
+                        <button onClick={() => window.open("/adm/criarpost", "_self")}><CiCirclePlus size={45} /></button>
                     </div>
 
                     <hr />
