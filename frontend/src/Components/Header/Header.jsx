@@ -23,42 +23,50 @@ export default function Header() {
       <H.navLinks open={open}>
         {isAdmRoute ? (
           <ul>
-            <li>
-              <span>
-                <TiHome />
-                <a href="/adm/dashboard" rel="noreferrer">Dashboard</a>
-              </span>
-            </li>
-            <li>
-              <span>
-                <TiHome />
-                <a href="/adm/blog" rel="noreferrer">Posts recentes</a>
-              </span>
-            </li>
-            <li>
-              <span>
-                <TiHome />
-                <a href="/adm/gerenciarposts" rel="noreferrer">Posts</a>
-              </span>
-            </li>
-            <li>
-              <span>
-                <IoIosPeople />
-                <a href="/adm/usuarios" rel="noreferrer">Usuários</a>
-              </span>
-            </li>
-            <li>
-              <span>
-                <IoIosPeople />
-                <a href="/adm/categorias" rel="noreferrer">Categorias</a>
-              </span>
-            </li>
-            <li>
-              <span>
-                <BiSolidLogInCircle />
-                <a href="/" rel="noreferrer">Sair</a>
-              </span>
-            </li>
+            <div>
+              <h4>PRINCIPAL</h4>
+              <li>
+                <span>
+                  <TiHome />
+                  <a href="/adm/dashboard" rel="noreferrer">Dashboard</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <TiHome />
+                  <a href="/adm/blog" rel="noreferrer">Posts recentes</a>
+                </span>
+              </li>
+            </div>
+
+            <div>
+              <h4>GERENCIAMENTO</h4>
+              <li>
+                <span>
+                  <TiHome />
+                  <a href="/adm/gerenciarposts" rel="noreferrer">Posts</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <IoIosPeople />
+                  <a href="/adm/usuarios" rel="noreferrer">Usuários</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <IoIosPeople />
+                  <a href="/adm/categorias" rel="noreferrer">Categorias</a>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <BiSolidLogInCircle />
+                  <a href="/" rel="noreferrer">Sair</a>
+                </span>
+              </li>
+            </div>
+
           </ul>
         ) : (
           <ul>

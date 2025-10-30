@@ -50,7 +50,7 @@ export const navLinks = styled.nav`
     position: absolute;
     top: 60px;
     right: 20px;
-    width: 40%;
+    width: 45%;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -64,6 +64,21 @@ export const navLinks = styled.nav`
     a {
         color: #4A7C59;
         list-style: none;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        gap: 5px;
+        color: #4A7C59;
+
+        h4 {
+            font-weight: 800;
+            font-family: "Poppins", sans-serif;
+        }
     }
 
     ul {
