@@ -41,7 +41,12 @@ export const Menu = () => {
                     <h3>GERENCIAMENTO</h3>
 
                     <ul>
-                        <span className={location.pathname === "/adm/gerenciarposts" ? active : ""} onClick={() => window.open("/adm/gerenciarposts", "_self")}>
+                        <span
+                            className={(location.pathname === "/adm/gerenciarposts"
+                                || location.pathname === "/adm/criarpost"
+                                || location.pathname === "/adm/editarpost") ? active : ""}
+                            onClick={() => window.open("/adm/gerenciarposts", "_self")}
+                        >
                             <MdPostAdd size={26} />
                             <li>Posts</li>
                         </span>

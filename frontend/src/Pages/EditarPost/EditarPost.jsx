@@ -5,7 +5,7 @@ import * as A from './Styles'
 import { IoIosSave } from "react-icons/io";
 import { CiCirclePlus } from "react-icons/ci";
 
-export const editarPost = () => {
+export const EditarPost = () => {
 
     const blogCategories = [
         "Fundamentos da Segurança do Trabalho",

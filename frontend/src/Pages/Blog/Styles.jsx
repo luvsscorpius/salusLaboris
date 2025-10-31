@@ -15,7 +15,6 @@ export const blog = styled.main`
         background-color: #eee;
         border: none;
         border-radius: 5px;
-        margin-bottom: 10px;
 
         li a {
             border: 2px solid #4A7C59;
@@ -39,6 +38,12 @@ export const blog = styled.main`
             background-color: #4A7C59;
             color: #fff;
         }
+    }
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        align-items: start;
+        height: 100%;
     }
 `
 
@@ -97,7 +102,7 @@ export const cardsContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 30px;
-    padding: 0px 0px 30px;
+    padding: 0px 0px 15px;
 `
 
 export const card = styled.div`

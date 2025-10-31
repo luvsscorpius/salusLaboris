@@ -10,7 +10,7 @@ import ReactPaginate from 'react-paginate'
 export const GerenciarPosts = () => {
 
   const posts = [
-    { id: 0, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
+    { id: 0, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
     { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Karin", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
     { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
     { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
@@ -55,11 +55,11 @@ export const GerenciarPosts = () => {
           <tbody>
             {posts.length > 0 && currentPageData.map((post, index) => (
               <tr>
-                <td>{post.title.length > 20
-                  ? post.title.substring(0, 15) + "..."
+                <td>{post.title.length > 200
+                  ? post.title.substring(0, 200) + "..."
                   : post.title}</td>
-                <td>{post.date.length > 5 ? post.date.substring(0, 5) + "..." : post.date}</td>
-                <td>{post.author.length > 5 ? post.author.substring(0, 5) + "..." : post.author}</td>
+                <td className='data'>{post.date.length > 15 ? post.date.substring(0, 15) + "..." : post.date}</td>
+                <td className='autor'>{post.author.length > 20 ? post.author.substring(0,20) + "..." : post.author}</td>
                 <td className='icon'>
                   <FaRegEdit size={25} onClick={() => window.open("/adm/editarpost", "_self")} />
                   <MdDeleteOutline size={25} />

@@ -4,9 +4,9 @@ export const main = styled.main`
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    padding: 0 0px 20px 0;
+    height: auto;
 
     .header {
         width: 90%;
@@ -15,6 +15,8 @@ export const main = styled.main`
 
     @media (min-width: 1024px) {
         flex-direction: row;
+        align-items: start;
+        height: 100%;
     }
 `
 
@@ -22,11 +24,18 @@ export const novoPostContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 0px;
+    padding: 0 0 20px 0;
+    height: auto;
+    width: 100%;
 
     @media (min-width: 1024px) {
         width: 100%;
+
+        .header {
+            width: 98%;
+        }
     }
 `
 
@@ -35,6 +44,7 @@ export const novoPostBody = styled.div`
     background-color: #fff;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);  
     width: 89%;
+    height: auto;
     border-radius: 5px;
 
     span {
@@ -57,14 +67,14 @@ export const novoPostBody = styled.div`
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);  
             outline: none;
             padding: 10px;
-            resize: vertical;
+            resize: none;
             color: #1d1d1d;
             font-weight: 600;
             opacity: 0.85;
         }
 
         textarea {
-            height: 200px;
+            height: 550px;
         }
     }
 
@@ -91,5 +101,22 @@ export const novoPostBody = styled.div`
                 transition: 0.3s ease-in-out;
             }
         }
+    }
+
+    @media (min-width: 1024px) {
+        width: 98%;
+        height: 100%;
+
+        div {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            button {
+                width: 330px;
+            }
+        }
+            
     }
 `

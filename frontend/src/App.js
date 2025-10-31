@@ -12,7 +12,7 @@ import { Blog } from "./Pages/Blog/Blog";
 import { Usuarios } from "./Pages/Usuarios/Usuarios";
 import { GerenciarPosts } from "./Pages/GerenciarPosts/GerenciarPosts";
 import { AdicionarPost } from "./Pages/AdicionarPost/AdicionarPost";
-import { editarPost } from "./Pages/EditarPost/EditarPost"
+import { EditarPost } from './Pages/EditarPost/EditarPost'
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
           <Route path="/adm/gerenciarposts" element={<GerenciarPosts/>}/>
           <Route path="/adm/usuarios" element={<Usuarios/>}/>
           <Route path="/adm/criarpost" element={<AdicionarPost/>}/>
-          <Route path="/adm/editarpost" element={<editarPost/>}/>
+          <Route path="/adm/editarpost" element={<EditarPost/>}/>
         </Routes>
       </Router>
       <Footer/>

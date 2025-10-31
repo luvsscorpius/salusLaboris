@@ -67,6 +67,7 @@ export const menu = styled.menu`
     display: none;
     box-shadow: 0 5px 2px rgba(0, 0, 0, 0.2);  
     width: 250px;
+    height: 100%;
     padding: 20px 0;
     gap: 20px;
 
@@ -74,6 +75,8 @@ export const menu = styled.menu`
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 100%;
+        top: 0;
     }
 
 `

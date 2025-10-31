@@ -43,6 +43,8 @@ export const main = styled.main`
 
     @media (min-width: 1024px) {
         flex-direction: row;
+        align-items: start;
+        height: 100%;
     }
 `
 
@@ -83,6 +85,20 @@ export const gerenciarPostsBody = styled.div`
             opacity: 0.85;
             padding: 10px;
             border-bottom: 1px solid #ccc;
+
+            // para truncar a celula
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 150px; /* ocupa todo o espaço da célula */
+        }
+
+        .data, .icon {
+            width: 50px;
+        }
+
+        .autor {
+            width: 70px;
         }
 
         .icon {
@@ -106,6 +122,10 @@ export const gerenciarPostsBody = styled.div`
             text-align: start;
             }
         }    
+
+        td {
+        
+        }
     }
 
 `
