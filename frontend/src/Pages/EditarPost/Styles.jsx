@@ -74,7 +74,8 @@ export const novoPostBody = styled.div`
         }
 
         textarea {
-            height: 550px;
+            height: 300px;
+            max-height: 350px;
         }
     }
 
