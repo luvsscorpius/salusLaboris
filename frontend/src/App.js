@@ -13,11 +13,13 @@ import { Usuarios } from "./Pages/Usuarios/Usuarios";
 import { GerenciarPosts } from "./Pages/GerenciarPosts/GerenciarPosts";
 import { AdicionarPost } from "./Pages/AdicionarPost/AdicionarPost";
 import { EditarPost } from './Pages/EditarPost/EditarPost'
+import SalusProvider from "./Context/Context";
 
 function App() {
 
   return (
     <>
+    <SalusProvider>
       <GlobalStyle/>
       <Router>
               <Header/>
@@ -34,6 +36,7 @@ function App() {
         </Routes>
       </Router>
       <Footer/>
+      </SalusProvider>
     </>
   );
 }
