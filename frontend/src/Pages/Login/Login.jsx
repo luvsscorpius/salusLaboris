@@ -6,6 +6,7 @@ import logo from '../../assets/logo.webp'
 import { MdOutlineLock } from "react-icons/md";
 import { LuEyeClosed } from "react-icons/lu";
 import { SalusContext } from '../../Context/Context';
+import { TbEye } from "react-icons/tb";
 
 export const Login = () => {
 
@@ -28,6 +29,17 @@ export const Login = () => {
       window.open("/adm/blog", "_self")
     } else {
       console.log("Usuário não encontrado")
+    }
+  }
+
+  // função para mostrar a senha
+  const [type, setType] = useState("password")
+  const showPassword = (e) => {
+    console.log("Oi")
+    if (type === "password") {
+      setType("text")
+    } else {
+      setType("password")
     }
   }
 
@@ -63,8 +75,8 @@ export const Login = () => {
 
                 <span>
                   <MdOutlineLock size={45} />
-                  <input type="password" name="senha" placeholder='Digite sua senha' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} autoComplete='on' required />
-                  <button><LuEyeClosed size={45} /></button>
+                  <input type={type} name="senha" placeholder='Digite sua senha' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} autoComplete='on' required />
+                  <button onClick={(e) => showPassword(e)}>{type === "password" ? <LuEyeClosed size={45} /> : <TbEye size={45}/>}</button>
                 </span>
 
                 <div className="buttonContainer">
