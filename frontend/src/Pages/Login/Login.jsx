@@ -17,8 +17,6 @@ export const Login = () => {
     password: ""
   })
 
-  console.log(users, data)
-
   const checkUsers = (e) => {
     const userFound = users.find(
       (user) => user.email === data.email && user.password === data.password

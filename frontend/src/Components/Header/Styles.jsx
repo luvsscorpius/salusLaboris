@@ -50,7 +50,7 @@ export const navLinks = styled.nav`
     position: absolute;
     top: 60px;
     right: 20px;
-    width: 45%;
+    width: 50%;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;

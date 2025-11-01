@@ -49,7 +49,7 @@ export const GerenciarPosts = () => {
 
           <tbody>
             {posts.length > 0 && currentPageData.map((post, index) => (
-              <tr>
+              <tr key={index}>
                 <td>{post.title.length > 200
                   ? post.title.substring(0, 200) + "..."
                   : post.title}</td>

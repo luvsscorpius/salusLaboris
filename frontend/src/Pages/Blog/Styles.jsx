@@ -15,6 +15,7 @@ export const blog = styled.main`
         background-color: #eee;
         border: none;
         border-radius: 5px;
+        margin-bottom: 10px;
 
         li a {
             border: 2px solid #4A7C59;
@@ -43,12 +44,15 @@ export const blog = styled.main`
     @media (min-width: 1024px) {
         flex-direction: row;
         align-items: start;
-        height: 100%;
     }
 `
 
 export const blogContainer = styled.div`
     width: 100%;
+
+    @media (min-width: 1024px) {
+        height: 100vh;
+    }
 `
 
 export const blogHeader = styled.div`
