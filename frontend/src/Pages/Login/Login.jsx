@@ -9,18 +9,25 @@ import { SalusContext } from '../../Context/Context';
 
 export const Login = () => {
 
-  const {users} = useContext(SalusContext)
+  const { users } = useContext(SalusContext)
 
   const [data, setData] = useState({
     email: "",
     password: ""
   })
 
+  console.log(users, data)
+
   const checkUsers = (e) => {
-    if (data.email === users.email && data.password === users.password) {
-      console.log("achei")
+    const userFound = users.find(
+      (user) => user.email === data.email && user.password === data.password
+    )
+
+    if (userFound) {
+      console.log("Usuário encontrado")
+      window.open("/adm/blog", "_self")
     } else {
-      console.log("Dados não encontrados")
+      console.log("Usuário não encontrado")
     }
   }
 
@@ -47,7 +54,7 @@ export const Login = () => {
 
                 <span>
                   <HiOutlineMail size={45} />
-                  <input type="email" name="email" placeholder='Digite seu e-mail' value={data.email} onChange={(e) => setData({email: e.target.value})} required />
+                  <input type="email" name="email" placeholder='Digite seu e-mail' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} autoComplete='on' required />
                 </span>
               </L.inputContainer>
 
@@ -56,12 +63,12 @@ export const Login = () => {
 
                 <span>
                   <MdOutlineLock size={45} />
-                  <input type="password" name="senha" placeholder='Digite sua senha' value={data.password} onChange={(e) => setData({password: e.target.value})} required />
+                  <input type="password" name="senha" placeholder='Digite sua senha' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} autoComplete='on' required />
                   <button><LuEyeClosed size={45} /></button>
                 </span>
 
                 <div className="buttonContainer">
-                  <button id='entrar' type='submit'>ENTRAR</button>
+                  <button id='entrar' type='submit' onClick={((e) => checkUsers())}>ENTRAR</button>
                 </div>
 
                 <a href="/login/esqueceuasenha">Esqueceu a senha?</a>
