@@ -10,7 +10,7 @@ import { TbEye } from "react-icons/tb";
 
 export const Login = () => {
 
-  const { users } = useContext(SalusContext)
+  const { users, isUserLogged, setIsUserLogged } = useContext(SalusContext)
 
   const [data, setData] = useState({
     email: "",
@@ -24,8 +24,12 @@ export const Login = () => {
 
     if (userFound) {
       console.log("Usuário encontrado")
+      setIsUserLogged(true)
+      sessionStorage.setItem("isUserLogged", true)
       window.open("/adm/blog", "_self")
     } else {
+      setIsUserLogged(false)
+      sessionStorage.setItem("isUserLogged", false)
       console.log("Usuário não encontrado")
     }
   }
@@ -40,6 +44,8 @@ export const Login = () => {
       setType("password")
     }
   }
+  
+  console.log(isUserLogged)
 
   return (
     <L.login>

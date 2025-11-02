@@ -17,7 +17,11 @@ const SalusProvider = ({ children }) => {
         { email: "wander@gmail.com", password: "123" }
     ])
 
-    const contextValue = { posts, users }
+    const [isUserLogged, setIsUserLogged] = useState(sessionStorage.getItem("isUserLogged"))
+
+    console.log(isUserLogged)
+
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}
