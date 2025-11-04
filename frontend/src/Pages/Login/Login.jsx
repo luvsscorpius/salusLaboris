@@ -7,10 +7,11 @@ import { MdOutlineLock } from "react-icons/md";
 import { LuEyeClosed } from "react-icons/lu";
 import { SalusContext } from '../../Context/Context';
 import { TbEye } from "react-icons/tb";
+import { toast } from 'react-toastify';
 
 export const Login = () => {
 
-  const { users, isUserLogged, setIsUserLogged } = useContext(SalusContext)
+  const { users, isUserLogged, setIsUserLogged, navigate } = useContext(SalusContext)
 
   const [data, setData] = useState({
     email: "",
@@ -26,7 +27,8 @@ export const Login = () => {
       console.log("Usuário encontrado")
       setIsUserLogged(true)
       sessionStorage.setItem("isUserLogged", true)
-      window.open("/adm/blog", "_self")
+      navigate('/adm/blog')
+      toast.success("Login realizado com sucesso")
     } else {
       setIsUserLogged(false)
       sessionStorage.setItem("isUserLogged", false)
@@ -45,7 +47,7 @@ export const Login = () => {
       setType("password")
     }
   }
-  
+
   console.log(isUserLogged)
 
   return (
@@ -81,7 +83,7 @@ export const Login = () => {
                 <span>
                   <MdOutlineLock size={45} />
                   <input type={type} name="senha" placeholder='Digite sua senha' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} autoComplete='on' required />
-                  <button onClick={(e) => showPassword(e)}>{type === "password" ? <LuEyeClosed size={45} /> : <TbEye size={45}/>}</button>
+                  <button onClick={(e) => showPassword(e)}>{type === "password" ? <LuEyeClosed size={45} /> : <TbEye size={45} />}</button>
                 </span>
 
                 <div className="buttonContainer">

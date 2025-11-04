@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+    import { useNavigate } from 'react-router-dom';
 
 export const SalusContext = createContext()
 
@@ -13,15 +14,18 @@ const SalusProvider = ({ children }) => {
     ]
 
     const [users, setUsers] = useState([
-        { email: "and@gmail.com", pas   sword: "123" },
+        { email: "and@gmail.com", password: "123" },
         { email: "wander@gmail.com", password: "123" }
     ])
 
+    const navigate = useNavigate()
+
+    sessionStorage.setItem("isUserLogged", "")
     const [isUserLogged, setIsUserLogged] = useState(sessionStorage.getItem("isUserLogged"))
 
     console.log(isUserLogged)
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged }
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}

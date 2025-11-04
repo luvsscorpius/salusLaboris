@@ -15,29 +15,36 @@ import { AdicionarPost } from "./Pages/AdicionarPost/AdicionarPost";
 import { EditarPost } from './Pages/EditarPost/EditarPost'
 import SalusProvider from "./Context/Context";
 import { ProtectedRoute } from "./Routes/ProtectedRoute";
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 
 function App() {
 
   return (
     <>
-    <SalusProvider>
-      <GlobalStyle/>
+      <GlobalStyle />
+      <ToastContainer autoClose={3000} className="toast-container" />
       <Router>
-              <Header/>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/login/esqueceuasenha" element={<EsqueceuSenha/>}/>
-          <Route path="/login/recuperarasenha" element={<RecuperarSenha/>}/>
-          <Route path="/adm/blog" element={<ProtectedRoute><Blog/></ProtectedRoute>}/>
-          <Route path="/adm/gerenciarposts" element={<GerenciarPosts/>}/>
-          <Route path="/adm/usuarios" element={<Usuarios/>}/>
-          <Route path="/adm/criarpost" element={<AdicionarPost/>}/>
-          <Route path="/adm/editarpost" element={<EditarPost/>}/>
-        </Routes>
+        <SalusProvider>
+          <Header />
+          <Routes>
+            <Route element={<ProtectedRoute />} >
+              <Route path="/adm/blog" element={<Blog />} />
+              <Route path="/adm/gerenciarposts" element={<GerenciarPosts />} />
+              <Route path="/adm/usuarios" element={<Usuarios />} />
+              <Route path="/adm/criarpost" element={<AdicionarPost />} />
+              <Route path="/adm/editarpost" element={<EditarPost />} />
+            </Route>
+
+
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/login/esqueceuasenha" element={<EsqueceuSenha />} />
+            <Route path="/login/recuperarasenha" element={<RecuperarSenha />} />
+          </Routes>
+        </SalusProvider>
       </Router>
-      <Footer/>
-      </SalusProvider>
+      <Footer />
     </>
   );
 }
