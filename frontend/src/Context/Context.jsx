@@ -13,7 +13,7 @@ const SalusProvider = ({ children }) => {
     ]
 
     const [users, setUsers] = useState([
-        { email: "and@gmail.com", password: "123" },
+        { email: "and@gmail.com", pas   sword: "123" },
         { email: "wander@gmail.com", password: "123" }
     ])
 

@@ -30,6 +30,7 @@ export const Login = () => {
     } else {
       setIsUserLogged(false)
       sessionStorage.setItem("isUserLogged", false)
+      alert("Usuário não encontrado")
       console.log("Usuário não encontrado")
     }
   }

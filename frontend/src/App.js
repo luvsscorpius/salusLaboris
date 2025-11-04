@@ -14,6 +14,7 @@ import { GerenciarPosts } from "./Pages/GerenciarPosts/GerenciarPosts";
 import { AdicionarPost } from "./Pages/AdicionarPost/AdicionarPost";
 import { EditarPost } from './Pages/EditarPost/EditarPost'
 import SalusProvider from "./Context/Context";
+import { ProtectedRoute } from "./Routes/ProtectedRoute";
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/login/esqueceuasenha" element={<EsqueceuSenha/>}/>
           <Route path="/login/recuperarasenha" element={<RecuperarSenha/>}/>
-          <Route path="/adm/blog" element={<Blog/>}/>
+          <Route path="/adm/blog" element={<ProtectedRoute><Blog/></ProtectedRoute>}/>
           <Route path="/adm/gerenciarposts" element={<GerenciarPosts/>}/>
           <Route path="/adm/usuarios" element={<Usuarios/>}/>
           <Route path="/adm/criarpost" element={<AdicionarPost/>}/>
