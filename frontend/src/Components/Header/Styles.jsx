@@ -81,6 +81,15 @@ export const navLinks = styled.nav`
         }
     }
 
+    button {
+        border: 0;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 10px 0 10px 0;
+        background: none;
+    }
+
     ul {
         display: flex;
         flex-direction: column;

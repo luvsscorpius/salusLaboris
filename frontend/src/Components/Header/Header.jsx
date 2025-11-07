@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import * as H from './Styles'
 import { IoMenuSharp } from "react-icons/io5";
 import logo from '../../assets/logo.webp'
@@ -9,9 +9,12 @@ import { FaBloggerB } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { BiSolidLogInCircle } from "react-icons/bi";
 import { useLocation } from 'react-router-dom';
+import { SalusContext } from '../../Context/Context';
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+
+  const { logout } = useContext(SalusContext)
 
   const location = useLocation()
   const isAdmRoute = location.pathname.startsWith("/adm");
@@ -62,7 +65,7 @@ export default function Header() {
               <li>
                 <span>
                   <BiSolidLogInCircle />
-                  <a href="/" rel="noreferrer">Sair</a>
+                  <button onClick={logout}><a rel="noreferrer">Sair</a></button>
                 </span>
               </li>
             </div>

@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
     import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 
 export const SalusContext = createContext()
 
@@ -20,12 +21,18 @@ const SalusProvider = ({ children }) => {
 
     const navigate = useNavigate()
 
-    sessionStorage.setItem("isUserLogged", "")
-    const [isUserLogged, setIsUserLogged] = useState(sessionStorage.getItem("isUserLogged"))
+    const [isUserLogged, setIsUserLogged] = useState(() => {
+        const storedValue = sessionStorage.getItem("isUserLogged");
+        return storedValue === "true" // converte pra boolean
+    })
 
-    console.log(isUserLogged)
+    const logout = () => {
+        setIsUserLogged(false)
+        sessionStorage.setItem("isUserLogged", false)
+        toast.error("Usuário deslogado com sucesso")
+    }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate }
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}
