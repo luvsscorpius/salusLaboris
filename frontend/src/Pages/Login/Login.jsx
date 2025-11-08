@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 
 export const Login = () => {
 
-  const { users, isUserLogged, setIsUserLogged, navigate } = useContext(SalusContext)
+  const { users, setIsUserLogged, navigate } = useContext(SalusContext)
 
   const [data, setData] = useState({
     email: "",
@@ -20,20 +20,22 @@ export const Login = () => {
 
   const checkUsers = (e) => {
     const userFound = users.find(
-      (user) => user.email === data.email && user.password === data.password
+      (user) => user.email === data.email
     )
 
-    if (userFound) {
-      console.log("Usuário encontrado")
+    if (data.email === "" || data.password === "") {
+      toast.warning("Necessário preencher os campos de e-mail e senha")
+    } else if (!userFound) {
+      setIsUserLogged(false)
+      sessionStorage.setItem("isUserLogged", false)
+      toast.warning("Usuário não encontrado") 
+    } else if (userFound.email === data.email && userFound.password !== data.password) {
+      toast.error("Senha incorreta, tente novamente")
+    } else if (userFound.email === data.email && userFound.password === data.password) {
       setIsUserLogged(true)
       sessionStorage.setItem("isUserLogged", true)
       navigate('/adm/blog')
       toast.success("Login realizado com sucesso")
-    } else {
-      setIsUserLogged(false)
-      sessionStorage.setItem("isUserLogged", false)
-      alert("Usuário não encontrado")
-      console.log("Usuário não encontrado")
     }
   }
 
@@ -47,8 +49,6 @@ export const Login = () => {
       setType("password")
     }
   }
-
-  console.log(isUserLogged)
 
   return (
     <L.login>
