@@ -32,7 +32,21 @@ const SalusProvider = ({ children }) => {
         toast.error("Usuário deslogado com sucesso")
     }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout }
+    // função para enviar e-mail
+    const changePassword = (email) => {
+        const userFound = users.find(
+            (user) => user.email === email
+        )
+
+        if (userFound) {
+            toast.success("Usuário encontrado, enviaremos um link de verificação para o seu e-mail")
+            navigate("/login")
+        } else {
+            toast.error("Usuário não encontrado, informe um e-mail cadastrado no sistema ou entre em contato com o desenvolvedor")
+        }
+    }
+
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}
