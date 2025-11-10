@@ -62,7 +62,9 @@ export const gerenciarPostsBody = styled.div`
         padding: 20px 0;
     }
 
-    table {
+    table { 
+        display: block;
+        overflow-x: auto;
         width: 99%;
         background-color: #fff;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);  
@@ -89,8 +91,8 @@ export const gerenciarPostsBody = styled.div`
             // para truncar a celula
             overflow: hidden;
             white-space: nowrap;
+            width: 100%;
             text-overflow: ellipsis;
-            max-width: 150px; /* ocupa todo o espaço da célula */
         }
 
         .data, .icon {
@@ -116,6 +118,8 @@ export const gerenciarPostsBody = styled.div`
     }
 
     @media (min-width: 1024px) {
+
+    display: flex;
 
     table {
         .icon {

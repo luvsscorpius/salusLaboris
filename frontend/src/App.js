@@ -17,6 +17,7 @@ import SalusProvider from "./Context/Context";
 import { ProtectedRoute } from "./Routes/ProtectedRoute";
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
+import { Categorias } from "./Pages/Categorias/Categorias";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
               <Route path="/adm/usuarios" element={<Usuarios />} />
               <Route path="/adm/criarpost" element={<AdicionarPost />} />
               <Route path="/adm/editarpost" element={<EditarPost />} />
+              <Route path="/adm/categorias" element={<Categorias />} />
             </Route>
 
 
