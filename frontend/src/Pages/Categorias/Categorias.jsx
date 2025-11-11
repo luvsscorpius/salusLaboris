@@ -22,6 +22,8 @@ export const Categorias = () => {
     const offSet = currentPage * itemsPage
     const currentPageData = categorias.slice(offSet, offSet + itemsPage)
 
+    console.log(currentPageData)
+
     return (
         <G.main>
             <Menu />
@@ -47,7 +49,7 @@ export const Categorias = () => {
                     </thead>
 
                     <tbody>
-                        {categorias.length > 0 && currentPageData.map((categoria, index) => (
+                        {categorias && categorias.length > 0 && currentPageData.map((categoria, index) => (
                             <tr key={index}>
                                 <td>{categoria.title.length > 200
                                     ? categoria.title.substring(0, 200) + "..."
