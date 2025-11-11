@@ -18,6 +18,7 @@ import { ProtectedRoute } from "./Routes/ProtectedRoute";
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
 import { Categorias } from "./Pages/Categorias/Categorias";
+import { AdicionarCategoria } from "./Pages/AdicionarCategoria/AdicionarCategoria";
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
               <Route path="/adm/criarpost" element={<AdicionarPost />} />
               <Route path="/adm/editarpost" element={<EditarPost />} />
               <Route path="/adm/categorias" element={<Categorias />} />
+              <Route path="/adm/adicionarcategoria" element={<AdicionarCategoria />} />
             </Route>
 
 

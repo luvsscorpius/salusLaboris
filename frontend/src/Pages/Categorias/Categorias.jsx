@@ -30,7 +30,7 @@ export const Categorias = () => {
                 <B.blogHeader className='header'>
                     <div>
                         <h2>Categorias</h2>
-                        <button onClick={() => window.open("/adm/criarpost", "_self")}><CiCirclePlus size={45} /></button>
+                        <button onClick={() => window.open("/adm/adicionarcategoria", "_self")}><CiCirclePlus size={45} /></button>
                     </div>
 
                     <hr />
