@@ -59,13 +59,14 @@ const SalusProvider = ({ children }) => {
     const createCategory = (titulo) => {
         console.log(titulo)
 
-        const novaCategoria = { id: categorias.length + 1, title: titulo, author: "teste", date: new Date().toLocaleDateString("pt-BR") }
+        const novaCategoria = { id: categorias.length + 1, title: titulo, author: sessionStorage.getItem("loggedUser"), date: new Date().toLocaleDateString("pt-BR") }
 
         setCategorias((prev) => [...prev, novaCategoria,])
 
         sessionStorage.setItem("categorias", JSON.stringify(categorias))
 
         toast.success("Categoria adicionada com sucesso")
+        navigate("/adm/categorias")
     }
 
     const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory }
