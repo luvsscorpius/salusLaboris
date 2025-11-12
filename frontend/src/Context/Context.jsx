@@ -6,13 +6,10 @@ export const SalusContext = createContext()
 
 const SalusProvider = ({ children }) => {
 
-    const posts = [
-        { id: 0, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
-        { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
-        { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
-        { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
-        { id: 1, category: "Segurança do trabalho", date: "12/09/2025", author: "Wander Delgado", title: "EPIs essenciais para proteger sua equipe", desc: "Você sabe quais são os equipamentos de proteção individual mais importantes para a sua empresa? Neste conteúdo, explicamos quais são os EPIs indispensáveis para cada tipo de atividade, como utilizá-los corretamente e qual a periodicidade de substituição e manutenção...." },
-    ]
+    const [posts, setPosts] = useState(() => {
+        const stored = sessionStorage.getItem("posts")
+        return stored ? JSON.parse(stored) : []
+    })
 
     const [categorias, setCategorias] = useState(() => {
         const stored = sessionStorage.getItem("categorias");
@@ -21,7 +18,8 @@ const SalusProvider = ({ children }) => {
 
     useEffect(() => {
         sessionStorage.setItem("categorias", JSON.stringify(categorias));
-    }, [categorias]);
+        sessionStorage.setItem("posts", JSON.stringify(posts));
+    }, [categorias, posts]);
 
     const [users, setUsers] = useState([
         { email: "and@gmail.com", password: "123" },
@@ -69,7 +67,39 @@ const SalusProvider = ({ children }) => {
         navigate("/adm/categorias")
     }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory }
+    // funcao para deletar categorias
+    const deleteCategory = (id) => {
+        const novasCategorias = categorias.splice(1, id)
+        console.log(novasCategorias)
+        setCategorias(novasCategorias)
+        sessionStorage.setItem("categorias", novasCategorias)
+        toast.success("Categoria deletada com sucesso")
+    }
+
+     // função para criar categorias 
+    const createPost = (post) => {
+        console.log(post)
+
+        const novoPost = { id: posts.length + 1, title: post.title, category: post.category, author: sessionStorage.getItem("loggedUser"), date: new Date().toLocaleDateString("pt-BR") }
+
+        setPosts((prev) => [...prev, novoPost,])
+
+        sessionStorage.setItem("posts", JSON.stringify(posts))
+
+        toast.success("Post adicionado com sucesso")
+        navigate("/adm/gerenciarposts")
+    }
+
+        // funcao para deletar categorias
+    const deletePost = (id) => {
+        const novosPosts = posts.splice(1, id)
+        console.log(novosPosts)
+        setPosts(novosPosts)
+        sessionStorage.setItem("posts", novosPosts)
+        toast.success("Post deletado com sucesso")
+    }
+
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, posts, createPost, deletePost }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}

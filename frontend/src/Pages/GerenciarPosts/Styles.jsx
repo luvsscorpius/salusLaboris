@@ -75,11 +75,13 @@ export const gerenciarPostsBody = styled.div`
             background-color: #233D4D;
             color: #fff;
             height: 60px;
+            width: 100%;
         }
 
         th {
             text-align: start;
             padding: 10px;
+            width: 100%;
         }
 
         td {

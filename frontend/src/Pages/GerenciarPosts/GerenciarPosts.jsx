@@ -10,7 +10,7 @@ import { SalusContext } from '../../Context/Context';
 
 export const GerenciarPosts = () => {
 
-  const {posts} = useContext(SalusContext)
+  const {posts, deletePost} = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 10
@@ -21,6 +21,8 @@ export const GerenciarPosts = () => {
 
   const offSet = currentPage * itemsPage
   const currentPageData = posts.slice(offSet, offSet + itemsPage)
+
+  console.log(posts)
 
   return (
     <G.main>
@@ -41,6 +43,7 @@ export const GerenciarPosts = () => {
           <thead>
             <tr>
               <th>Título</th>
+              <th>Categoria</th>
               <th>Data</th>
               <th>Autor</th>
               <th>Ações</th>
@@ -53,11 +56,14 @@ export const GerenciarPosts = () => {
                 <td>{post.title.length > 200
                   ? post.title.substring(0, 200) + "..."
                   : post.title}</td>
+                <td>{post.category.length > 200
+                  ? post.category.substring(0, 200) + "..."
+                  : post.category}</td>
                 <td className='data'>{post.date.length > 15 ? post.date.substring(0, 15) + "..." : post.date}</td>
                 <td className='autor'>{post.author.length > 20 ? post.author.substring(0,20) + "..." : post.author}</td>
                 <td className='icon'>
                   <FaRegEdit size={25} onClick={() => window.open("/adm/editarpost", "_self")} />
-                  <MdDeleteOutline size={25} />
+                  <MdDeleteOutline size={25} onClick={(e) => deletePost(post.id)} />
                 </td>
               </tr>
             ))}

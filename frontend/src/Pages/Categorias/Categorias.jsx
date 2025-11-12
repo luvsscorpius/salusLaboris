@@ -10,7 +10,7 @@ import ReactPaginate from 'react-paginate'
 
 export const Categorias = () => {
 
-    const { categorias } = useContext(SalusContext)
+    const { categorias, deleteCategory } = useContext(SalusContext)
 
     const [currentPage, setCurrentPage] = useState(0)
     const itemsPage = 8
@@ -58,7 +58,7 @@ export const Categorias = () => {
                                 <td className='autor'>{categoria.author.length > 20 ? categoria.author.substring(0, 20) + "..." : categoria.author}</td>
                                 <td className='icon'>
                                     <FaRegEdit size={25} onClick={() => window.open("/adm/editarpost", "_self")} />
-                                    <MdDeleteOutline size={25} />
+                                    <MdDeleteOutline size={25} onClick={(e) => deleteCategory(categoria.id)} />
                                 </td>
                             </tr>
                         ))}
