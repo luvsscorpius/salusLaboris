@@ -22,8 +22,8 @@ const SalusProvider = ({ children }) => {
     }, [categorias, posts]);
 
     const [users, setUsers] = useState([
-        { email: "and@gmail.com", password: "123" },
-        { email: "wander@gmail.com", password: "123" }
+        { name: "anderson", email: "and@gmail.com", password: "123" },
+        { name: "wander", email: "wander@gmail.com", password: "123" }
     ])
 
     const navigate = useNavigate()

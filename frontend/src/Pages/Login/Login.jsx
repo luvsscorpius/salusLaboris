@@ -14,6 +14,7 @@ export const Login = () => {
   const { users, setIsUserLogged, navigate } = useContext(SalusContext)
 
   const [data, setData] = useState({
+    name: "",
     email: "",
     password: ""
   })
@@ -33,7 +34,8 @@ export const Login = () => {
       toast.error("Senha incorreta, tente novamente")
     } else if (userFound.email === data.email && userFound.password === data.password) {
       setIsUserLogged(true)
-      sessionStorage.setItem("loggedUser", data.email)
+      setData({...data, name: userFound.name})
+      sessionStorage.setItem("loggedUser", userFound.name)
       sessionStorage.setItem("isUserLogged", true)
       navigate('/adm/blog')
       toast.success("Login realizado com sucesso")

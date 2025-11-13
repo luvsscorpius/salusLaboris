@@ -107,6 +107,7 @@ export const cardsContainer = styled.div`
     justify-content: center;
     gap: 30px;
     padding: 0px 0px 15px;
+    width: 100%;
 `
 
 export const card = styled.div`
