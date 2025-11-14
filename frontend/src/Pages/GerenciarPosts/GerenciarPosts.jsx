@@ -10,7 +10,7 @@ import { SalusContext } from '../../Context/Context';
 
 export const GerenciarPosts = () => {
 
-  const {posts, deletePost} = useContext(SalusContext)
+  const {posts, deletePost, editPost, navigate, setCategoryId} = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 10
@@ -22,7 +22,12 @@ export const GerenciarPosts = () => {
   const offSet = currentPage * itemsPage
   const currentPageData = posts.slice(offSet, offSet + itemsPage)
 
-  console.log(posts)
+  const enviarCategoria = (categoryId) => {
+    editPost(categoryId)
+    sessionStorage.setItem("categoryId", categoryId)
+    setCategoryId(categoryId)
+    navigate('/adm/editarpost')
+  }
 
   return (
     <G.main>
@@ -62,7 +67,7 @@ export const GerenciarPosts = () => {
                 <td className='data'>{post.date.length > 15 ? post.date.substring(0, 15) + "..." : post.date}</td>
                 <td className='autor'>{post.author.length > 20 ? post.author.substring(0,20) + "..." : post.author}</td>
                 <td className='icon'>
-                  <FaRegEdit size={25} onClick={() => window.open("/adm/editarpost", "_self")} />
+                  <FaRegEdit size={25} onClick={(e) => enviarCategoria(post.id)} />
                   <MdDeleteOutline size={25} onClick={(e) => deletePost(post.id)} />
                 </td>
               </tr>

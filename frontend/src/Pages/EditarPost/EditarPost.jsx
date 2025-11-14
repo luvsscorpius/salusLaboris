@@ -1,53 +1,27 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Menu } from '../../Components/Menu/Menu';
 import * as B from '../Blog/Styles'
 import * as A from './Styles'
 import { IoIosSave } from "react-icons/io";
 import { CiCirclePlus } from "react-icons/ci";
+import { SalusContext } from '../../Context/Context';
 
 export const EditarPost = () => {
 
-    const blogCategories = [
-        "Fundamentos da Segurança do Trabalho",
-        "Legislação e Normas Regulamentadoras (NRs)",
-        "Equipamentos de Proteção Individual (EPIs)",
-        "Equipamentos de Proteção Coletiva (EPCs)",
-        "CIPA e Gestão de Segurança",
-        "Riscos Físicos, Químicos e Biológicos",
-        "Riscos Ergonômicos e Mecânicos",
-        "Prevenção de Acidentes",
-        "Análise e Investigação de Acidentes",
-        "PGR e Gerenciamento de Riscos Ocupacionais",
-        "PCMSO e Saúde Ocupacional",
-        "Ergonomia no Trabalho",
-        "Prevenção e Combate a Incêndios",
-        "Primeiros Socorros e Emergências",
-        "Treinamentos Obrigatórios",
-        "Comportamento Seguro e Cultura de Segurança",
-        "Segurança na Construção Civil",
-        "Segurança na Indústria",
-        "Segurança em Obras e Canteiros",
-        "Segurança em Espaços Confinados",
-        "Segurança em Altura",
-        "Segurança Elétrica",
-        "Segurança em Máquinas e Equipamentos",
-        "Transporte e Logística Segura",
-        "Saúde Mental e Bem-Estar do Trabalhador",
-        "Prevenção ao Estresse e Burnout",
-        "Higiene Ocupacional",
-        "Inspeções e Auditorias de Segurança",
-        "Documentos e Programas Obrigatórios (LTCAT, ASO, PPP)",
-        "Indicadores e Estatísticas de Segurança",
-        "Sustentabilidade e Meio Ambiente no Trabalho",
-        "Tendências e Inovações em SST",
-        "Mudanças nas NRs e Atualizações Legais",
-        "Casos Reais e Estudos de Caso",
-        "Entrevistas com Profissionais da Área",
-        "Dicas e Materiais Educativos",
-        "Modelos e Checklists de Segurança",
-        "Eventos, Palestras e Seminários",
-        "Opiniões e Reflexões sobre Segurança do Trabalho"
-    ];
+    const { editPost, categorias, categoryId, posts } = useContext(SalusContext)
+
+    const findPost = posts.find(
+        (post) => post.id === Number(categoryId)
+    )
+
+    const [updatePost, setUpdatePost] = useState({
+        id: categoryId,
+        title: findPost.title,
+        desc: findPost.desc,
+        category: "",
+        author: sessionStorage.getItem("loggedUser"),
+        date: new Date().toLocaleDateString("pt-BR")
+    })
 
     return (
         <A.main>
@@ -67,24 +41,27 @@ export const EditarPost = () => {
                 <A.novoPostBody>
                     <span>
                         <label htmlFor="titulo">Título</label>
-                        <input type="text" name='titulo' />
+                        <input type="text" name='titulo' value={updatePost.title} onChange={(e) => setUpdatePost({...updatePost, title: e.target.value})}/>
                     </span>
                     <span>
                         <label htmlFor="categoria">Categoria</label>
-                        <select name="categoria">
-                            {blogCategories.map((cat, index) => (
-                                <option value={cat} key={index}>{cat}</option>
+                        <select name="categoria" onChange={(e) => setUpdatePost({...updatePost, category: e.target.value})}>
+                            <option value="">Selecione uma categoria</option>
+                            {categorias.map((cat, index) => (
+                                <option value={cat.title} key={index}>
+                                    {cat.title}
+                                </option>
                             ))}
                         </select>
                     </span>
                     <span>
                         <label htmlFor="conteudo">Conteúdo</label>
-                        <textarea name="conteudo" id="conteudo"></textarea>
+                        <textarea name="conteudo" id="conteudo" value={updatePost.desc} onChange={(e) => setUpdatePost({...updatePost, desc: e.target.value})}></textarea>
                     </span>
 
                     <div>
 
-                        <button> <IoIosSave size={22} /> Adicionar post</button>
+                        <button onClick={() => editPost(updatePost)}> <IoIosSave size={22} /> Editar post</button>
                     </div>
                 </A.novoPostBody>
 
