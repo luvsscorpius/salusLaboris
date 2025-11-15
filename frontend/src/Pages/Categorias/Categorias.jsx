@@ -10,7 +10,7 @@ import ReactPaginate from 'react-paginate'
 
 export const Categorias = () => {
 
-    const { categorias, deleteCategory } = useContext(SalusContext)
+    const { categorias, deleteCategory, editCategory, navigate, setCategoryId } = useContext(SalusContext)
 
     const [currentPage, setCurrentPage] = useState(0)
     const itemsPage = 8
@@ -22,7 +22,12 @@ export const Categorias = () => {
     const offSet = currentPage * itemsPage
     const currentPageData = categorias.slice(offSet, offSet + itemsPage)
 
-    console.log(currentPageData)
+    const enviarCategoria = (categoryId) => {
+        editCategory(categoryId)
+        sessionStorage.setItem("categoryId", categoryId)
+        setCategoryId(categoryId)
+        navigate('/adm/editarcategoria')
+      }
 
     return (
         <G.main>
@@ -57,7 +62,7 @@ export const Categorias = () => {
                                 <td className='data'>{categoria.date.length > 15 ? categoria.date.substring(0, 15) + "..." : categoria.date}</td>
                                 <td className='autor'>{categoria.author.length > 20 ? categoria.author.substring(0, 20) + "..." : categoria.author}</td>
                                 <td className='icon'>
-                                    <FaRegEdit size={25} onClick={() => window.open("/adm/editarpost", "_self")} />
+                                    <FaRegEdit size={25} onClick={() => enviarCategoria(categoria.id)} />
                                     <MdDeleteOutline size={25} onClick={(e) => deleteCategory(categoria.id)} />
                                 </td>
                             </tr>

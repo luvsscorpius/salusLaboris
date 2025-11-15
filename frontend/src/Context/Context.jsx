@@ -78,7 +78,7 @@ const SalusProvider = ({ children }) => {
 
     const [categoryId, setCategoryId] = useState()
 
-    // função para editar categoria
+    // função para editar post
     const editPost = (info) => {
         const id = sessionStorage.getItem("categoryId")
         sessionStorage.setItem("categoryId", id)
@@ -92,11 +92,29 @@ const SalusProvider = ({ children }) => {
             )
 
             if (findPost) {
-                setPosts(posts.map(post => 
+                setPosts(posts.map(post =>
                     post.id === info.id ? info : post
                 ))
                 navigate("adm/gerenciarposts")
             }
+        }
+    }
+
+    // função para editar categoria
+    const editCategory = (info) => {
+        const id = sessionStorage.getItem("categoryId")
+        sessionStorage.setItem("categoryId", id)
+        setCategoryId(id)
+
+        const findCategory = categorias.find(
+            (categoria) => categoria.id === Number(info.id)
+        )
+
+        if (findCategory) {
+            setCategorias(categorias.map(post =>
+                post.id === info.id ? info : post
+            ))
+            navigate("adm/categorias")
         }
     }
 
@@ -127,7 +145,7 @@ const SalusProvider = ({ children }) => {
         toast.success("Post deletado com sucesso")
     }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, posts, createPost, deletePost, editPost, categoryId, setCategoryId }
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, posts, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}
