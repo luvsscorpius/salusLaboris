@@ -84,32 +84,41 @@ const SalusProvider = ({ children }) => {
         sessionStorage.setItem("categoryId", id)
         setCategoryId(id)
 
-        console.log("Encontrei", info)
+        if (info.category === "") {
+            toast.warning("Selecione uma categoria antes de editar um post")
+        } else {
+            const findPost = posts.find(
+                (post) => post.id === Number(info.id)
+            )
 
-        const findPost = posts.find(
-            (post) => post.id === Number(info.id)
-        )
-
-        if (findPost) {
-            setPosts([...posts, info])
+            if (findPost) {
+                setPosts(posts.map(post => 
+                    post.id === info.id ? info : post
+                ))
+                navigate("adm/gerenciarposts")
+            }
         }
     }
 
-     // função para criar categorias 
+    // função para criar categorias 
     const createPost = (post) => {
         console.log(post)
 
-        const novoPost = { id: posts.length + 1, title: post.title, desc: post.desc, category: post.category, author: sessionStorage.getItem("loggedUser"), date: new Date().toLocaleDateString("pt-BR") }
+        if (post.category === "") {
+            toast.warning("Selecione uma categoria antes de criar um post")
+        } else {
+            const novoPost = { id: posts.length + 1, title: post.title, desc: post.desc, category: post.category, author: sessionStorage.getItem("loggedUser"), date: new Date().toLocaleDateString("pt-BR") }
 
-        setPosts((prev) => [...prev, novoPost,])
+            setPosts((prev) => [...prev, novoPost,])
 
-        sessionStorage.setItem("posts", JSON.stringify(posts))
+            sessionStorage.setItem("posts", JSON.stringify(posts))
 
-        toast.success("Post adicionado com sucesso")
-        navigate("/adm/gerenciarposts")
+            toast.success("Post adicionado com sucesso")
+            navigate("/adm/gerenciarposts")
+        }
     }
 
-        // funcao para deletar categorias
+    // funcao para deletar categorias
     const deletePost = (id) => {
         const novosPosts = posts.splice(1, id)
         console.log(novosPosts)
