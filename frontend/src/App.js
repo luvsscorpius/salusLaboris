@@ -21,6 +21,7 @@ import { Categorias } from "./Pages/Categorias/Categorias";
 import { AdicionarCategoria } from "./Pages/AdicionarCategoria/AdicionarCategoria";
 import { EditarCategoria } from "./Pages/EditarCategoria/EditarCategoria";
 import { Dashboard } from "./Pages/Dashboard/Dashboard";
+import { PostPage } from "./Pages/PostPage/PostPage";
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/login/esqueceuasenha" element={<EsqueceuSenha />} />
             <Route path="/login/recuperarasenha" element={<RecuperarSenha />} />
+            <Route path="/post" element={<PostPage />} />
           </Routes>
         </SalusProvider>
       </Router>
