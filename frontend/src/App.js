@@ -20,6 +20,7 @@ import "react-toastify/dist/ReactToastify.css"
 import { Categorias } from "./Pages/Categorias/Categorias";
 import { AdicionarCategoria } from "./Pages/AdicionarCategoria/AdicionarCategoria";
 import { EditarCategoria } from "./Pages/EditarCategoria/EditarCategoria";
+import { Dashboard } from "./Pages/Dashboard/Dashboard";
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
               <Route path="/adm/categorias" element={<Categorias />} />
               <Route path="/adm/adicionarcategoria" element={<AdicionarCategoria />} />
               <Route path="/adm/editarcategoria" element={<EditarCategoria />} />
+              <Route path="/adm/dashboard" element={<Dashboard />} />
             </Route>
 
 
