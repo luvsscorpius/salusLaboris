@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from "./Components/Header/Header";
 import GlobalStyle from "./GlobalStyle";
@@ -13,7 +13,7 @@ import { Usuarios } from "./Pages/Usuarios/Usuarios";
 import { GerenciarPosts } from "./Pages/GerenciarPosts/GerenciarPosts";
 import { AdicionarPost } from "./Pages/AdicionarPost/AdicionarPost";
 import { EditarPost } from './Pages/EditarPost/EditarPost'
-import SalusProvider from "./Context/Context";
+import SalusProvider, { SalusContext } from "./Context/Context";
 import { ProtectedRoute } from "./Routes/ProtectedRoute";
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
@@ -50,7 +50,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/login/esqueceuasenha" element={<EsqueceuSenha />} />
             <Route path="/login/recuperarasenha" element={<RecuperarSenha />} />
-            <Route path="/post" element={<PostPage />} />
+            <Route path={`/post/:id`} element={<PostPage />} />
           </Routes>
         </SalusProvider>
       </Router>

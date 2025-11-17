@@ -7,7 +7,7 @@ import ReactPaginate from 'react-paginate'
 import { SalusContext } from '../../Context/Context';
 
 export const Blog = () => {
-  const {posts} = useContext(SalusContext)
+  const {posts, navigate} = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 3
@@ -54,7 +54,7 @@ export const Blog = () => {
                     <p>{post.desc.length > 120 
                       ? post.desc.substring(0, 150) + "..." 
                       : post.desc}</p>
-                    <button>Ler mais</button>
+                    <button onClick={() => navigate(`/post/${post.id}`)}>Ler mais</button>
                 </B.cardInfo>
               </B.card>
             ))}

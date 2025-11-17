@@ -22,8 +22,8 @@ const SalusProvider = ({ children }) => {
     }, [categorias, posts]);
 
     const [users, setUsers] = useState([
-        { name: "anderson", email: "and@gmail.com", password: "123" },
-        { name: "wander", email: "wander@gmail.com", password: "123" }
+        { name: "Anderson Vitor", email: "and@gmail.com", password: "123", desc: "Anderson Vitor é um desenvolvedor de sistemas web fullstack" },
+        { name: "Wander Delgado", email: "wander@gmail.com", password: "123", desc: "Wander Delgado é o Diretor Financeiro, responsável pela gestão estratégica dos recursos da empresa. Com visão analítica e foco em resultados, ele conduz o planejamento financeiro, otimiza processos e garante uma administração eficiente e transparente." }
     ])
 
     const navigate = useNavigate()

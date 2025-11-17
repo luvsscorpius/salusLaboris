@@ -2,21 +2,30 @@ import React, { useContext } from 'react'
 import * as P from './Styles'
 import { SalusContext } from '../../Context/Context'
 import WanderDelgado from '../../assets/WanderDelgado.webp'
+import { useParams } from 'react-router-dom'
 
 export const PostPage = () => {
 
-  const { posts } = useContext(SalusContext)
+  const { posts, users } = useContext(SalusContext)
 
-  console.log(posts)
+  const {id} = useParams()
+
+  const foundPost = posts.find(
+    (post) => post.id === Number(id)
+  )
+
+  const findUser = users.find(
+    (user) => user.name === foundPost.author
+  )
 
   return (
     <P.main>
       <P.postContainer>
         <P.postBody>
-          <h1>{posts[0].title}</h1>
+          <h1>{foundPost.title}</h1>
           <hr />
 
-          <p>{posts[0].desc}</p>
+          <p>{foundPost.desc}</p>
         </P.postBody>
 
         <P.postFooter>
@@ -25,8 +34,8 @@ export const PostPage = () => {
           </span>
 
           <span>
-            <h3>Escrito por Wander Delgado</h3>
-            <p>Wander Delgado é o Diretor Financeiro, responsável pela gestão estratégica dos recursos da empresa. Com visão analítica e foco em resultados, ele conduz o planejamento financeiro, otimiza processos e garante uma administração eficiente e transparente.</p>
+            <h3>Escrito por {foundPost.author}</h3>
+            <p>{findUser.desc}</p>
           </span>
         </P.postFooter>
       </P.postContainer>
