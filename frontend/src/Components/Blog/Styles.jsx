@@ -147,7 +147,7 @@ export const postInfo = styled.div`
         flex-direction: row;
         gap: 5px;
         padding: 10px 5px 0 10px;
-
+        
         p {
             color: #4A7C59;
         }
@@ -164,8 +164,10 @@ export const cardInfo = styled.div`
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     gap: 15px;
     border-radius: 0 0 10px 10px;
+    height: 300px;
 
     h3 {
         font-size: 22px;

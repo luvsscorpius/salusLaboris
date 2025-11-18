@@ -79,6 +79,63 @@ export const novoPostBody = styled.div`
         }
     }
 
+    .toolbar {
+        display: flex;
+        justify-content: start;
+        gap: 8px;
+        padding: 10px;
+        background: #fff;
+        border: 1px solid #dcdcdc;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .toolbar button {
+        background: #4A7C59;
+        border: 1px solid #ccc;
+        padding: 8px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+
+        transition: all 0.2s ease;
+    }
+
+    .toolbar button:hover {
+        background: #eaeaea;
+        border-color: #bcbcbc;
+    }
+
+    .toolbar button.is-active {
+        background: #d0e4ff;
+        border-color: #5b9bff;
+    }
+
+    .editorWrapper {
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 15px;
+        background: white;
+        max-height: 500px;
+        min-height: 300px; 
+        overflow-y: auto;
+        font-size: 16px;
+        line-height: 1.6;
+        display: flex;
+        align-items: start;
+
+        /* TipTap reset */
+        .ProseMirror {
+            min-height: 250px;
+            outline: none;
+        }
+    }
+
     div {
         width: 100%;
         padding: 10px;

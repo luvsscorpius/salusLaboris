@@ -7,12 +7,12 @@ import ReactPaginate from 'react-paginate'
 import { SalusContext } from '../../Context/Context';
 
 export const Blog = () => {
-  const {posts, navigate} = useContext(SalusContext)
+  const { posts, navigate } = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 3
 
-  const handlePageClick = ({selected}) => {
+  const handlePageClick = ({ selected }) => {
     setCurrentPage(selected)
   }
 
@@ -21,57 +21,60 @@ export const Blog = () => {
 
   return (
     <B.main id="blog">
-        
-        <B.titleContainer>
-            <h2>BLOG DA SALUS LABORIS</h2>
-            <h3>EXPANDA SEU CONHECIMENTO SOBRE SEGURANÇA DO TRABALHO</h3>
-        </B.titleContainer>
 
-        <B.cardsContainer>
-            {posts.length > 0 && currentPageData.map((post, index) => (
-              <B.card key={index}>
-                <B.cardHeader>
-                        <img src={blogSeg} alt="Imagem de fundo do post do blog" />
-                        <span>
-                        <p>{post.category}</p>
-                        </span>
-                </B.cardHeader>
+      <B.titleContainer>
+        <h2>BLOG DA SALUS LABORIS</h2>
+        <h3>EXPANDA SEU CONHECIMENTO SOBRE SEGURANÇA DO TRABALHO</h3>
+      </B.titleContainer>
 
-                <B.postInfo>
-                  <span>
-                    <FaRegCalendarAlt/>
-                    <p>{post.date}</p>
-                  </span>
-                  
-                  <span>
-                    <FaRegUser/>
-                    <p>{post.author}</p>
-                  </span>
-                </B.postInfo>
+      <B.cardsContainer>
+        {posts.length > 0 && currentPageData.map((post, index) => (
+          <B.card key={index}>
+            <B.cardHeader>
+              <img src={blogSeg} alt="Imagem de fundo do post do blog" />
+              <span>
+                <p>{post.category}</p>
+              </span>
+            </B.cardHeader>
 
-                <B.cardInfo>
-                    <h3>{post.title}</h3>
-                    <p>{post.desc.length > 120 
-                      ? post.desc.substring(0, 150) + "..." 
-                      : post.desc}</p>
-                    <button onClick={() => navigate(`/post/${post.id}`)}>Ler mais</button>
-                </B.cardInfo>
-              </B.card>
-            ))}
-        </B.cardsContainer>
+            <B.postInfo>
+              <span>
+                <FaRegCalendarAlt />
+                <p>{post.date}</p>
+              </span>
 
-        <ReactPaginate
-                pageCount={Math.ceil(posts.length / itemsPage)}
-                pageRangeDisplayed={3} // Número de páginas a serem exibidas
-                marginPagesDisplayed={1} // Número de páginas a serem exibidas nas extremidades
-                onPageChange={handlePageClick}
-                containerClassName={'pagination'}
-                activeClassName={'active'}
-                nextLinkClassName={"next"}
-                nextLabel=">"
-                previousLabel="<"
-                previousLinkClassName={"previous"}
-                pageClassName={"page"}/>
+              <span>
+                <FaRegUser />
+                <p>{post.author}</p>
+              </span>
+            </B.postInfo>
+
+            <B.cardInfo>
+              <h3>{post.title}</h3>
+              <div
+                className="postContent"
+                dangerouslySetInnerHTML={{ __html: post.desc.length > 120
+                ? post.desc.substring(0, 150) + "..."
+                : post.desc} }
+              />
+              <button onClick={() => navigate(`/post/${post.id}`)}>Ler mais</button>
+            </B.cardInfo>
+          </B.card>
+        ))}
+      </B.cardsContainer>
+
+      <ReactPaginate
+        pageCount={Math.ceil(posts.length / itemsPage)}
+        pageRangeDisplayed={3} // Número de páginas a serem exibidas
+        marginPagesDisplayed={1} // Número de páginas a serem exibidas nas extremidades
+        onPageChange={handlePageClick}
+        containerClassName={'pagination'}
+        activeClassName={'active'}
+        nextLinkClassName={"next"}
+        nextLabel=">"
+        previousLabel="<"
+        previousLinkClassName={"previous"}
+        pageClassName={"page"} />
     </B.main>
   )
 }

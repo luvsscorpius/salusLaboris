@@ -25,7 +25,11 @@ export const PostPage = () => {
           <h1>{foundPost.title}</h1>
           <hr />
 
-          <p>{foundPost.desc}</p>
+          {/* AQUI: conteúdo rico do TipTap */}
+          <div
+            className="postContent"
+            dangerouslySetInnerHTML={{ __html: foundPost.desc }}
+          />
         </P.postBody>
 
         <P.postFooter>
