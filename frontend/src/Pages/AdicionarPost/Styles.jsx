@@ -121,8 +121,8 @@ export const novoPostBody = styled.div`
         border-radius: 6px;
         padding: 15px;
         background: white;
-        max-height: 500px;
-        min-height: 300px; 
+        max-height: 250px;
+        min-height: 100px; 
         overflow-y: auto;
         font-size: 16px;
         line-height: 1.6;
