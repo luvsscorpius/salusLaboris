@@ -7,7 +7,7 @@ import ReactPaginate from 'react-paginate'
 import { SalusContext } from '../../Context/Context';
 
 export const Blog = () => {
-  const { posts, navigate } = useContext(SalusContext)
+  const { posts, setPosts, navigate } = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 3
@@ -18,6 +18,30 @@ export const Blog = () => {
 
   const offSet = currentPage * itemsPage
   const currentPageData = posts.slice(offSet, offSet + itemsPage)
+
+  // funcao para ir para a pagina e depois contar view
+  const visitPostNCount = (id) => {
+
+    // encontramos o post de acordo com o id
+    const findPost = posts.find((post) => 
+      post.id === id
+    )
+
+    // se tiver encontrado o post
+    if (findPost) {
+      // atualizamos a propriedade views do objeto
+      const updatedPost = {
+        ...findPost, 
+        views: (findPost.views || 0) + 1
+      }
+
+      setPosts(posts.map(post => 
+        post.id === id ? updatedPost : post
+      ))
+    }
+
+    navigate(`/post/${id}`)
+  }
 
   return (
     <B.main id="blog">
@@ -57,7 +81,7 @@ export const Blog = () => {
                 ? post.desc.substring(0, 150) + "..."
                 : post.desc} }
               />
-              <button onClick={() => navigate(`/post/${post.id}`)}>Ler mais</button>
+              <button onClick={() => visitPostNCount(post.id)}>Ler mais</button>
             </B.cardInfo>
           </B.card>
         ))}

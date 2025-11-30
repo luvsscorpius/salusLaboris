@@ -125,7 +125,7 @@ const SalusProvider = ({ children }) => {
         if (post.category === "") {
             toast.warning("Selecione uma categoria antes de criar um post")
         } else {
-            const novoPost = { id: posts.length + 1, title: post.title, desc: post.desc, category: post.category, author: sessionStorage.getItem("loggedUser"), date: new Date().toLocaleDateString("pt-BR") }
+            const novoPost = { id: posts.length + 1, title: post.title, desc: post.desc, category: post.category, author: sessionStorage.getItem("loggedUser"), date: new Date().toLocaleDateString("pt-BR"), views: 0 }
 
             setPosts((prev) => [...prev, novoPost,])
 
@@ -145,7 +145,7 @@ const SalusProvider = ({ children }) => {
         toast.success("Post deletado com sucesso")
     }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, posts, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory }
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}
