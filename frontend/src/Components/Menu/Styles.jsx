@@ -75,7 +75,7 @@ export const menu = styled.menu`
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 100vh;
+        height: 120vh;
         top: 0;
     }
 

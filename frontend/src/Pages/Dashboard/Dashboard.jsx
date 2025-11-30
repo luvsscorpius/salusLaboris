@@ -7,7 +7,7 @@ import { SalusContext } from '../../Context/Context'
 import { MdOutlinePostAdd } from "react-icons/md";
 import { FaUsers } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
-import { CartesianGrid, Legend, Line, LineChart, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 export const Dashboard = () => {
 
@@ -40,6 +40,12 @@ export const Dashboard = () => {
         return acc;
     }, {});
 
+    // CONTAGEM Dos posts
+    const postsCount = posts.reduce((acc, post) => {
+        acc[post.views] = (acc[post.views] || 0) + 1;
+        return acc;
+    }, {});
+
     const colors = [
         "#4A7C59",
         "#233D4D",
@@ -53,11 +59,20 @@ export const Dashboard = () => {
     const categoriasData = Object.entries(categoriasCount).map(([name, value], index) => ({
         name,
         value,
-        fill: colors[index % colors.length] 
+        fill: colors[index % colors.length]
     }));
 
+    console.log(postsCount)
+
+    // achar post mais acessado 
+    const postsData = posts.map(post => ({
+        name: post.title,
+        value: post.views || 0,
+        fill: colors[Math.floor(Math.random() * colors.length)]
+    }))
+
     return (
-        <G.main>
+        <G.main style={{ height: "auto" }}>
             <Menu />
 
             <G.gerenciarPostsBody>
@@ -151,6 +166,30 @@ export const Dashboard = () => {
                                 </PieChart>
                             </ResponsiveContainer>
                         </D.chatCard>
+
+                        <D.chatCard>
+
+                            <h3>Post mais acessado</h3>
+
+                            <ResponsiveContainer width="100%" height={230}>
+                                <BarChart data={postsData}>
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis
+                                        dataKey="name"
+                                        interval={0}
+                                        angle={-25}
+                                        textAnchor="end"
+                                        height={60}
+                                    />
+                                    <YAxis />
+                                    <Tooltip />
+                                    <Legend />
+
+                                    <Bar dataKey="value" fill={postsData.fill} />
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </D.chatCard>
+
                     </D.chartsContainer>
                 </D.dashBoardContainer>
             </G.gerenciarPostsBody>
