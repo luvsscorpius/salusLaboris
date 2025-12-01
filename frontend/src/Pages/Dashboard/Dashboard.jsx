@@ -127,7 +127,7 @@ export const Dashboard = () => {
 
                             <h3>Autor que mais publicou</h3>
 
-                            <ResponsiveContainer width="100%" height={230}>
+                            <ResponsiveContainer width="100%" height={250}>
                                 <PieChart>
                                     <Pie
                                         data={autoresData}
@@ -149,7 +149,7 @@ export const Dashboard = () => {
 
                             <h3>Categoria mais publicada</h3>
 
-                            <ResponsiveContainer width="100%" height={230}>
+                            <ResponsiveContainer width="100%" height={250}>
                                 <PieChart>
                                     <Pie
                                         data={categoriasData}
