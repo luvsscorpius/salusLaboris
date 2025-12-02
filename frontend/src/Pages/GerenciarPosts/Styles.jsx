@@ -44,7 +44,7 @@ export const main = styled.main`
     @media (min-width: 1024px) {
         flex-direction: row;
         align-items: start;
-        height: 100%;
+        height: auto;
     }
 `
 

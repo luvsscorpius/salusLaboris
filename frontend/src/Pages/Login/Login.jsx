@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import * as L from './Styles'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { HiOutlineMail } from "react-icons/hi";
@@ -11,13 +11,19 @@ import { toast } from 'react-toastify';
 
 export const Login = () => {
 
-  const { users, setIsUserLogged, navigate } = useContext(SalusContext)
+  const { users, setIsUserLogged, navigate, isUserLogged } = useContext(SalusContext)
 
   const [data, setData] = useState({
     name: "",
     email: "",
     password: ""
   })
+
+  useEffect(() => {
+    if (isUserLogged === true) {
+      navigate("/adm/dashboard")
+    }
+  }, [isUserLogged, navigate])
 
   const checkUsers = (e) => {
     const userFound = users.find(
@@ -37,7 +43,7 @@ export const Login = () => {
       setData({...data, name: userFound.name})
       sessionStorage.setItem("loggedUser", userFound.name)
       sessionStorage.setItem("isUserLogged", true)
-      navigate('/adm/blog')
+      navigate('/adm/dashboard')
       toast.success("Login realizado com sucesso")
     }
   }

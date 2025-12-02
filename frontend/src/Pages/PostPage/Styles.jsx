@@ -126,7 +126,7 @@ export const postFooter = styled.div`
   }
 
   span img {
-    width: 100px;
+    width: 180px;
     align-self: center;
     border-radius: 8px;
   }
