@@ -67,6 +67,17 @@ const SalusProvider = ({ children }) => {
         navigate("/adm/categorias")
     }
 
+    const createUser = (info) => {
+        console.log(info)
+
+        const novoUser = { name: info.name, email: info.email, password: info.password, desc: info.desc}
+
+        setUsers((prev) => [...prev, novoUser,])
+
+        toast.success("Usuário adicionado com sucesso")
+        navigate("/adm/usuarios")
+    }
+
     // funcao para deletar categorias
     const deleteCategory = (id) => {
         const novasCategorias = categorias.splice(1, id)
@@ -147,7 +158,7 @@ const SalusProvider = ({ children }) => {
 
     // função para verificar se está logado
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts }
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}
