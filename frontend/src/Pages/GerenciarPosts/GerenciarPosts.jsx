@@ -29,8 +29,6 @@ export const GerenciarPosts = () => {
     navigate('/adm/editarpost')
   }
 
-  console.log(posts)
-
   return (
     <G.main>
       <Menu />

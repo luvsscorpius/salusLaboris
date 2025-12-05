@@ -10,7 +10,7 @@ import ReactPaginate from 'react-paginate'
 
 export const Usuarios = () => {
 
-  const {users, deleteUser} = useContext(SalusContext)
+  const {users, deleteUser, editUser, navigate} = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 5
@@ -21,6 +21,11 @@ export const Usuarios = () => {
 
   const offSet = currentPage * itemsPage
   const currentPageData = users.slice(offSet, offSet + itemsPage)
+
+  const enviarUsuario = (id) => {
+    editUser(id)
+    navigate('/adm/editaruser')
+  }
 
   return (
     <G.main>
@@ -55,7 +60,7 @@ export const Usuarios = () => {
                 <td className='data'>{user.email.length > 45 ? user.email.substring(0, 45) + "..." : user.email}</td>
                 <td className='autor'>{user.desc.length > 50 ? user.desc.substring(0, 50) + "..." : user.desc}</td>
                 <td className='icon'>
-                  <FaRegEdit size={25}  />
+                  <FaRegEdit size={25} onClick={(e) => enviarUsuario(user.id)}  />
                   <MdDeleteOutline size={25} onClick={(e) => deleteUser(user.id)}/>
                 </td>
               </tr>
