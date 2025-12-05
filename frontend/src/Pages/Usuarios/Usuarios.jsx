@@ -10,7 +10,7 @@ import ReactPaginate from 'react-paginate'
 
 export const Usuarios = () => {
 
-  const {users, deleteUser, editUser, navigate} = useContext(SalusContext)
+  const {users, deleteUser, editUser, navigate, setUserId} = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 5
@@ -23,8 +23,9 @@ export const Usuarios = () => {
   const currentPageData = users.slice(offSet, offSet + itemsPage)
 
   const enviarUsuario = (id) => {
+    setUserId(id)
     editUser(id)
-    navigate('/adm/editaruser')
+    navigate('/adm/editarusuario')
   }
 
   return (

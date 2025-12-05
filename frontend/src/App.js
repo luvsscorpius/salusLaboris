@@ -23,6 +23,7 @@ import { EditarCategoria } from "./Pages/EditarCategoria/EditarCategoria";
 import { Dashboard } from "./Pages/Dashboard/Dashboard";
 import { PostPage } from "./Pages/PostPage/PostPage";
 import { AdicionarUsuario } from "./Pages/AdicionarUsuario/AdicionarUsuario";
+import { EditarUser } from "./Pages/EditarUser/EditarUser";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
               <Route path="/adm/gerenciarposts" element={<GerenciarPosts />} />
               <Route path="/adm/usuarios" element={<Usuarios />} />
               <Route path="/adm/criarusuario" element={<AdicionarUsuario />} />
+              <Route path="/adm/editarusuario" element={<EditarUser />} />
               <Route path="/adm/criarpost" element={<AdicionarPost />} />
               <Route path="/adm/editarpost" element={<EditarPost />} />
               <Route path="/adm/categorias" element={<Categorias />} />

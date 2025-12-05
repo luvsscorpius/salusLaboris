@@ -26,7 +26,7 @@ export const Dashboard = () => {
 
     const autoresData = [
         { name: "Wander", value: wander, fill: "#4A7C59" },
-        { name: "Anderson", value: karin, fill: "#233D4D" }
+        { name: "Karin", value: karin, fill: "#233D4D" }
     ]
 
     const renderCustomizedLabel = ({ value, percent, name }) => {

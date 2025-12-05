@@ -156,23 +156,21 @@ const SalusProvider = ({ children }) => {
         toast.success("Post deletado com sucesso")
     }
 
-    // função para editar post
+    const [userId, setUserId] = useState()
+
+    // função para editar usuario
     const editUser = (info) => {
-        const id = sessionStorage.getItem("loggedUserId")
 
-        if (info.category === "") {
-            toast.warning("Selecione uma categoria antes de editar um post")
-        } else {
-            const findPost = posts.find(
-                (post) => post.id === Number(info.id)
-            )
+        const findUser = users.find(
+            (user) => user.id === Number(info.id)
+        )
 
-            if (findPost) {
-                setPosts(posts.map(post =>
-                    post.id === info.id ? info : post
-                ))
-                navigate("adm/gerenciarposts")
-            }
+        if (findUser) {
+            setUsers(users.map(user =>
+                user.id === info.id ? info : user
+            ))
+            navigate("adm/usuarios")
+            toast.success("Usuário atualizado com sucesso")
         }
     }
 
@@ -189,7 +187,7 @@ const SalusProvider = ({ children }) => {
         }
     }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser }
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}
