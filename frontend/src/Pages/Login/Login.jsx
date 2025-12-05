@@ -42,6 +42,7 @@ export const Login = () => {
       setIsUserLogged(true)
       setData({...data, name: userFound.name})
       sessionStorage.setItem("loggedUser", userFound.name)
+      sessionStorage.setItem("loggedUserId", userFound.id)
       sessionStorage.setItem("isUserLogged", true)
       navigate('/adm/dashboard')
       toast.success("Login realizado com sucesso")

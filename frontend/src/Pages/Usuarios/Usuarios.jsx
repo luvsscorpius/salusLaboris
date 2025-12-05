@@ -10,7 +10,7 @@ import ReactPaginate from 'react-paginate'
 
 export const Usuarios = () => {
 
-  const {users} = useContext(SalusContext)
+  const {users, deleteUser} = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 5
@@ -56,7 +56,7 @@ export const Usuarios = () => {
                 <td className='autor'>{user.desc.length > 50 ? user.desc.substring(0, 50) + "..." : user.desc}</td>
                 <td className='icon'>
                   <FaRegEdit size={25}  />
-                  <MdDeleteOutline size={25} />
+                  <MdDeleteOutline size={25} onClick={(e) => deleteUser(user.id)}/>
                 </td>
               </tr>
             ))}

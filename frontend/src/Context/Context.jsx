@@ -22,8 +22,8 @@ const SalusProvider = ({ children }) => {
     }, [categorias, posts]);
 
     const [users, setUsers] = useState([
-        { name: "Karin Stela", email: "karin@gmail.com", password: "123", desc: "Karin Stela é a Presidente da empresa, liderando com visão estratégica e foco no crescimento sustentável. Com forte capacidade de gestão e tomada de decisão, ela orienta as diretrizes corporativas, fortalece a cultura organizacional e impulsiona a inovação. Seu compromisso com excelência e transparência garante o alinhamento entre as equipes e o avanço contínuo da empresa." },
-        { name: "Wander Delgado", email: "wander@gmail.com", password: "123", desc: "Wander Delgado é o Diretor Financeiro, responsável pela gestão estratégica dos recursos da empresa. Com visão analítica e foco em resultados, ele conduz o planejamento financeiro, otimiza processos e garante uma administração eficiente e transparente." }
+        { id: 1, name: "Karin Stela", email: "karin@gmail.com", password: "123", desc: "Karin Stela é a Presidente da empresa, liderando com visão estratégica e foco no crescimento sustentável. Com forte capacidade de gestão e tomada de decisão, ela orienta as diretrizes corporativas, fortalece a cultura organizacional e impulsiona a inovação. Seu compromisso com excelência e transparência garante o alinhamento entre as equipes e o avanço contínuo da empresa." },
+        { id: 2, name: "Wander Delgado", email: "wander@gmail.com", password: "123", desc: "Wander Delgado é o Diretor Financeiro, responsável pela gestão estratégica dos recursos da empresa. Com visão analítica e foco em resultados, ele conduz o planejamento financeiro, otimiza processos e garante uma administração eficiente e transparente." }
     ])
 
     const navigate = useNavigate()
@@ -70,7 +70,7 @@ const SalusProvider = ({ children }) => {
     const createUser = (info) => {
         console.log(info)
 
-        const novoUser = { name: info.name, email: info.email, password: info.password, desc: info.desc}
+        const novoUser = { name: info.name, email: info.email, password: info.password, desc: info.desc }
 
         setUsers((prev) => [...prev, novoUser,])
 
@@ -156,9 +156,20 @@ const SalusProvider = ({ children }) => {
         toast.success("Post deletado com sucesso")
     }
 
-    // função para verificar se está logado
+    // funcao para deletar usuarios
+    const deleteUser = (id) => {
+        const ID = Number(sessionStorage.getItem("loggedUserId"))
+        if (ID === id) {
+            toast.error("Usuário logado, saia e peça para um administrador para excluir sua conta.")
+        } else {
+            const novosUsers = users.splice(1, id)
+            console.log(novosUsers)
+            setUsers(novosUsers)
+            toast.success("Usuário deletado com sucesso")
+        }
+    }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser }
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}
