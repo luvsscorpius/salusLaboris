@@ -18,6 +18,10 @@
       text-decoration: none;
     }
 
+    .toast-container {
+      z-index: 20000;
+    }
+
   `;
 
   export default GlobalStyle;

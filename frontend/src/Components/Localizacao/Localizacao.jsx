@@ -31,7 +31,7 @@ export const Localizacao = () => {
 
         <L.descContainer>
            <h3>Santa Rita do Sapucaí - MG, 37537-230</h3>
-           <p>Av. Francisco Bilac Pinto, 95 - sala 1 - Monte Belo</p>
+           <p>Av. Francisco Bilac Pinto, 95 - Sala 1 - Monte Belo</p>
         </L.descContainer>
       </L.locationContainer>
     </L.main>

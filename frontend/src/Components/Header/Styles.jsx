@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const header = styled.header`
-    background-color: #ffff;
+    background-color: #fff;
     height: 100px;
     display: flex;
     align-items: center;
@@ -50,12 +50,19 @@ export const navLinks = styled.nav`
     position: absolute;
     top: 60px;
     right: 20px;
-    width: 40%;
+    width: 50%;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     overflow: hidden;
     z-index: 10000;
+
+    .active {
+        background-color: #eee;
+        color: #4A7C59;
+        padding: 5px;
+        border-radius: 3px;
+    }
   
     max-height: ${({ open }) => (open ? "500px" : "0")};
     opacity: ${({ open }) => (open ? "1" : "0.7")};
@@ -64,6 +71,30 @@ export const navLinks = styled.nav`
     a {
         color: #4A7C59;
         list-style: none;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        gap: 5px;
+        color: #4A7C59;
+
+        h4 {
+            font-weight: 800;
+            font-family: "Poppins", sans-serif;
+        }
+    }
+
+    button {
+        border: 0;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 10px 0 10px 0;
+        background: none;
     }
 
     ul {
@@ -118,6 +149,17 @@ export const navLinks = styled.nav`
         position: relative;
         background-color: #fff;
         box-shadow: none;
+        padding: 0;
+
+        div {
+            flex-direction: row;
+            gap: 15px;
+            margin-top: 0;
+
+            h4 {
+                display: none;
+            }
+        }
 
         ul {
             font-weight: 600;
@@ -126,7 +168,7 @@ export const navLinks = styled.nav`
             align-items: center;
             height: 100%;
             font-size: 17px;
-            gap: 25px;
+            gap: 15px;
             font-weight: 800;
         }
             
