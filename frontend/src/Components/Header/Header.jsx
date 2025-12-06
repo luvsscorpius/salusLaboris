@@ -19,6 +19,9 @@ export default function Header() {
   const location = useLocation()
   const isAdmRoute = location.pathname.startsWith("/adm");
 
+  // lógica para mudar o active
+  const [active, setActive] = useState("active")
+
   return (
     <H.header>
       <img src={logo} alt="Logo da header" />
@@ -29,13 +32,13 @@ export default function Header() {
             <div>
               <h4>PRINCIPAL</h4>
               <li>
-                <span>
+                <span className={(location.pathname === "/adm/dashboard" ? active : "")}>
                   <TiHome />
                   <a href="/adm/dashboard" rel="noreferrer">Dashboard</a>
                 </span>
               </li>
               <li>
-                <span>
+                <span className={(location.pathname === "/adm/blog" ? active : "")}>
                   <TiHome />
                   <a href="/adm/blog" rel="noreferrer">Posts recentes</a>
                 </span>
@@ -45,19 +48,25 @@ export default function Header() {
             <div>
               <h4>GERENCIAMENTO</h4>
               <li>
-                <span>
+                <span className={(location.pathname === "/adm/gerenciarposts"
+                  || location.pathname === "/adm/criarpost"
+                  || location.pathname === "/adm/editarpost") ? active : ""}>
                   <TiHome />
                   <a href="/adm/gerenciarposts" rel="noreferrer">Posts</a>
                 </span>
               </li>
               <li>
-                <span>
+                <span className={location.pathname === "/adm/usuarios"
+                  || location.pathname === "/adm/criarusuario"
+                  || location.pathname === "/adm/editarusuario" ? active : ""}>
                   <IoIosPeople />
                   <a href="/adm/usuarios" rel="noreferrer">Usuários</a>
                 </span>
               </li>
               <li>
-                <span>
+                <span className={location.pathname === "/adm/categorias"
+                  || location.pathname === "/adm/adicionarcategoria"
+                  || location.pathname === "/adm/editarcategoria" ? active : ""}>
                   <IoIosPeople />
                   <a href="/adm/categorias" rel="noreferrer">Categorias</a>
                 </span>

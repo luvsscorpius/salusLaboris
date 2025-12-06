@@ -71,7 +71,7 @@ export const Footer = () => {
 
       <F.developedContainer>
         <p>© 2025 Salus Laboris – Instituto de Saúde Ocupacional</p>
-        <a href='#'>Desenvolvido por Anderson Vitor</a>
+        <a href='https://www.linkedin.com/in/andersonvitor1801/' target='__blank'>Desenvolvido por Anderson Vitor</a>
       </F.developedContainer>
     </F.footer>
   )

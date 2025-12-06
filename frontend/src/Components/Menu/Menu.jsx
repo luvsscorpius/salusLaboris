@@ -50,11 +50,15 @@ export const Menu = () => {
                             <MdPostAdd size={26} />
                             <li>Posts</li>
                         </span>
-                        <span className={location.pathname === "/adm/usuarios" ? active : ""} onClick={() => window.open("/adm/usuarios", "_self")}>
+                        <span className={location.pathname === "/adm/usuarios" 
+                            || location.pathname === "/adm/criarusuario"
+                            || location.pathname === "/adm/editarusuario" ? active : ""} onClick={() => window.open("/adm/usuarios", "_self")}>
                             <FaUsers size={25} />
                             <li>Usuários</li>
                         </span>
-                        <span className={location.pathname === "/adm/categorias" ? active : ""} onClick={() => window.open("/adm/categorias", "_self")}>
+                        <span className={location.pathname === "/adm/categorias"
+                            || location.pathname === "/adm/adicionarcategoria"
+                            || location.pathname === "/adm/editarcategoria" ? active : ""} onClick={() => window.open("/adm/categorias", "_self")}>
                             <FaFilter size={24} />
                             <li>Categorias</li>
                         </span>

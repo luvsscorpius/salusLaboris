@@ -7,7 +7,7 @@ import { SalusContext } from '../../Context/Context'
 import { MdOutlinePostAdd } from "react-icons/md";
 import { FaUsers } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
-import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Bar, BarChart, CartesianGrid, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 export const Dashboard = () => {
 
