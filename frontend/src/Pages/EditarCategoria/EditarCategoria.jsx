@@ -29,9 +29,9 @@ export const EditarCategoria = () => {
 
                 <B.blogHeader className='header'>
                     <div>
-                        <h2>Editar Post</h2>
-                        <button onClick={() => window.open("/adm/criarpost", "_self")}><CiCirclePlus size={45} /></button>
-                    </div>
+                        <h2>Editar Categoria</h2>
+                        <Link to="/adm/criarpost"><CiCirclePlus size={45} /></Link>
+                        </div>
 
                     <hr />
                 </B.blogHeader>
@@ -44,7 +44,7 @@ export const EditarCategoria = () => {
 
                     <div>
 
-                        <button onClick={() => editCategory(updateCategoria)}> <IoIosSave size={22} /> Editar post</button>
+                        <button onClick={() => editCategory(updateCategoria)}> <IoIosSave size={22} /> Editar Categoria</button>
                     </div>
                 </A.novoPostBody>
 

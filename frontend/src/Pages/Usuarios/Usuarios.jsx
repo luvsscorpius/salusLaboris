@@ -36,7 +36,7 @@ export const Usuarios = () => {
         <B.blogHeader className='header'>
           <div>
             <h2>Gerenciar Usuários</h2>
-            <button onClick={() => window.open("/adm/criarusuario", "_self")}><CiCirclePlus size={45} /></button>
+            <Link to="/adm/criarusuario"><CiCirclePlus size={45} /></Link>
           </div>
 
           <hr />

@@ -7,6 +7,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import ReactPaginate from 'react-paginate'
 import { SalusContext } from '../../Context/Context';
+import { Link } from 'react-router-dom';
 
 export const GerenciarPosts = () => {
 
@@ -37,7 +38,7 @@ export const GerenciarPosts = () => {
         <B.blogHeader className='header'>
           <div>
             <h2>Gerenciar posts</h2>
-            <button onClick={() => window.open("/adm/criarpost", "_self")}><CiCirclePlus size={45} /></button>
+            <Link to="/adm/criarpost"><CiCirclePlus size={45} /></Link>
           </div>
 
           <hr />

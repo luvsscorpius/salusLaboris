@@ -75,9 +75,7 @@ export const EditarPost = () => {
                 <B.blogHeader className="header">
                     <div>
                         <h2>Editar Post</h2>
-                        <button onClick={() => window.open("/adm/criarpost", "_self")}>
-                            <CiCirclePlus size={45} />
-                        </button>
+                        <Link to="/adm/criarpost"><CiCirclePlus size={45} /></Link>
                     </div>
 
                     <hr />
