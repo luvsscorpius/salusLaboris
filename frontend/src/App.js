@@ -31,7 +31,7 @@ function App() {
     <>
       <GlobalStyle />
       <ToastContainer autoClose={3000} className="toast-container" />
-      <Router basename="/salusLaboris">
+      <Router basename="/salusLaboris/">
         <SalusProvider>
           <Header />
           <Routes>
