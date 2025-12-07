@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from "./Components/Header/Header";
 import GlobalStyle from "./GlobalStyle";
 import "leaflet/dist/leaflet.css";
@@ -31,7 +31,7 @@ function App() {
     <>
       <GlobalStyle />
       <ToastContainer autoClose={3000} className="toast-container" />
-      <Router basename="/salusLaboris/">
+      <Router >
         <SalusProvider>
           <Header />
           <Routes>
@@ -51,7 +51,7 @@ function App() {
 
 
             <Route path="/" element={<Home />} />
-            <Route path="salusLaboris/login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/login/esqueceuasenha" element={<EsqueceuSenha />} />
             <Route path="/login/recuperarasenha" element={<RecuperarSenha />} />
             <Route path={`/post/:id`} element={<PostPage />} />
