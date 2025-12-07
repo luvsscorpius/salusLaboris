@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/salusLaboris/static/css/main.ef9d9fa2.css",
+    "main.js": "/salusLaboris/static/js/main.97d7ab9a.js",
+    "static/media/occupational-health.webp": "/salusLaboris/static/media/occupational-health.0835b928b3fc7b7b90c9.webp",
+    "static/media/sobreImage.webp": "/salusLaboris/static/media/sobreImage.dc5fd12a9bed005a0dbe.webp",
+    "static/media/missaoImage.webp": "/salusLaboris/static/media/missaoImage.f7db6f1ca3e72d5d1594.webp",
+    "static/media/blogSeg.png": "/salusLaboris/static/media/blogSeg.1d4c1a08ea25a23dbf83.png",
+    "static/media/EvertonDuarte.webp": "/salusLaboris/static/media/EvertonDuarte.7b48e2e1b59d8ae49d71.webp",
+    "static/media/petrobrasLogo.webp": "/salusLaboris/static/media/petrobrasLogo.7c44bfa44198c76fbea4.webp",
+    "static/media/avenidaCasaEConstrucaoLogo.webp": "/salusLaboris/static/media/avenidaCasaEConstrucaoLogo.ac875eeb19cee04dd86c.webp",
+    "static/media/mideaLogo.webp": "/salusLaboris/static/media/mideaLogo.cd63960ad6771713be70.webp",
+    "static/media/cimedLogo.webp": "/salusLaboris/static/media/cimedLogo.8e1e3478608e02afd73b.webp",
+    "static/media/KarinStela.webp": "/salusLaboris/static/media/KarinStela.48681b666fdfe9a9af01.webp",
+    "static/media/greenVineLogo.webp": "/salusLaboris/static/media/greenVineLogo.8ec863c00263b5249a02.webp",
+    "static/media/betelLogo.webp": "/salusLaboris/static/media/betelLogo.9e131b6571233e9b4739.webp",
+    "static/media/fasesIcon.png": "/salusLaboris/static/media/fasesIcon.64065a57120f046ef5bd.png",
+    "static/media/WanderDelgado.webp": "/salusLaboris/static/media/WanderDelgado.62fd526f898fc8d6cd9a.webp",
+    "static/media/chiquinhoLogo.webp": "/salusLaboris/static/media/chiquinhoLogo.64086f5aaba4fd79a940.webp",
+    "static/media/work-safety.png": "/salusLaboris/static/media/work-safety.7dee28ba56f631f09b54.png",
+    "static/media/superiorTecnologiaLogo.webp": "/salusLaboris/static/media/superiorTecnologiaLogo.76e61c37c87e478bf1d3.webp",
+    "static/media/oggiSorvetesLogo.webp": "/salusLaboris/static/media/oggiSorvetesLogo.aac6c54f724a3f4ce0d6.webp",
+    "static/media/auditoriaIcon.png": "/salusLaboris/static/media/auditoriaIcon.d5fab3b2afb63c55ee15.png",
+    "static/media/enterplakLogo.webp": "/salusLaboris/static/media/enterplakLogo.51607f194c111185ffc6.webp",
+    "static/media/oppexLogo.webp": "/salusLaboris/static/media/oppexLogo.c8aab13dbeeaa1ba8ec5.webp",
+    "static/media/maglioniLogo.webp": "/salusLaboris/static/media/maglioniLogo.f3d586047e0a0159d766.webp",
+    "static/media/logo.webp": "/salusLaboris/static/media/logo.eef9b69891d5ac35b0fa.webp",
+    "static/media/exxerLogo.webp": "/salusLaboris/static/media/exxerLogo.d1154a25c17f51976946.webp",
+    "static/media/customLogo.webp": "/salusLaboris/static/media/customLogo.3e5b6fe344bb74fe9413.webp",
+    "static/media/cacauDoCeuLogo.webp": "/salusLaboris/static/media/cacauDoCeuLogo.e4c2d7248f63bf813a38.webp",
+    "static/media/blob-scene-haikei.svg": "/salusLaboris/static/media/blob-scene-haikei.11a247cff3d274a58bbae37227d0d9a4.svg",
+    "index.html": "/salusLaboris/index.html",
+    "main.ef9d9fa2.css.map": "/salusLaboris/static/css/main.ef9d9fa2.css.map",
+    "main.97d7ab9a.js.map": "/salusLaboris/static/js/main.97d7ab9a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef9d9fa2.css",
+    "static/js/main.97d7ab9a.js"
+  ]
+}
