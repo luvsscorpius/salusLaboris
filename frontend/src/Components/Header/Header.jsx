@@ -8,7 +8,7 @@ import { IoIosPeople } from "react-icons/io";
 import { FaBloggerB } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { BiSolidLogInCircle } from "react-icons/bi";
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { SalusContext } from '../../Context/Context';
 
 export default function Header() {
@@ -17,9 +17,8 @@ export default function Header() {
   const { logout } = useContext(SalusContext)
 
   const location = useLocation()
-  const isAdmRoute = location.pathname.startsWith("/adm");
+  const isAdmRoute = location.pathname.startsWith("/adm")
 
-  // lógica para mudar o active
   const [active, setActive] = useState("active")
 
   return (
@@ -32,15 +31,15 @@ export default function Header() {
             <div>
               <h4>PRINCIPAL</h4>
               <li>
-                <span className={(location.pathname === "/adm/dashboard" ? active : "")}>
+                <span className={location.pathname === "/adm/dashboard" ? active : ""}>
                   <TiHome />
-                  <a href="/adm/dashboard" rel="noreferrer">Dashboard</a>
+                  <Link to="/adm/dashboard">Dashboard</Link>
                 </span>
               </li>
               <li>
-                <span className={(location.pathname === "/adm/blog" ? active : "")}>
+                <span className={location.pathname === "/adm/blog" ? active : ""}>
                   <TiHome />
-                  <a href="/adm/blog" rel="noreferrer">Posts recentes</a>
+                  <Link to="/adm/blog">Posts recentes</Link>
                 </span>
               </li>
             </div>
@@ -48,74 +47,95 @@ export default function Header() {
             <div>
               <h4>GERENCIAMENTO</h4>
               <li>
-                <span className={(location.pathname === "/adm/gerenciarposts"
-                  || location.pathname === "/adm/criarpost"
-                  || location.pathname === "/adm/editarpost") ? active : ""}>
+                <span className={
+                  location.pathname === "/adm/gerenciarposts" ||
+                  location.pathname === "/adm/criarpost" ||
+                  location.pathname === "/adm/editarpost"
+                    ? active
+                    : ""
+                }>
                   <TiHome />
-                  <a href="/adm/gerenciarposts" rel="noreferrer">Posts</a>
+                  <Link to="/adm/gerenciarposts">Posts</Link>
                 </span>
               </li>
+
               <li>
-                <span className={location.pathname === "/adm/usuarios"
-                  || location.pathname === "/adm/criarusuario"
-                  || location.pathname === "/adm/editarusuario" ? active : ""}>
+                <span className={
+                  location.pathname === "/adm/usuarios" ||
+                  location.pathname === "/adm/criarusuario" ||
+                  location.pathname === "/adm/editarusuario"
+                    ? active
+                    : ""
+                }>
                   <IoIosPeople />
-                  <a href="/adm/usuarios" rel="noreferrer">Usuários</a>
+                  <Link to="/adm/usuarios">Usuários</Link>
                 </span>
               </li>
+
               <li>
-                <span className={location.pathname === "/adm/categorias"
-                  || location.pathname === "/adm/adicionarcategoria"
-                  || location.pathname === "/adm/editarcategoria" ? active : ""}>
+                <span className={
+                  location.pathname === "/adm/categorias" ||
+                  location.pathname === "/adm/adicionarcategoria" ||
+                  location.pathname === "/adm/editarcategoria"
+                    ? active
+                    : ""
+                }>
                   <IoIosPeople />
-                  <a href="/adm/categorias" rel="noreferrer">Categorias</a>
+                  <Link to="/adm/categorias">Categorias</Link>
                 </span>
               </li>
+
               <li>
                 <span>
                   <BiSolidLogInCircle />
-                  <button onClick={logout}><a rel="noreferrer">Sair</a></button>
+                  <button onClick={logout}>
+                    <span>Sair</span>
+                  </button>
                 </span>
               </li>
             </div>
-
           </ul>
         ) : (
           <ul>
             <li>
               <span>
                 <TiHome />
-                <a href="/" rel="noreferrer">Home</a>
+                <Link to="/">Home</Link>
               </span>
             </li>
+
             <li>
               <span>
                 <MdOutlineMedicalServices />
-                <a href="#servicos" rel="noreferrer">Serviços</a>
+                <a href="#servicos">Serviços</a>
               </span>
             </li>
+
             <li>
               <span>
                 <IoIosPeople />
-                <a href="#sobre" rel="noreferrer">Sobre</a>
+                <a href="#sobre">Sobre</a>
               </span>
             </li>
+
             <li>
               <span>
                 <FaBloggerB />
-                <a href="#blog" rel="noreferrer">Blog</a>
+                <a href="#blog">Blog</a>
               </span>
             </li>
+
             <li>
               <span>
                 <IoCall />
-                <a href="#contato" rel="noreferrer">Contato</a>
+                <a href="#contato">Contato</a>
               </span>
             </li>
+
             <li>
               <span>
                 <BiSolidLogInCircle />
-                <a href="/login" rel="noreferrer">Login</a>
+                <Link to="/login">Login</Link>
               </span>
             </li>
           </ul>
