@@ -51,7 +51,7 @@ function App() {
 
 
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="salusLaboris/login" element={<Login />} />
             <Route path="/login/esqueceuasenha" element={<EsqueceuSenha />} />
             <Route path="/login/recuperarasenha" element={<RecuperarSenha />} />
             <Route path={`/post/:id`} element={<PostPage />} />
