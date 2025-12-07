@@ -6,6 +6,7 @@ import { FaRegUser } from "react-icons/fa";
 import ReactPaginate from 'react-paginate'
 import { Menu } from '../../Components/Menu/Menu';
 import { SalusContext } from '../../Context/Context';
+import { Link } from 'react-router-dom';
 
 export const Blog = () => {
 
@@ -31,7 +32,7 @@ export const Blog = () => {
                 <B.blogHeader>
                     <div>
                         <h2>Posts recentes</h2>
-                        <button onClick={() => window.open("/adm/criarpost", "_self")}><CiCirclePlus size={45} /></button>
+                        <Link to="/adm/criarpost"><CiCirclePlus size={45} /></Link>
                     </div>
 
                     <hr />

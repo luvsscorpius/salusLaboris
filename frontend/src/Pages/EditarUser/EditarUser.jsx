@@ -5,6 +5,7 @@ import * as A from '../EditarCategoria/Styles'
 import { IoIosSave } from "react-icons/io";
 import { CiCirclePlus } from "react-icons/ci";
 import { SalusContext } from '../../Context/Context';
+import { Link } from 'react-router-dom';
 
 export const EditarUser = () => {
 

@@ -7,6 +7,7 @@ import { SalusContext } from '../../Context/Context';
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import ReactPaginate from 'react-paginate'
+import { Link } from 'react-router-dom';
 
 export const Usuarios = () => {
 

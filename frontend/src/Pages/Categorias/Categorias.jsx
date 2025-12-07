@@ -7,6 +7,7 @@ import { SalusContext } from '../../Context/Context';
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import ReactPaginate from 'react-paginate'
+import { Link } from 'react-router-dom';
 
 export const Categorias = () => {
 
@@ -37,7 +38,7 @@ export const Categorias = () => {
                 <B.blogHeader className='header'>
                     <div>
                         <h2>Categorias</h2>
-                        <button onClick={() => window.open("/adm/adicionarcategoria", "_self")}><CiCirclePlus size={45} /></button>
+                        <Link to="/adm/adicionarcategoria"><CiCirclePlus size={45} /></Link>
                     </div>
 
                     <hr />

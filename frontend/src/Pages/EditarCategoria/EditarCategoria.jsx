@@ -5,6 +5,7 @@ import * as A from './Styles'
 import { IoIosSave } from "react-icons/io";
 import { CiCirclePlus } from "react-icons/ci";
 import { SalusContext } from '../../Context/Context';
+import { Link } from 'react-router-dom';
 
 export const EditarCategoria = () => {
 
@@ -30,7 +31,7 @@ export const EditarCategoria = () => {
                 <B.blogHeader className='header'>
                     <div>
                         <h2>Editar Categoria</h2>
-                        <Link to="/adm/criarpost"><CiCirclePlus size={45} /></Link>
+                        <Link to="/adm/adicionarcategoria"><CiCirclePlus size={45} /></Link>
                         </div>
 
                     <hr />
