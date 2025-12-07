@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLocation } from "react-router-dom"
+import { useLocation, Link } from "react-router-dom"
 import * as B from './Styles'
 import logo from '../../assets/logo.webp'
 import { RxDashboard } from "react-icons/rx";
@@ -8,9 +8,7 @@ import { FaUsers } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
 
 export const Menu = () => {
-    // lógica para mudar o active
     const [active, setActive] = useState("active")
-
     const location = useLocation()
 
     return (
@@ -25,14 +23,18 @@ export const Menu = () => {
                     <h3>PRINCIPAL</h3>
 
                     <ul>
-                        <span className={location.pathname === "/adm/dashboard" ? active : ""} onClick={() => window.open("/adm/dashboard", "_self")}>
+                        <span className={location.pathname === "/adm/dashboard" ? active : ""}>
                             <RxDashboard size={25} />
-                            <li>Dashboard</li>
+                            <li>
+                                <Link to="/adm/dashboard">Dashboard</Link>
+                            </li>
                         </span>
 
-                        <span className={location.pathname === "/adm/blog" ? active : ""} onClick={() => window.open("/adm/blog", "_self")}>
+                        <span className={location.pathname === "/adm/blog" ? active : ""}>
                             <MdPostAdd size={26} />
-                            <li>Posts Recentes</li>
+                            <li>
+                                <Link to="/adm/blog">Posts Recentes</Link>
+                            </li>
                         </span>
                     </ul>
                 </div>
@@ -42,30 +44,52 @@ export const Menu = () => {
 
                     <ul>
                         <span
-                            className={(location.pathname === "/adm/gerenciarposts"
-                                || location.pathname === "/adm/criarpost"
-                                || location.pathname === "/adm/editarpost") ? active : ""}
-                            onClick={() => window.open("/adm/gerenciarposts", "_self")}
+                            className={
+                                location.pathname === "/adm/gerenciarposts" ||
+                                location.pathname === "/adm/criarpost" ||
+                                location.pathname === "/adm/editarpost"
+                                    ? active
+                                    : ""
+                            }
                         >
                             <MdPostAdd size={26} />
-                            <li>Posts</li>
+                            <li>
+                                <Link to="/adm/gerenciarposts">Posts</Link>
+                            </li>
                         </span>
-                        <span className={location.pathname === "/adm/usuarios" 
-                            || location.pathname === "/adm/criarusuario"
-                            || location.pathname === "/adm/editarusuario" ? active : ""} onClick={() => window.open("/adm/usuarios", "_self")}>
+
+                        <span
+                            className={
+                                location.pathname === "/adm/usuarios" ||
+                                location.pathname === "/adm/criarusuario" ||
+                                location.pathname === "/adm/editarusuario"
+                                    ? active
+                                    : ""
+                            }
+                        >
                             <FaUsers size={25} />
-                            <li>Usuários</li>
+                            <li>
+                                <Link to="/adm/usuarios">Usuários</Link>
+                            </li>
                         </span>
-                        <span className={location.pathname === "/adm/categorias"
-                            || location.pathname === "/adm/adicionarcategoria"
-                            || location.pathname === "/adm/editarcategoria" ? active : ""} onClick={() => window.open("/adm/categorias", "_self")}>
+
+                        <span
+                            className={
+                                location.pathname === "/adm/categorias" ||
+                                location.pathname === "/adm/adicionarcategoria" ||
+                                location.pathname === "/adm/editarcategoria"
+                                    ? active
+                                    : ""
+                            }
+                        >
                             <FaFilter size={24} />
-                            <li>Categorias</li>
+                            <li>
+                                <Link to="/adm/categorias">Categorias</Link>
+                            </li>
                         </span>
                     </ul>
                 </div>
             </B.linksContainer>
         </B.menu>
-
     )
 }
