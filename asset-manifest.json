@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/salusLaboris/static/css/main.ef9d9fa2.css",
-    "main.js": "/salusLaboris/static/js/main.d2d37cb5.js",
+    "main.js": "/salusLaboris/static/js/main.ee3c0e68.js",
     "static/media/occupational-health.webp": "/salusLaboris/static/media/occupational-health.0835b928b3fc7b7b90c9.webp",
     "static/media/sobreImage.webp": "/salusLaboris/static/media/sobreImage.dc5fd12a9bed005a0dbe.webp",
     "static/media/missaoImage.webp": "/salusLaboris/static/media/missaoImage.f7db6f1ca3e72d5d1594.webp",
@@ -31,10 +31,10 @@
     "static/media/blob-scene-haikei.svg": "/salusLaboris/static/media/blob-scene-haikei.11a247cff3d274a58bbae37227d0d9a4.svg",
     "index.html": "/salusLaboris/index.html",
     "main.ef9d9fa2.css.map": "/salusLaboris/static/css/main.ef9d9fa2.css.map",
-    "main.d2d37cb5.js.map": "/salusLaboris/static/js/main.d2d37cb5.js.map"
+    "main.ee3c0e68.js.map": "/salusLaboris/static/js/main.ee3c0e68.js.map"
   },
   "entrypoints": [
     "static/css/main.ef9d9fa2.css",
-    "static/js/main.d2d37cb5.js"
+    "static/js/main.ee3c0e68.js"
   ]
 }
