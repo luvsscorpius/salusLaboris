@@ -162,11 +162,11 @@ export const cardContainer = styled.div`
         flex-wrap: wrap;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
         width: 70%;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 50px;
     }
 `
 
@@ -181,6 +181,15 @@ export const card = styled.div`
     border-radius: 5px;
     height: auto;
     transition: transform 0.3s ease-in-out;
+
+    p {
+        text-align: center;
+        font-size: 20px;
+        color: #1d1d1d;
+        font-weight: 100;
+        opacity: 0.95;
+        margin-top: 10px;
+    }
 
     &:hover {
         cursor: pointer;
@@ -216,11 +225,46 @@ export const card = styled.div`
         }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
         width: 325px;
+
+        p {
+            font-size: 18px;
+        }
         
         img {
             height: 390px;
+        }
+    }
+`
+
+export const descContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+
+    h1 {
+        color: #4A7C59;
+        margin-bottom: 10px;
+    }
+
+    p {
+        text-align: center;
+        font-size: 20px;
+        color: #1d1d1d;
+        font-weight: 100;
+        opacity: 0.95;
+    }
+
+    @media (min-width: 1024px) {
+        width: 55%;
+        
+        p {
+            padding: 3px 0;
         }
     }
 `

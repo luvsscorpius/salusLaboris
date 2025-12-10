@@ -12,19 +12,8 @@ export const Sobre = () => {
             nome: "KARIN STELA",
             cargo: "PRESIDENTE",
             altImage: "Foto da presidente Karin Stela",
-            image: KarinStela
-        },
-        {
-            nome: "EVERTON DUARTE",
-            cargo: "VICE-PRESIDENTE",
-            altImage: "Foto do vice-presidente Everton Duarte",
-            image: EvertonDuarte
-        },
-        {
-            nome: "WANDER DELGADO",
-            cargo: "DIRETOR FINANCEIRO",
-            altImage: "Foto do diretor financeiro",
-            image: WanderDelgado
+            image: KarinStela,
+            desc: "Educadora física, ergonomista e técnica em segurança do trabalho com mais de 15 anos de experiência em prevenção de riscos, ergonomia aplicada a promoção da qualidade de vida ocupacional."
         },
     ]
 
@@ -62,8 +51,19 @@ export const Sobre = () => {
                         <img src={card.image} alt={card.altImage} />
                         <h3>{card.nome}</h3>
                         <h2>{card.cargo}</h2>
+                        <p>{card.desc}</p>
                     </S.card>
                 ))}
+
+                <S.descContainer>
+                    <h1>Palavra da Presidente</h1>
+
+                    <p>É com grande satisfação que, como presidente do Instituto Salus Laboris, reafirmo nosso compromisso com a promoção da saúde, da segurança e do bem-estar no trabalho.</p>
+                    <p>O Salus Laboris nasceu com o propósito de transformar realidades, oferecendo conhecimento técnico e humano para que empresas e profissionais possam construir ambientes laborais mais seguros, saudáveis e sustentáveis.</p>
+                    <p>Acreditamos que cuidar das pessoas é o primeiro passo para o verdadeiro desenvolvimento. Por isso, cada ação do Instituto é guiada por valores de responsabilidade, ética e respeito à vida — pilares que sustentam nossa missão.
+                    </p>
+                    <p>Seguimos trabalhando com dedicação para fortalecer uma cultura de prevenção, apoiando organizações e comunidades na construção de um futuro mais equilibrado, produtivo e humano.</p>
+                </S.descContainer>
             </S.cardContainer>
         </S.main>
     )
