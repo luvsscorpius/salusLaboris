@@ -58,6 +58,10 @@ export const linksContainer = styled.div`
             li {
                 display: flex;
                 align-items: center;
+
+                a {
+                    color: #4A7C59;
+                }
             }
         }
     }

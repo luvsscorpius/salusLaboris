@@ -95,6 +95,11 @@ export const navLinks = styled.nav`
         font-size: 18px;
         padding: 10px 0 10px 0;
         background: none;
+        color: #4A7C59;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     ul {

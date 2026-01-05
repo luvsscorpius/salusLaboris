@@ -81,7 +81,9 @@ export const novoPostBody = styled.div`
 
     .toolbar {
         display: flex;
-        justify-content: start;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
         gap: 8px;
         padding: 10px;
         background: #fff;
@@ -173,6 +175,12 @@ export const novoPostBody = styled.div`
 
             button {
                 width: 330px;
+            }
+        }
+
+        span {
+            .toolbar {
+                        justify-content: start;
             }
         }
             
