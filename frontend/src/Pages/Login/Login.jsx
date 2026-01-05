@@ -29,7 +29,9 @@ export const Login = () => {
   const checkUsers = async (e) => {
 
     try {
-      const response = await axios.get("http://localhost:2000/")
+      const response = await axios.post("http://localhost:2000/login", JSON.stringify(data), {
+        headers: { 'Content-Type': 'application/json' }
+      })
 
       console.log(response)
 
@@ -58,69 +60,70 @@ export const Login = () => {
       if (!error?.response) {
         return toast.error("Erro ao acessar o servidor")
       }
-    }}
-
-    // função para mostrar a senha
-    const [type, setType] = useState("password")
-    const showPassword = (e) => {
-      console.log("Oi")
-      if (type === "password") {
-        setType("text")
-      } else {
-        setType("password")
-      }
     }
-
-    return (
-      <L.login>
-        <L.loginContainer>
-
-          <L.loginHeader>
-            <FaRegCircleUser size={32} />
-            <p>Login</p>
-          </L.loginHeader>
-
-          <div className="containers">
-            <L.loginBody className='firstLogin'>
-              <img src={logo} alt="Logo da empresa" />
-
-              <p>Conectando cuidado, segurança e inovação no ambiente de trabalho.</p>
-            </L.loginBody>
-
-            <L.loginBody>
-              <form onSubmit={(e) => e.preventDefault()}>
-                <L.inputContainer>
-                  <label htmlFor="email">Email</label>
-
-                  <span>
-                    <HiOutlineMail size={45} />
-                    <input type="email" name="email" placeholder='Digite seu e-mail' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} autoComplete='on' required />
-                  </span>
-                </L.inputContainer>
-
-                <L.inputContainer>
-                  <label htmlFor="senha">Senha</label>
-
-                  <span>
-                    <MdOutlineLock size={45} />
-                    <input type={type} name="senha" placeholder='Digite sua senha' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} autoComplete='on' required />
-                    <button onClick={(e) => showPassword(e)}>{type === "password" ? <LuEyeClosed size={45} /> : <TbEye size={45} />}</button>
-                  </span>
-
-                  <div className="buttonContainer">
-                    <button id='entrar' type='submit' onClick={((e) => checkUsers())}>ENTRAR</button>
-                  </div>
-
-                  <a href="/login/esqueceuasenha">Esqueceu a senha?</a>
-                </L.inputContainer>
-              </form>
-            </L.loginBody>
-          </div>
-
-          <L.loginFooter>
-            <img src={logo} alt="Logo da empresa" />
-          </L.loginFooter>
-        </L.loginContainer>
-      </L.login>
-    )
   }
+
+  // função para mostrar a senha
+  const [type, setType] = useState("password")
+  const showPassword = (e) => {
+    console.log("Oi")
+    if (type === "password") {
+      setType("text")
+    } else {
+      setType("password")
+    }
+  }
+
+  return (
+    <L.login>
+      <L.loginContainer>
+
+        <L.loginHeader>
+          <FaRegCircleUser size={32} />
+          <p>Login</p>
+        </L.loginHeader>
+
+        <div className="containers">
+          <L.loginBody className='firstLogin'>
+            <img src={logo} alt="Logo da empresa" />
+
+            <p>Conectando cuidado, segurança e inovação no ambiente de trabalho.</p>
+          </L.loginBody>
+
+          <L.loginBody>
+            <form onSubmit={(e) => e.preventDefault()}>
+              <L.inputContainer>
+                <label htmlFor="email">Email</label>
+
+                <span>
+                  <HiOutlineMail size={45} />
+                  <input type="email" name="email" placeholder='Digite seu e-mail' value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} autoComplete='on' required />
+                </span>
+              </L.inputContainer>
+
+              <L.inputContainer>
+                <label htmlFor="senha">Senha</label>
+
+                <span>
+                  <MdOutlineLock size={45} />
+                  <input type={type} name="senha" placeholder='Digite sua senha' value={data.password} onChange={(e) => setData({ ...data, password: e.target.value })} autoComplete='on' required />
+                  <button onClick={(e) => showPassword(e)}>{type === "password" ? <LuEyeClosed size={45} /> : <TbEye size={45} />}</button>
+                </span>
+
+                <div className="buttonContainer">
+                  <button id='entrar' type='submit' onClick={((e) => checkUsers())}>ENTRAR</button>
+                </div>
+
+                <a href="/login/esqueceuasenha">Esqueceu a senha?</a>
+              </L.inputContainer>
+            </form>
+          </L.loginBody>
+        </div>
+
+        <L.loginFooter>
+          <img src={logo} alt="Logo da empresa" />
+        </L.loginFooter>
+      </L.loginContainer>
+    </L.login>
+  )
+}
