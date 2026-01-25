@@ -1,6 +1,21 @@
-const users = [
-    { id: 1, name: "Karin Stela", email: "karin@gmail.com", password: "123", desc: "Karin Stela é a Presidente da empresa, liderando com visão estratégica e foco no crescimento sustentável. Com forte capacidade de gestão e tomada de decisão, ela orienta as diretrizes corporativas, fortalece a cultura organizacional e impulsiona a inovação. Seu compromisso com excelência e transparência garante o alinhamento entre as equipes e o avanço contínuo da empresa." },
-    { id: 2, name: "Wander Delgado", email: "wander@gmail.com", password: "123", desc: "Wander Delgado é o Diretor Financeiro, responsável pela gestão estratégica dos recursos da empresa. Com visão analítica e foco em resultados, ele conduz o planejamento financeiro, otimiza processos e garante uma administração eficiente e transparente." }
-]
+const mysql = require('mysql2/promise')
 
-module.exports = users
+const connection = async () => {
+    try {
+        const conexao = await mysql.createConnection({
+            host: 'auth-db1198.hstgr.io',
+            user: 'u54ß7344600_salus',
+            password: '$Anderson#1',
+            database: 'u547344600_salus',
+            port: 3306
+        })
+
+        console.log('Conexão bem sucedida com o banco de dados')
+        return conexao
+    } catch (error) {
+        console.error('Erro ao conectar ao banco de dados', error)
+        throw new error
+    }
+}
+
+module.exports = connection
