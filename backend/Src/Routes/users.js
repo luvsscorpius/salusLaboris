@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 
     const users = await conexao.query('SELECT * FROM USERS')
 
-    console.log(users)
+    res.send(users[0])
 })
 
 module.exports = router

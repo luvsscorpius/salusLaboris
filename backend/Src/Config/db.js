@@ -4,7 +4,7 @@ const connection = async () => {
     try {
         const conexao = await mysql.createConnection({
             host: 'auth-db1198.hstgr.io',
-            user: 'u54ß7344600_salus',
+            user: 'u547344600_salus',
             password: '$Anderson#1',
             database: 'u547344600_salus',
             port: 3306

@@ -26,28 +26,34 @@ export const Login = () => {
     }
   }, [isUserLogged, navigate])
 
+  console.log(users)
+
   const checkUsers = async (e) => {
 
+    const userFound = users.find(
+      (user) => user.email === data.email
+    )
+    
+    if (data.email === "" || data.password === "") {
+      toast.warning("Necessário preencher os campos de e-mail e senha")
+      return
+    } else if (!userFound) {
+      setIsUserLogged(false)
+      sessionStorage.setItem("isUserLogged", false)
+      toast.warning("Usuário não encontrado")
+      return // return encerra a função imediatamente
+    } if (userFound.email === data.email && userFound.password !== data.password) {
+      toast.error("Senha incorreta, tente novamente")
+      return
+    }
+
     try {
+
       const response = await axios.post("http://localhost:2000/login", JSON.stringify(data), {
         headers: { 'Content-Type': 'application/json' }
       })
 
-      console.log(response)
-
-      const userFound = users.find(
-        (user) => user.email === data.email
-      )
-
-      if (data.email === "" || data.password === "") {
-        toast.warning("Necessário preencher os campos de e-mail e senha")
-      } else if (!userFound) {
-        setIsUserLogged(false)
-        sessionStorage.setItem("isUserLogged", false)
-        toast.warning("Usuário não encontrado")
-      } else if (userFound.email === data.email && userFound.password !== data.password) {
-        toast.error("Senha incorreta, tente novamente")
-      } else if (userFound.email === data.email && userFound.password === data.password) {
+        if (userFound.email === data.email && userFound.password === data.password && response.status === 200) {
         setIsUserLogged(true)
         setData({ ...data, name: userFound.name })
         sessionStorage.setItem("loggedUser", userFound.name)
@@ -58,7 +64,7 @@ export const Login = () => {
       }
     } catch (error) {
       if (!error?.response) {
-        return toast.error("Erro ao acessar o servidor")
+        return toast.error("Erro ao acessar o servidor", error)
       }
     }
   }

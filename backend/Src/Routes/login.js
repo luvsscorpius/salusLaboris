@@ -2,18 +2,26 @@ const express = require('express')
 const router = express.Router()
 const db = require('../Config/db')
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
 
     const data = req.body
-    console.log(data)
 
-    const foundUser = db.find(user => (user.email === data.email && user.password === data.password))
+    try {
+        const conexao = await db()
 
-    if (foundUser) {
-        console.log("Usuário encontrado")
-        res.send("Usuário encontrado").status(200)
-    } else if (foundUser === undefined) {
-        res.send("Usuário não encontrado").status(404)
+        const [users] = await conexao.query(
+            `SELECT * FROM USERS WHERE email = ? AND password = ?`, 
+            [data.email, data.password]
+        )
+
+        if (users.length > 0) {
+            res.status(200).send("Usuário encontrado")
+        } else {
+            res.status(404).send("Usuário näo encontrado")
+        }
+
+    } catch (error){
+                res.status(500).send("Erro no servidor")
     }
 })
 
