@@ -26,8 +26,6 @@ export const Login = () => {
     }
   }, [isUserLogged, navigate])
 
-  console.log(users)
-
   const checkUsers = async (e) => {
 
     const userFound = users.find(
@@ -52,6 +50,8 @@ export const Login = () => {
       const response = await axios.post("http://localhost:2000/login", JSON.stringify(data), {
         headers: { 'Content-Type': 'application/json' }
       })
+
+      console.log(response)
 
         if (userFound.email === data.email && userFound.password === data.password && response.status === 200) {
         setIsUserLogged(true)
@@ -120,7 +120,7 @@ export const Login = () => {
                   <button id='entrar' type='submit' onClick={((e) => checkUsers())}>ENTRAR</button>
                 </div>
 
-                <a href="/login/esqueceuasenha">Esqueceu a senha?</a>
+                <a href="#/login/esqueceuasenha">Esqueceu a senha?</a>
               </L.inputContainer>
             </form>
           </L.loginBody>

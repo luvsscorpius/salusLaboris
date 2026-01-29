@@ -25,8 +25,8 @@ const SalusProvider = ({ children }) => {
     const [users, setUsers] = useState([
         sessionStorage.getItem("users") || []
     ])
-    
-    useEffect( () => {
+
+    useEffect(() => {
         const fetchUsers = async () => {
             const response = await axios.get("http://localhost:2000/users")
             sessionStorage.setItem("users", JSON.stringify(response.data))
@@ -48,15 +48,32 @@ const SalusProvider = ({ children }) => {
         toast.error("Usuário deslogado com sucesso")
     }
 
+    // //        try {
+    //     const response = await axios.put("http://localhost:2000/resetPassword")
+    // } catch (error) {
+    //     console.error(error)
+    // }
+
     // função para enviar e-mail
-    const changePassword = (email) => {
+    const changePassword = async (email) => {
         const userFound = users.find(
             (user) => user.email === email
         )
 
         if (userFound) {
-            toast.success("Usuário encontrado, enviaremos um link de verificação para o seu e-mail")
-            navigate("/login")
+
+            try {
+                const response = await axios.post("http://localhost:2000/forgotPassword", JSON.stringify(userFound), {
+                    headers: { 'Content-Type': 'application/json' }
+                })
+
+                toast.success("Usuário encontrado, enviaremos um link de verificação para o seu e-mail")
+                navigate("/login")
+
+                return
+            } catch (error) {
+                toast.error(error)
+            }
         } else {
             toast.error("Usuário não encontrado, informe um e-mail cadastrado no sistema ou entre em contato com o desenvolvedor")
         }

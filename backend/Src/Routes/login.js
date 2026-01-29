@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../Config/db')
+const jwt = require('jsonwebtoken')
+
+const secretKey = 'teste123'
 
 router.post('/', async (req, res) => {
 
@@ -15,7 +18,8 @@ router.post('/', async (req, res) => {
         )
 
         if (users.length > 0) {
-            res.status(200).send("Usuário encontrado")
+            const token = jwt.sign({name: users.name}, secretKey, {expiresIn: '1hr'})
+            return res.status(200).json({token}).send("Usuário encontrado")
         } else {
             res.status(404).send("Usuário näo encontrado")
         }
