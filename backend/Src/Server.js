@@ -16,6 +16,10 @@ const forgotPassword = require('./Routes/sendEmail')
 const addCategoryRoute = require('./Routes/addCategory')
 const addPostRoute = require('./Routes/addPost')
 const getCategoriesRoute = require('./Routes/getCategories')
+const addUserRoute = require('./Routes/addUser')
+const editUserRoute = require('./Routes/editUser')
+const editCategoryRoute = require('./Routes/editCategory')
+const deleteCategoryRoute = require('./Routes/deleteCategory')
 
 // usando as rotas
 
@@ -27,6 +31,10 @@ app.use('/forgotPassword', forgotPassword)
 app.use('/addCategory', addCategoryRoute)
 app.use('/addPost', addPostRoute)
 app.use('/getCategories', getCategoriesRoute)
+app.use('/addUser', addUserRoute)
+app.use('/editUser', editUserRoute)
+app.use('/editCategory', editCategoryRoute)
+app.use('/deleteCategory', deleteCategoryRoute)
 
 app.listen(port, () => {
     console.log("Servidor rodando na porta: ", port)
