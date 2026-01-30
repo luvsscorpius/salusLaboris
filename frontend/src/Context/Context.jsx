@@ -84,13 +84,14 @@ const SalusProvider = ({ children }) => {
         console.log(titulo)
 
         try {
+
+            const novaCategoria = { id: categorias.length + 1, title: titulo, author: sessionStorage.getItem("loggedUser"), authorId: sessionStorage.getItem("loggedUserId"), date: new Date().toISOString().split('T')[0] }
+
             const response = await axios.post("http://localhost:2000/addCategory", novaCategoria, {
                 headers: { 'Content-Type': 'application/json' }
             })
 
             if (response.status === 200) {
-                const novaCategoria = { id: categorias.length + 1, title: titulo, author: sessionStorage.getItem("loggedUser"), authorId: sessionStorage.getItem("loggedUserId"), date: new Date().toISOString().split('T')[0] }
-
 
                 setCategorias((prev) => [...prev, novaCategoria,])
 
