@@ -80,17 +80,30 @@ const SalusProvider = ({ children }) => {
     }
 
     // função para criar categorias 
-    const createCategory = (titulo) => {
+    const createCategory = async (titulo) => {
         console.log(titulo)
 
-        const novaCategoria = { id: categorias.length + 1, title: titulo, author: sessionStorage.getItem("loggedUser"), date: new Date().toLocaleDateString("pt-BR") }
+        try {
+            const response = await axios.post("http://localhost:2000/addCategory", novaCategoria, {
+                headers: { 'Content-Type': 'application/json' }
+            })
 
-        setCategorias((prev) => [...prev, novaCategoria,])
+            if (response.status === 200) {
+                const novaCategoria = { id: categorias.length + 1, title: titulo, author: sessionStorage.getItem("loggedUser"), authorId: sessionStorage.getItem("loggedUserId"), date: new Date().toISOString().split('T')[0] }
 
-        sessionStorage.setItem("categorias", JSON.stringify(categorias))
 
-        toast.success("Categoria adicionada com sucesso")
-        navigate("/adm/categorias")
+                setCategorias((prev) => [...prev, novaCategoria,])
+
+                sessionStorage.setItem("categorias", JSON.stringify(categorias))
+
+                toast.success("Categoria adicionada com sucesso")
+                navigate("/adm/categorias")
+            } else if (response.status === 404) {
+                toast.success("Falha ao inserir categoria ao banco de dados")
+            }
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     const createUser = (info) => {
