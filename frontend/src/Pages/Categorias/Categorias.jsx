@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 export const Categorias = () => {
 
-    const { categorias, deleteCategory, editCategory, navigate, setCategoryId } = useContext(SalusContext)
+    const { categorias, deleteCategory, editCategory, navigate, setCategoryId, users } = useContext(SalusContext)
 
     const [currentPage, setCurrentPage] = useState(0)
     const itemsPage = 8
@@ -60,8 +60,8 @@ export const Categorias = () => {
                                 <td>{categoria.title.length > 200
                                     ? categoria.title.substring(0, 200) + "..."
                                     : categoria.title}</td>
-                                <td className='data'>{categoria.date.length > 15 ? categoria.date.substring(0, 15) + "..." : categoria.date}</td>
-                                <td className='autor'>{categoria.author.length > 20 ? categoria.author.substring(0, 20) + "..." : categoria.author}</td>
+                                <td className='data'>{categoria.created_at.length > 10 ? categoria.created_at.substring(0, 10) + "..." : categoria.created_at}</td>
+                                <td className='autor'>{users.map((user) => user.id === categoria.id ? user.name : "")}</td>
                                 <td className='icon'>
                                     <FaRegEdit size={25} onClick={() => enviarCategoria(categoria.id)} />
                                     <MdDeleteOutline size={25} onClick={(e) => deleteCategory(categoria.id)} />
