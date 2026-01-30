@@ -14,6 +14,7 @@ const usersRoute = require('./Routes/users')
 const resetPassword = require('./Routes/resetPassword')
 const forgotPassword = require('./Routes/sendEmail')
 const addCategoryRoute = require('./Routes/addCategory')
+const addPostRoute = require('./Routes/addPost')
 
 // usando as rotas
 
@@ -23,6 +24,7 @@ app.use('/users', usersRoute)
 app.use('/resetPassword', resetPassword)
 app.use('/forgotPassword', forgotPassword)
 app.use('/addCategory', addCategoryRoute)
+app.use('/addPost', addPostRoute)
 
 app.listen(port, () => {
     console.log("Servidor rodando na porta: ", port)
