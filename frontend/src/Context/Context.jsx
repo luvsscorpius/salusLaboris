@@ -42,6 +42,8 @@ const SalusProvider = ({ children }) => {
         }
         fetchCategories()
     }, [])
+    
+    console.log(categorias.length)
 
     const navigate = useNavigate()
 
