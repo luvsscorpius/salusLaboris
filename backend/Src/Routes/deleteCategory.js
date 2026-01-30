@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const db = require('../Config/db')
 
-router.post('/', async (req, res) => {
+router.delete('/', async (req, res) => {
     
     const categoria = req.body
 
