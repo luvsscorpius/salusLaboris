@@ -127,12 +127,21 @@ const SalusProvider = ({ children }) => {
     }
 
     // funcao para deletar categorias
-    const deleteCategory = (id) => {
-        const novasCategorias = categorias.splice(1, id)
-        console.log(novasCategorias)
-        setCategorias(novasCategorias)
-        sessionStorage.setItem("categorias", novasCategorias)
-        toast.success("Categoria deletada com sucesso")
+    const deleteCategory = async (id) => {
+
+        try {
+            const response = await axios.delete("http://localhost:2000/deleteCategory", JSON.stringify(id), {
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            const novasCategorias = categorias.splice(1, id)
+            console.log(novasCategorias)
+            setCategorias(novasCategorias)
+            sessionStorage.setItem("categorias", novasCategorias)
+            toast.success("Categoria deletada com sucesso")
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     const [categoryId, setCategoryId] = useState()
@@ -160,7 +169,7 @@ const SalusProvider = ({ children }) => {
     }
 
     // função para editar categoria
-    const editCategory = (info) => {
+    const editCategory = async (info) => {
         const id = sessionStorage.getItem("categoryId")
         sessionStorage.setItem("categoryId", id)
         setCategoryId(id)
@@ -169,11 +178,19 @@ const SalusProvider = ({ children }) => {
             (categoria) => categoria.id === Number(info.id)
         )
 
-        if (findCategory) {
-            setCategorias(categorias.map(post =>
-                post.id === info.id ? info : post
-            ))
-            navigate("adm/categorias")
+        try {
+            const response = await axios.post("http://localhost:2000/editCategory", JSON.stringify(info, findCategory), {
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            if (findCategory) {
+                setCategorias(categorias.map(post =>
+                    post.id === info.id ? info : post
+                ))
+                navigate("adm/categorias")
+            }
+        } catch (error) {
+            console.error(error)
         }
     }
 
@@ -215,31 +232,48 @@ const SalusProvider = ({ children }) => {
     const [userId, setUserId] = useState()
 
     // função para editar usuario
-    const editUser = (info) => {
+    const editUser = async (info) => {
 
         const findUser = users.find(
             (user) => user.id === Number(info.id)
         )
 
-        if (findUser) {
-            setUsers(users.map(user =>
-                user.id === info.id ? info : user
-            ))
-            navigate("adm/usuarios")
-            toast.success("Usuário atualizado com sucesso")
+        try {
+            const response = await axios.put("http://localhost:2000/editUser", JSON.stringify(info, findUser), {
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            if (findUser) {
+                setUsers(users.map(user =>
+                    user.id === info.id ? info : user
+                ))
+                navigate("adm/usuarios")
+                toast.success("Usuário atualizado com sucesso")
+            }
+        } catch (error) {
+            console.error(error)
         }
     }
 
     // funcao para deletar usuarios
-    const deleteUser = (id) => {
+    const deleteUser = async (id) => {
         const ID = Number(sessionStorage.getItem("loggedUserId"))
         if (ID === id) {
             toast.error("Usuário logado, saia e peça para um administrador para excluir sua conta.")
         } else {
-            const novosUsers = users.splice(1, id)
-            console.log(novosUsers)
-            setUsers(novosUsers)
-            toast.success("Usuário deletado com sucesso")
+
+            try {
+                const response = await axios.delete("http://localhost:2000/deleteUser", JSON.stringify(id), {
+                    headers: { 'Content-Type': 'application/json' }
+                })
+
+                const novosUsers = users.splice(1, id)
+                console.log(novosUsers)
+                setUsers(novosUsers)
+                toast.success("Usuário deletado com sucesso")
+            } catch (error) {
+                console.error(error)
+            }
         }
     }
 
