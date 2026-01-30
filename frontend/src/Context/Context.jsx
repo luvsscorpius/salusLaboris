@@ -170,13 +170,21 @@ const SalusProvider = ({ children }) => {
     }
 
     // função para criar categorias 
-    const createPost = (post) => {
+    const createPost = async (post) => {
         console.log(post)
 
         if (post.category === "") {
             toast.warning("Selecione uma categoria antes de criar um post")
         } else {
-            const novoPost = { id: posts.length + 1, title: post.title, desc: post.desc, category: post.category, author: sessionStorage.getItem("loggedUser"), date: new Date().toLocaleDateString("pt-BR"), views: 0 }
+            const novoPost = { id: posts.length + 1, title: post.title, desc: post.desc, category: post.category, author: sessionStorage.getItem("loggedUser"), date: new Date().toISOString().split('T')[0], views: 0 }
+
+            try {
+                const response = await axios.post("http://localhost:2000/addPost", JSON.stringify(novoPost), {
+                    headers: { 'Content-Type': 'application/json' }
+                })
+            } catch (error) {
+                console.error(error)
+            }
 
             setPosts((prev) => [...prev, novoPost,])
 
