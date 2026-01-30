@@ -17,10 +17,13 @@ export const AdicionarPost = () => {
     const { categorias, createPost } = useContext(SalusContext)
 
     const [novoPost, setNovoPost] = useState({
+        id: "",
         title: "",
         category: "",
         desc: ""
     })
+
+    console.log(categorias)
 
     // Criar editor do TipTap
     const editor = useEditor({
@@ -85,12 +88,13 @@ export const AdicionarPost = () => {
                         <select
                             name="categoria"
                             value={novoPost.category}
-                            onChange={(e) => setNovoPost({ ...novoPost, category: e.target.value })}
+                            onChange={(e) => setNovoPost({ ...novoPost, category: e.target.value  })}
+                            onClick={(e) => console.log(e.target.value)}
                         >
                             <option value="">Selecione uma categoria</option>
-                            {categorias.map((cat, index) => (
-                                <option value={cat.title} key={index}>
-                                    {cat.title}
+                            {categorias.map((cat) => (
+                                <option value={cat.title} key={cat.id}>
+                                    {cat.id} - {cat.title}
                                 </option>
                             ))}
                         </select>

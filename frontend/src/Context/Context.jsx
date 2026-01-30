@@ -13,14 +13,13 @@ const SalusProvider = ({ children }) => {
     })
 
     const [categorias, setCategorias] = useState(() => {
-        const stored = sessionStorage.getItem("categorias");
+        const stored = sessionStorage.getItem("categories");
         return stored ? JSON.parse(stored) : []; // se não tiver nada, começa vazio
     });
 
     useEffect(() => {
-        sessionStorage.setItem("categorias", JSON.stringify(categorias));
         sessionStorage.setItem("posts", JSON.stringify(posts));
-    }, [categorias, posts]);
+    }, [posts]);
 
     const [users, setUsers] = useState([
         sessionStorage.getItem("users") || []
@@ -33,6 +32,15 @@ const SalusProvider = ({ children }) => {
             setUsers(response.data)
         }
         fetchUsers()
+    }, [])
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            const response = await axios.get("http://localhost:2000/getCategories")
+            sessionStorage.setItem("categories", JSON.stringify(response.data))
+            setCategorias(response.data)
+        }
+        fetchCategories()
     }, [])
 
     const navigate = useNavigate()
@@ -176,7 +184,7 @@ const SalusProvider = ({ children }) => {
         if (post.category === "") {
             toast.warning("Selecione uma categoria antes de criar um post")
         } else {
-            const novoPost = { id: posts.length + 1, title: post.title, desc: post.desc, category: post.category, author: sessionStorage.getItem("loggedUser"), date: new Date().toISOString().split('T')[0], views: 0 }
+            const novoPost = { id: post.id, title: post.title, desc: post.desc, category: post.category, categoryId: "teste", author: sessionStorage.getItem("loggedUser"), date: new Date().toISOString().split('T')[0], views: 0 }
 
             try {
                 const response = await axios.post("http://localhost:2000/addPost", JSON.stringify(novoPost), {
