@@ -14,8 +14,13 @@ const SalusProvider = ({ children }) => {
 
     const [categorias, setCategorias] = useState(() => {
         const stored = sessionStorage.getItem("categories");
-        return stored ? JSON.parse(stored) : []; // se não tiver nada, começa vazio
+        return stored ? JSON.parse(stored) : [] // se não tiver nada, começa vazio
     });
+
+    const [users, setUsers] = useState(() => {
+        const stored = sessionStorage.getItem("users")
+        return stored ? JSON.parse(stored) : []
+    })
 
     const fetchUsers = async () => {
         const response = await axios.get("http://localhost:2000/users")
@@ -46,17 +51,6 @@ const SalusProvider = ({ children }) => {
     useEffect(() => {
         fetchPosts()
     }, [])
-
-
-    useEffect(() => {
-        sessionStorage.setItem("posts", JSON.stringify(posts));
-    }, [posts]);
-
-    const [users, setUsers] = useState([
-        sessionStorage.getItem("users") || []
-    ])
-
-    console.log(categorias.length)
 
     const navigate = useNavigate()
 
@@ -234,7 +228,7 @@ const SalusProvider = ({ children }) => {
                     setPosts((prev) => [...prev, novoPost,])
 
                     sessionStorage.setItem("posts", JSON.stringify(posts))
-                
+
                     fetchPosts()
                     toast.success("Post adicionado com sucesso")
                     navigate("/adm/gerenciarposts")

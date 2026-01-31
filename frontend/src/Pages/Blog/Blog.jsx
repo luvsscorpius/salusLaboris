@@ -19,6 +19,8 @@ export const Blog = () => {
         setCurrentPage(selected)
     }
 
+    console.log(posts)
+
     const offSet = currentPage * itemsPage
     const currentPageData = posts.slice(offSet, offSet + itemsPage)
 
@@ -40,12 +42,12 @@ export const Blog = () => {
 
                 <B.blogBody>
                     <B.cardsContainer>
-                        {posts.length > 0 && currentPageData.map((post, index) => (
+                        {posts && posts.length > 0 && currentPageData.map((post, index) => (
                             <B.card key={index}>
                                 <B.postInfo>
                                     <span>
                                         <FaRegCalendarAlt />
-                                        <p>{post.date}</p>
+                                        <p>{post.created_at}</p>
                                     </span>
 
                                     <span>
