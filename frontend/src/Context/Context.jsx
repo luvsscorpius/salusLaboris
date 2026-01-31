@@ -98,7 +98,7 @@ const SalusProvider = ({ children }) => {
 
         try {
 
-            const novaCategoria = { id: categorias.length + 1, title: titulo, author: sessionStorage.getItem("loggedUser"), authorId: sessionStorage.getItem("loggedUserId"), date: new Date().toISOString().split('T')[0] }
+            const novaCategoria = { id: categorias.length + 1, title: titulo, author: sessionStorage.getItem("loggedUser"), authorId: sessionStorage.getItem("loggedUserId"), created_at: new Date().toISOString().split('T')[0] }
 
             const response = await axios.post("http://localhost:2000/addCategory", novaCategoria, {
                 headers: { 'Content-Type': 'application/json' }
@@ -107,9 +107,7 @@ const SalusProvider = ({ children }) => {
             if (response.status === 200) {
 
                 setCategorias((prev) => [...prev, novaCategoria,])
-
                 sessionStorage.setItem("categories", JSON.stringify(categorias))
-
                 toast.success("Categoria adicionada com sucesso")
                 fetchCategories()
                 navigate("/adm/categorias")
@@ -134,17 +132,22 @@ const SalusProvider = ({ children }) => {
 
     // funcao para deletar categorias
     const deleteCategory = async (id) => {
+        
+        console.log(id)
 
         try {
-            const response = await axios.delete("http://localhost:2000/deleteCategory", JSON.stringify(id), {
-                headers: { 'Content-Type': 'application/json' }
-            })
+            const response = await axios.delete("http://localhost:2000/deleteCategory", {data: {id}})
 
-            const novasCategorias = categorias.splice(1, id)
-            console.log(novasCategorias)
-            setCategorias(novasCategorias)
-            sessionStorage.setItem("categorias", novasCategorias)
-            toast.success("Categoria deletada com sucesso")
+            if (response.status === 200) {
+                const novasCategorias = categorias.splice(1, id)
+                setCategorias(novasCategorias)
+                console.log(novasCategorias)
+                sessionStorage.setItem("categories", novasCategorias)
+                toast.success("Categoria deletada com sucesso")
+                fetchCategories()
+            } else if (response.status === 404) {
+                toast.error("Falha ao deletar categoria no banco de dados")
+            }
         } catch (error) {
             console.error(error)
         }

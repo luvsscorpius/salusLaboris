@@ -30,6 +30,8 @@ export const Categorias = () => {
         navigate('/adm/editarcategoria')
     }
 
+    console.log(categorias)
+
     return (
         <G.main>
             <Menu />

@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     try {
         const [query] = await conn.query(
             `INSERT INTO CATEGORIES (title, author_id, created_at) VALUES (?, ?, ?)`,
-            [categoria.title, categoria.authorId, categoria.date]
+            [categoria.title, categoria.authorId, categoria.created_at]
         )
 
         if (query.affectedRows === 1) {
