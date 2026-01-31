@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 export const GerenciarPosts = () => {
 
-  const {posts, deletePost, editPost, navigate, setCategoryId} = useContext(SalusContext)
+  const { posts, deletePost, editPost, navigate, setCategoryId, users, categorias } = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 10
@@ -62,11 +62,20 @@ export const GerenciarPosts = () => {
                 <td>{post.title.length > 200
                   ? post.title.substring(0, 200) + "..."
                   : post.title}</td>
-                <td>{post.category.length > 200
-                  ? post.category.substring(0, 200) + "..."
-                  : post.category}</td>
-                <td className='data'>{post.date.length > 15 ? post.date.substring(0, 15) + "..." : post.date}</td>
-                <td className='autor'>{post.author.length > 20 ? post.author.substring(0,20) + "..." : post.author}</td>
+                <td>{(() => {
+                  const title = categorias.find(cat => cat.id === post.category_id)?.title
+                  return title
+                    ? title.length > 200
+                      ? title.substring(0, 200) + "..."
+                      : title
+                    : ""
+                })()}</td>
+                <td className='data'>{
+                  post.created_at.includes('T')
+                    ? post.created_at.split('T')[0]
+                    : post.created_at
+                }</td>
+                <td className='autor'>{users.map((user) => user.id === post.author_id ? user.name : "")}</td>
                 <td className='icon'>
                   <FaRegEdit size={25} onClick={(e) => enviarCategoria(post.id)} />
                   <MdDeleteOutline size={25} onClick={(e) => deletePost(post.id)} />
@@ -77,18 +86,18 @@ export const GerenciarPosts = () => {
           </tbody>
         </table>
 
-              <ReactPaginate
-                        pageCount={Math.ceil(posts.length / itemsPage)}
-                        pageRangeDisplayed={3} // Número de páginas a serem exibidas
-                        marginPagesDisplayed={1} // Número de páginas a serem exibidas nas extremidades
-                        onPageChange={handlePageClick}
-                        containerClassName={'pagination'}
-                        activeClassName={'active'}
-                        nextLinkClassName={"next"}
-                        nextLabel=">"
-                        previousLabel="<"
-                        previousLinkClassName={"previous"}
-                        pageClassName={"page"} />
+        <ReactPaginate
+          pageCount={Math.ceil(posts.length / itemsPage)}
+          pageRangeDisplayed={3} // Número de páginas a serem exibidas
+          marginPagesDisplayed={1} // Número de páginas a serem exibidas nas extremidades
+          onPageChange={handlePageClick}
+          containerClassName={'pagination'}
+          activeClassName={'active'}
+          nextLinkClassName={"next"}
+          nextLabel=">"
+          previousLabel="<"
+          previousLinkClassName={"previous"}
+          pageClassName={"page"} />
       </G.gerenciarPostsBody>
     </G.main>
   )

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Menu } from '../../Components/Menu/Menu';
 import * as B from '../Blog/Styles'
 import * as A from './Styles'
@@ -17,11 +17,26 @@ export const AdicionarPost = () => {
     const { categorias, createPost } = useContext(SalusContext)
 
     const [novoPost, setNovoPost] = useState({
-        id: "",
         title: "",
         category: "",
-        desc: ""
+        desc: "",
+        categoryId: null,
     })
+
+    useEffect(() => {
+        if (!novoPost.category) return;
+
+        const categoriaEncontrada = categorias.find(
+            (cat) => cat.title === novoPost.category
+        );
+
+        if (categoriaEncontrada) {
+            setNovoPost((prev) => ({
+                ...prev,
+                categoryId: categoriaEncontrada.id,
+            }));
+        }
+    }, [novoPost.category, categorias]);
 
     console.log(categorias)
 
@@ -88,7 +103,7 @@ export const AdicionarPost = () => {
                         <select
                             name="categoria"
                             value={novoPost.category}
-                            onChange={(e) => setNovoPost({ ...novoPost, category: e.target.value  })}
+                            onChange={(e) => setNovoPost({ ...novoPost, category: e.target.value })}
                             onClick={(e) => console.log(e.target.value)}
                         >.~ryot
                             <option value="">Selecione uma categoria</option>

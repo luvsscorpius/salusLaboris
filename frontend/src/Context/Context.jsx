@@ -37,6 +37,16 @@ const SalusProvider = ({ children }) => {
         fetchCategories()
     }, [])
 
+    const fetchPosts = async () => {
+        const response = await axios.get("http://localhost:2000/getPosts")
+        sessionStorage.setItem("posts", JSON.stringify(response.data))
+        setPosts(response.data)
+    }
+
+    useEffect(() => {
+        fetchPosts()
+    }, [])
+
 
     useEffect(() => {
         sessionStorage.setItem("posts", JSON.stringify(posts));
@@ -132,11 +142,11 @@ const SalusProvider = ({ children }) => {
 
     // funcao para deletar categorias
     const deleteCategory = async (id) => {
-        
+
         console.log(id)
 
         try {
-            const response = await axios.delete("http://localhost:2000/deleteCategory", {data: {id}})
+            const response = await axios.delete("http://localhost:2000/deleteCategory", { data: { id } })
 
             if (response.status === 200) {
                 const novasCategorias = categorias.splice(1, id)
@@ -213,22 +223,25 @@ const SalusProvider = ({ children }) => {
         if (post.category === "") {
             toast.warning("Selecione uma categoria antes de criar um post")
         } else {
-            const novoPost = { id: post.id, title: post.title, desc: post.desc, category: post.category, categoryId: "teste", author: sessionStorage.getItem("loggedUser"), date: new Date().toISOString().split('T')[0], views: 0 }
+            const novoPost = { categoryId: post.categoryId, title: post.title, desc: post.desc, category: post.category, author: sessionStorage.getItem("loggedUser"), authorId: sessionStorage.getItem("loggedUserId"), created_at: new Date().toISOString().split('T')[0], views: 0 }
 
             try {
                 const response = await axios.post("http://localhost:2000/addPost", JSON.stringify(novoPost), {
                     headers: { 'Content-Type': 'application/json' }
                 })
+
+                if (response.status === 200) {
+                    setPosts((prev) => [...prev, novoPost,])
+
+                    sessionStorage.setItem("posts", JSON.stringify(posts))
+                
+                    fetchPosts()
+                    toast.success("Post adicionado com sucesso")
+                    navigate("/adm/gerenciarposts")
+                }
             } catch (error) {
                 console.error(error)
             }
-
-            setPosts((prev) => [...prev, novoPost,])
-
-            sessionStorage.setItem("posts", JSON.stringify(posts))
-
-            toast.success("Post adicionado com sucesso")
-            navigate("/adm/gerenciarposts")
         }
     }
 
