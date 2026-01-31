@@ -6,7 +6,7 @@ router.put('/', async (req, res) => {
     
     const categoria = req.body
 
-    console.log("Acessando a rota de adicionar categoria")
+    console.log("Acessando a rota de editar categoria")
     console.log(categoria)
 
     const conn = await db()
@@ -14,7 +14,7 @@ router.put('/', async (req, res) => {
     try {
         const [query] = await conn.query(
             `UPDATE CATEGORIES SET title = ?, author_id = ? WHERE id = ?`,
-            [categoria.title, categoria.authorId, categoria.id]
+            [categoria.title, Number(categoria.authorId), Number(categoria.id)]
         )
 
         if (query.affectedRows === 1) {
@@ -27,7 +27,7 @@ router.put('/', async (req, res) => {
             return
         }
     } catch (error) {
-        console.error(error)
+        console.error("Erro:", error)
     }
 
 })

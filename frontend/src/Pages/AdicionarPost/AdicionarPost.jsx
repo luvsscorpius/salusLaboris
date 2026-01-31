@@ -90,7 +90,7 @@ export const AdicionarPost = () => {
                             value={novoPost.category}
                             onChange={(e) => setNovoPost({ ...novoPost, category: e.target.value  })}
                             onClick={(e) => console.log(e.target.value)}
-                        >
+                        >.~ryot
                             <option value="">Selecione uma categoria</option>
                             {categorias.map((cat) => (
                                 <option value={cat.title} key={cat.id}>

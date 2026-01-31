@@ -17,6 +17,27 @@ const SalusProvider = ({ children }) => {
         return stored ? JSON.parse(stored) : []; // se não tiver nada, começa vazio
     });
 
+    const fetchUsers = async () => {
+        const response = await axios.get("http://localhost:2000/users")
+        sessionStorage.setItem("users", JSON.stringify(response.data))
+        setUsers(response.data)
+    }
+
+    useEffect(() => {
+        fetchUsers()
+    }, [])
+
+    const fetchCategories = async () => {
+        const response = await axios.get("http://localhost:2000/getCategories")
+        sessionStorage.setItem("categories", JSON.stringify(response.data))
+        setCategorias(response.data)
+    }
+
+    useEffect(() => {
+        fetchCategories()
+    }, [])
+
+
     useEffect(() => {
         sessionStorage.setItem("posts", JSON.stringify(posts));
     }, [posts]);
@@ -25,24 +46,6 @@ const SalusProvider = ({ children }) => {
         sessionStorage.getItem("users") || []
     ])
 
-    useEffect(() => {
-        const fetchUsers = async () => {
-            const response = await axios.get("http://localhost:2000/users")
-            sessionStorage.setItem("users", JSON.stringify(response.data))
-            setUsers(response.data)
-        }
-        fetchUsers()
-    }, [])
-
-    useEffect(() => {
-        const fetchCategories = async () => {
-            const response = await axios.get("http://localhost:2000/getCategories")
-            sessionStorage.setItem("categories", JSON.stringify(response.data))
-            setCategorias(response.data)
-        }
-        fetchCategories()
-    }, [])
-    
     console.log(categorias.length)
 
     const navigate = useNavigate()
@@ -105,9 +108,10 @@ const SalusProvider = ({ children }) => {
 
                 setCategorias((prev) => [...prev, novaCategoria,])
 
-                sessionStorage.setItem("categorias", JSON.stringify(categorias))
+                sessionStorage.setItem("categories", JSON.stringify(categorias))
 
                 toast.success("Categoria adicionada com sucesso")
+                fetchCategories()
                 navigate("/adm/categorias")
             } else if (response.status === 404) {
                 toast.success("Falha ao inserir categoria ao banco de dados")
@@ -180,8 +184,10 @@ const SalusProvider = ({ children }) => {
             (categoria) => categoria.id === Number(info.id)
         )
 
+        console.log(info)
+
         try {
-            const response = await axios.post("http://localhost:2000/editCategory", JSON.stringify(info, findCategory), {
+            const response = await axios.put("http://localhost:2000/editCategory", info, {
                 headers: { 'Content-Type': 'application/json' }
             })
 
@@ -189,6 +195,7 @@ const SalusProvider = ({ children }) => {
                 setCategorias(categorias.map(post =>
                     post.id === info.id ? info : post
                 ))
+                fetchCategories()
                 navigate("adm/categorias")
             }
         } catch (error) {

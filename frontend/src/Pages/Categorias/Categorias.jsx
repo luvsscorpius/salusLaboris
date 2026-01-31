@@ -28,10 +28,7 @@ export const Categorias = () => {
         sessionStorage.setItem("categoryId", categoryId)
         setCategoryId(categoryId)
         navigate('/adm/editarcategoria')
-      }
-
-      console.log(categorias)
-      console.log(users)
+    }
 
     return (
         <G.main>
@@ -63,7 +60,11 @@ export const Categorias = () => {
                                 <td>{categoria.title.length > 200
                                     ? categoria.title.substring(0, 200) + "..."
                                     : categoria.title}</td>
-                                <td className='data'>{categoria.created_at.length > 10 ? categoria.created_at.substring(0, 10) + "..." : categoria.created_at}</td>
+                                <td className='data'>{
+                                    categoria.created_at.includes('T')
+                                        ? categoria.created_at.split('T')[0]
+                                        : categoria.created_at
+                                }</td>
                                 <td className='autor'>{users.map((user) => user.id === categoria.author_id ? user.name : "")}</td>
                                 <td className='icon'>
                                     <FaRegEdit size={25} onClick={() => enviarCategoria(categoria.id)} />

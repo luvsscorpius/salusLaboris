@@ -19,7 +19,8 @@ export const EditarCategoria = () => {
         id: categoryId,
         title: findCategory.title,
         author: sessionStorage.getItem("loggedUser"),
-        date: new Date().toLocaleDateString("pt-BR")
+        authorId: sessionStorage.getItem("loggedUserId"),
+        created_at: new Date().toLocaleDateString("pt-BR")
     })
 
     return (
