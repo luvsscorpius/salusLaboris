@@ -259,13 +259,26 @@ const SalusProvider = ({ children }) => {
         }
     }
 
-    // funcao para deletar categorias
-    const deletePost = (id) => {
-        const novosPosts = posts.splice(1, id)
-        console.log(novosPosts)
-        setPosts(novosPosts)
-        sessionStorage.setItem("posts", novosPosts)
-        toast.success("Post deletado com sucesso")
+    // funcao para deletar posts
+    const deletePost = async (id) => {
+
+        try {
+            const response = await axios.delete("http://localhost:2000/deletePost", { data: { id } })
+
+            if (response.status === 200) {
+                const novosPosts = posts.splice(1, id)
+                setPosts(novosPosts)
+                sessionStorage.setItem("posts", novosPosts)
+                toast.success("Post deletado com sucesso")
+                fetchPosts()
+            } else if (response.status === 404) {
+                toast.error("Falha ao deletar post no banco de dados")
+            }
+        } catch (error) {
+            console.error(error)
+        }
+
+
     }
 
     const [userId, setUserId] = useState()

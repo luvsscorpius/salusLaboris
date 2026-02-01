@@ -13,7 +13,7 @@ router.delete('/', async (req, res) => {
 
     try {
         const [query] = await conn.query(
-            `DELETE FROM CATEGORIES WHERE id = ?`,
+            `DELETE FROM POSTS WHERE id = ?`,
             [postId.id]
         )
 
