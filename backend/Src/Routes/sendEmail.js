@@ -7,6 +7,9 @@ const nodemailer = require('nodemailer')
 const senha = 'minhasenha'
 require('dotenv').config();
 
+console.log(process.env.EMAIL_USER)
+console.log(process.env.EMAIL_PASS)
+
 router.post("/", async (req, res) => {
     console.log("Acessando rota de esqueceu senha")
 
@@ -26,24 +29,18 @@ router.post("/", async (req, res) => {
         // gerando um token de recuperacao de senha
         const token = jwt.sign({ id: query[0].id }, senha, { expiresIn: '1hr' })
 
-        // Configurando o transporte de email
         const transporter = nodemailer.createTransport({
-            host: "smtp.hostinger.com",
-            secure: true,
-            secureConnection: false,
-            tls: {
-                ciphers: "SSLv3",
-            },
-            requireTLS: true,
-            port: 465,
-            debug: true,
-            connectionTimeout: 10000,
+            host: 'smtp.hostinger.com',
+            port: 587,
+            secure: false, // ✅ TEM que ser false
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
             },
+            tls: {
+                rejectUnauthorized: false, // evita erros em dev
+            }
         })
-
         // Enviando o email com o token
         const mailOptions = {
             from: process.env.EMAIL_USER,
