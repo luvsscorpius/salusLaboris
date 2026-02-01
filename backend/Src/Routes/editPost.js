@@ -13,8 +13,8 @@ router.put('/', async (req, res) => {
 
     try {
         const [query] = await conn.query(
-            `UPDATE POSTS SET title = ?, author_id = ? WHERE id = ?`,
-            [post.title, Number(post.authorId), Number(post.id)]
+            `UPDATE POSTS SET title = ?, description = ?, category_id = ? WHERE id = ?`,
+            [post.title, post.description, post.category_id, Number(post.id)]
         )
 
         if (query.affectedRows === 1) {

@@ -157,13 +157,14 @@ const SalusProvider = ({ children }) => {
         }
     }
 
-    const [categoryId, setCategoryId] = useState()
+    const [categoryId, setCategoryId] = useState(() => {
+        return sessionStorage.getItem("categoryId")
+    })
 
     // função para editar post
-    const editPost = (info) => {
-        const id = sessionStorage.getItem("categoryId")
-        sessionStorage.setItem("categoryId", id)
-        setCategoryId(id)
+    const editPost = async (info) => {
+
+        console.log(info)
 
         if (info.category === "") {
             toast.warning("Selecione uma categoria antes de editar um post")
@@ -173,10 +174,29 @@ const SalusProvider = ({ children }) => {
             )
 
             if (findPost) {
-                setPosts(posts.map(post =>
-                    post.id === info.id ? info : post
-                ))
-                navigate("adm/gerenciarposts")
+                try {
+                    const response = await axios.put("http://localhost:2000/editPost", info, {
+                        headers: { 'Content-Type': 'application/json' }
+                    })
+
+                    if (response.status === 200) {
+                        if (findPost) {
+                            setPosts(posts.map(post =>
+                                post.id === info.id ? info : post
+                            ))
+                            fetchPosts()
+                            navigate("adm/gerenciarposts")
+
+                            setPosts(posts.map(post =>
+                                post.id === info.id ? info : post
+                            ))
+                        }
+                    } else if (response.status === 404) {
+                        toast.error("Falha ao editar post no banco de dados")
+                    }
+                } catch (error) {
+                    console.error(error)
+                }
             }
         }
     }
