@@ -9,6 +9,8 @@ export const PostPage = () => {
 
   const { posts, users } = useContext(SalusContext)
 
+  console.log(users)
+
   const { id } = useParams()
 
   const foundPost = posts.find(
@@ -16,8 +18,10 @@ export const PostPage = () => {
   )
 
   const findUser = users.find(
-    (user) => user.name === foundPost.author
+    (user) => user.id === foundPost.author_id
   )
+
+  console.log(foundPost)
 
   return (
     <P.main>
@@ -29,12 +33,12 @@ export const PostPage = () => {
           {/* AQUI: conteúdo rico do TipTap */}
           <div
             className="postContent"
-            dangerouslySetInnerHTML={{ __html: foundPost.desc }}
+            dangerouslySetInnerHTML={{ __html: foundPost.description }}
           />
         </P.postBody>
 
         <P.postFooter>
-          {foundPost.author === "Karin Stela" ?
+          {foundPost.author_id === "Karin Stela" ?
             <span>
               <img src={KarinStela} alt="Imagem da presidente da empresa" />
             </span> :
@@ -44,8 +48,9 @@ export const PostPage = () => {
           }
 
           <span>
-            <h3>Escrito por {foundPost.author}</h3>
-            <p>{findUser.desc}</p>
+            <h3>Escrito por {findUser.name}</h3>
+            <p>{findUser.description}</p>
+            <p>{foundPost.created_at.split('T')[0]}</p>
           </span>
         </P.postFooter>
       </P.postContainer>

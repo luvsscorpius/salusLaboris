@@ -30,17 +30,17 @@ router.post("/", async (req, res) => {
         const token = jwt.sign({ id: query[0].id }, senha, { expiresIn: '1hr' })
 
         const transporter = nodemailer.createTransport({
-            host: 'smtp.hostinger.com',
+            host: 'smtp.office365.com',
             port: 587,
-            secure: false, // ✅ TEM que ser false
+            secure: false, // sempre false no 587
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                user: process.env.EMAIL_USER, // ex: seuemail@outlook.com
+                pass: process.env.EMAIL_PASS, // senha ou senha de app
             },
             tls: {
-                rejectUnauthorized: false, // evita erros em dev
-            }
-        })
+                ciphers: 'SSLv3',
+            },
+        });
         // Enviando o email com o token
         const mailOptions = {
             from: process.env.EMAIL_USER,
