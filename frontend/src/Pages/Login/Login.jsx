@@ -31,6 +31,8 @@ export const Login = () => {
     const userFound = users.find(
       (user) => user.email === data.email
     )
+
+    console.log(userFound)
     
     if (data.email === "" || data.password === "") {
       toast.warning("Necessário preencher os campos de e-mail e senha")
@@ -40,10 +42,7 @@ export const Login = () => {
       sessionStorage.setItem("isUserLogged", false)
       toast.warning("Usuário não encontrado")
       return // return encerra a função imediatamente
-    } if (userFound.email === data.email && userFound.password !== data.password) {
-      toast.error("Senha incorreta, tente novamente")
-      return
-    }
+    } 
 
     try {
 
@@ -51,9 +50,9 @@ export const Login = () => {
         headers: { 'Content-Type': 'application/json' }
       })
 
-      console.log(response)
+      console.log(response.status)
 
-        if (userFound.email === data.email && userFound.password === data.password && response.status === 200) {
+        if (userFound.email === data.email && response.status === 200) {
         setIsUserLogged(true)
         setData({ ...data, name: userFound.name })
         sessionStorage.setItem("loggedUser", userFound.name)
@@ -61,6 +60,8 @@ export const Login = () => {
         sessionStorage.setItem("isUserLogged", true)
         navigate('/adm/dashboard')
         toast.success("Login realizado com sucesso")
+      } else if (response.status === 403) {
+        toast.error("Senha incorreta tente novamente")
       }
     } catch (error) {
       if (!error?.response) {
