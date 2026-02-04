@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     try {
         const [query] = await conn.query(
             `INSERT INTO USERS (name, email, password, description, created_at) VALUES (?, ?, ?, ?, ?)`,
-            [user.name, user.email, user.password, user.description, user.created_at]
+            [user.name, user.email, user.password, user.desc, user.created_at]
         )
 
         if (query.affectedRows === 1) {
