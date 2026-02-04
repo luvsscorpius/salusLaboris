@@ -20,7 +20,7 @@ export const EditarUser = () => {
             id: findUser.id,
             name: findUser?.name,
             email: findUser?.email,
-            desc: findUser?.desc
+            description: findUser?.description
         }
     )
 
@@ -52,7 +52,7 @@ export const EditarUser = () => {
 
                     <span>
                         <label htmlFor="desc">Descrição</label>
-                        <textarea type="text" name='desc' value={newUser.desc} onChange={(e) => setNewUser({ ...newUser, desc: e.target.value })} required />
+                        <textarea type="text" name='desc' value={newUser.description} onChange={(e) => setNewUser({ ...newUser, description: e.target.value })} required />
                     </span>
 
                     <div>
