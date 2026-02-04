@@ -178,9 +178,11 @@ export const Dashboard = () => {
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis
                                         dataKey="name"
+                                        nameKey="name"
                                         interval={0}
                                         angle={-25}
                                         textAnchor="end"
+                                        label={renderCustomizedLabel}
                                         height={60}
                                     />
                                     <YAxis />

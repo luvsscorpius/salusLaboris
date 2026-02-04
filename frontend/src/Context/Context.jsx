@@ -329,7 +329,25 @@ const SalusProvider = ({ children }) => {
         }
     }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId }
+    const addPostView = async (postId) => {
+        try {
+            const response = await axios.put(
+                "http://localhost:2000/addPostView",
+                { id: postId },
+                { headers: { 'Content-Type': 'application/json' } }
+            )
+
+            if (response.status === 200) {
+
+                fetchPosts()
+            }
+
+        } catch (error) {
+            console.error("Erro ao adicionar view:", error)
+        }
+    }
+
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId, addPostView }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}

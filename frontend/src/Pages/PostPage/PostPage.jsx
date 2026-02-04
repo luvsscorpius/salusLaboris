@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import * as P from './Styles'
 import { SalusContext } from '../../Context/Context'
 import WanderDelgado from '../../assets/WanderDelgado.webp'
@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 
 export const PostPage = () => {
 
-  const { posts, users } = useContext(SalusContext)
+  const { posts, users, addPostView } = useContext(SalusContext)
 
   console.log(users)
 
@@ -21,7 +21,14 @@ export const PostPage = () => {
     (user) => user.id === foundPost.author_id
   )
 
-  console.log(foundPost)
+  useEffect(() => {
+    const viewed = sessionStorage.getItem(`viewed-post-${id}`)
+
+    if (!viewed) {
+      addPostView(Number(id))
+      sessionStorage.setItem(`viewed-post-${id}`, 'true')
+    }
+  }, [id])  
 
   return (
     <P.main>
