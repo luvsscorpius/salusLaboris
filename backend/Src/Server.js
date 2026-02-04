@@ -28,7 +28,6 @@ const deleteUserRoute = require('./Routes/deleteUser')
 const createUserRoute = require('./Routes/addUser')
 
 // usando as rotas
-
 app.use('/', indexRoute)
 app.use('/login', loginRoute)
 app.use('/users', usersRoute)
