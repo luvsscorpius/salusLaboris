@@ -310,49 +310,51 @@ const SalusProvider = ({ children }) => {
     // funcao para deletar usuarios
     const deleteUser = async (id) => {
         const ID = Number(sessionStorage.getItem("loggedUserId"))
+
+        console.log(id)
+
         if (ID === id) {
             toast.error("Usuário logado, saia e peça para um administrador para excluir sua conta.")
         } else {
 
             try {
-                const response = await axios.delete("http://localhost:2000/deleteUser", JSON.stringify(id), {
-                    headers: { 'Content-Type': 'application/json' }
-                })
-
-                const novosUsers = users.splice(1, id)
-                console.log(novosUsers)
-                setUsers(novosUsers)
-                toast.success("Usuário deletado com sucesso")
-            } catch (error) {
-                console.error(error)
-            }
-        }
-    }
-
-    const addPostView = async (postId) => {
-        try {
-            const response = await axios.put(
-                "http://localhost:2000/addPostView",
-                { id: postId },
-                { headers: { 'Content-Type': 'application/json' } }
-            )
+            const response = await axios.delete("http://localhost:2000/deleteUser", { data: { id } })
 
             if (response.status === 200) {
-
-                fetchPosts()
+                fetchUsers()
+                toast.success("Usuário deletado com sucesso")
             }
 
         } catch (error) {
-            console.error("Erro ao adicionar view:", error)
+            console.error(error)
         }
     }
+}
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId, addPostView }
-    return (
-        <SalusContext.Provider value={contextValue}  >
-            {children}
-        </SalusContext.Provider>
-    )
+const addPostView = async (postId) => {
+    try {
+        const response = await axios.put(
+            "http://localhost:2000/addPostView",
+            { id: postId },
+            { headers: { 'Content-Type': 'application/json' } }
+        )
+
+        if (response.status === 200) {
+
+            fetchPosts()
+        }
+
+    } catch (error) {
+        console.error("Erro ao adicionar view:", error)
+    }
+}
+
+const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId, addPostView }
+return (
+    <SalusContext.Provider value={contextValue}  >
+        {children}
+    </SalusContext.Provider>
+)
 }
 
 export default SalusProvider

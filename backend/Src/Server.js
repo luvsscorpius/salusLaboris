@@ -24,6 +24,7 @@ const getPostsRoute = require('./Routes/getPosts')
 const editPostsRoute = require('./Routes/editPost')
 const deletePostRoute = require('./Routes/deletePost')
 const addPostViewRoute = require('./Routes/addPostView')
+const deleteUserRoute = require('./Routes/deleteUser')
 
 // usando as rotas
 
@@ -43,6 +44,7 @@ app.use('/getPosts', getPostsRoute)
 app.use('/editPost', editPostsRoute)
 app.use('/deletePost', deletePostRoute)
 app.use('/addPostView', addPostViewRoute)
+app.use('/deleteUser', deleteUserRoute)
 
 app.listen(port, () => {
     console.log("Servidor rodando na porta: ", port)

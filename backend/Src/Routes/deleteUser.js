@@ -11,6 +11,8 @@ router.delete('/', async (req, res) => {
 
     const conn = await db()
 
+    console.log(user)
+
     try {
         const [query] = await conn.query(
             `DELETE FROM USERS WHERE id = ?`,
