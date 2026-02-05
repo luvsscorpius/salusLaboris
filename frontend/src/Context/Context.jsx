@@ -86,6 +86,7 @@ const SalusProvider = ({ children }) => {
 
                 toast.success("Usuário encontrado, enviaremos um link de verificação para o seu e-mail")
                 navigate("/login")
+                localStorage.setItem("emailChangePass", userFound.email)
 
                 return
             } catch (error) {
@@ -93,6 +94,23 @@ const SalusProvider = ({ children }) => {
             }
         } else {
             toast.error("Usuário não encontrado, informe um e-mail cadastrado no sistema ou entre em contato com o desenvolvedor")
+        }
+    }
+
+    const resetPassword = async (data) => {
+        console.log(data)
+
+        try {
+            const response = await axios.put("http://localhost:2000/resetPassword", JSON.stringify(data), {
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            if (response.status === 200) {
+                toast.success("Senha atualizada com sucesso")
+                navigate("/login")
+            }
+        } catch (error) {
+            console.error(error)
         }
     }
 
@@ -358,7 +376,7 @@ const SalusProvider = ({ children }) => {
         }
     }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId, addPostView }
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId, addPostView, resetPassword }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}

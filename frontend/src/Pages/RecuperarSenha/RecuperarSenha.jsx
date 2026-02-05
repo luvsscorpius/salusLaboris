@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import * as L from '../Login/Styles'
 import logo from '../../assets/logo.webp'
 import { MdOutlineLock } from "react-icons/md";
@@ -6,12 +6,16 @@ import { LuEyeClosed } from "react-icons/lu";
 import { FaClockRotateLeft } from "react-icons/fa6";
 import { toast } from 'react-toastify';
 import { TbEye } from "react-icons/tb";
+import { SalusContext } from '../../Context/Context';
 
 export const RecuperarSenha = () => {
 
+    const {resetPassword} = useContext(SalusContext)
+
     const [novaSenha, setNovaSenha] = useState({
         senha: "",
-        confirmacaoSenha: ""
+        confirmacaoSenha: "",
+        email: localStorage.getItem("emailChangePass")
     })
 
     const checkPasswords = () => {
@@ -20,7 +24,7 @@ export const RecuperarSenha = () => {
             return
         }
 
-
+        resetPassword(novaSenha)
     }
 
     // função para mostrar a senha
