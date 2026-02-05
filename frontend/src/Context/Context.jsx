@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { data, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -376,7 +376,12 @@ const SalusProvider = ({ children }) => {
         }
     }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId, addPostView, resetPassword }
+    const addEmailNewsLetter = (data) => {
+        console.log(data)
+        toast.success("teste")
+    }
+
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId, addPostView, resetPassword, addEmailNewsLetter }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}

@@ -56,9 +56,9 @@ function App() {
             <Route path="/login/recuperarasenha" element={<RecuperarSenha />} />
             <Route path={`/post/:id`} element={<PostPage />} />
           </Routes>
+          <Footer />
         </SalusProvider>
       </Router>
-      <Footer />
     </>
   );
 }

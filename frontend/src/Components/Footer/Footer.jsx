@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import * as F from './Styles'
 import Blob from '../../assets/blob-scene-haikei.svg'
+import { toast } from 'react-toastify'
+import { SalusContext } from '../../Context/Context'
 
 export const Footer = () => {
+
+  const {addEmailNewsLetter} = useContext(SalusContext)
+
+  const [newsLetterEmail, setNewsLetterEmail] = useState({
+    email: "", 
+    created_at: new Date().toISOString().split('T')[0]
+  })
+
+  const check = () => {
+    if (newsLetterEmail.email === "") {
+      toast.warn("Por favor informe um e-mail para cadastro")
+      return
+    } 
+
+    addEmailNewsLetter(newsLetterEmail)
+  }
+
   return (
     <F.footer>
       <F.titleContainer>
@@ -26,10 +45,10 @@ export const Footer = () => {
 
               <span className="inputContainer">
                 <label>Email:</label>
-                <input type="email" name="email" />
+                <input type="email" name="email" value={newsLetterEmail.email} onChange={(e) => setNewsLetterEmail({...newsLetterEmail, email: e.target.value})}/>
               </span>
 
-              <button>QUERO RECEBER</button>
+              <button onClick={() => check()}>QUERO RECEBER</button>
             </F.mainlingBody>
 
           </F.mailingCard>
