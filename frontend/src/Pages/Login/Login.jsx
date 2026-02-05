@@ -33,7 +33,7 @@ export const Login = () => {
     )
 
     console.log(userFound)
-    
+
     if (data.email === "" || data.password === "") {
       toast.warning("Necessário preencher os campos de e-mail e senha")
       return
@@ -42,7 +42,7 @@ export const Login = () => {
       sessionStorage.setItem("isUserLogged", false)
       toast.warning("Usuário não encontrado")
       return // return encerra a função imediatamente
-    } 
+    }
 
     try {
 
@@ -52,7 +52,7 @@ export const Login = () => {
 
       console.log(response.status)
 
-        if (userFound.email === data.email && response.status === 200) {
+      if (userFound.email === data.email && response.status === 200) {
         setIsUserLogged(true)
         setData({ ...data, name: userFound.name })
         sessionStorage.setItem("loggedUser", userFound.name)

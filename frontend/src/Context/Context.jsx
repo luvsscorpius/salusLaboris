@@ -128,8 +128,6 @@ const SalusProvider = ({ children }) => {
 
         const novoUser = { name: info.name, email: info.email, password: info.password, desc: info.desc, created_at: new Date().toISOString().split('T')[0] }
 
-        console.log(novoUser)
-
         try {
             const response = await axios.post("http://localhost:2000/createUser", novoUser, {
                 headers: { 'Content-Type': 'application/json' }
