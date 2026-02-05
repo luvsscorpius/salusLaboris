@@ -22,8 +22,6 @@ router.post("/", async (req, res) => {
         [user.email]
     )
 
-    console.log()
-
     if (query.length > 0) {
 
         // gerando um token de recuperacao de senha
@@ -34,8 +32,8 @@ router.post("/", async (req, res) => {
             port: 587,
             secure: false, // sempre false no 587
             auth: {
-                user: process.env.EMAIL_USER, // ex: seuemail@outlook.com
-                pass: process.env.EMAIL_PASS, // senha ou senha de app
+                user: process.env.EMAIL_USER, 
+                pass: process.env.EMAIL_PASS, 
             },
             tls: {
                 ciphers: 'SSLv3',
