@@ -376,9 +376,22 @@ const SalusProvider = ({ children }) => {
         }
     }
 
-    const addEmailNewsLetter = (data) => {
+    const addEmailNewsLetter = async (data) => {
         console.log(data)
-        toast.success("teste")
+
+        try {
+            const response = await axios.post("http://localhost:2000/addEmailNewsLetter", JSON.stringify(data), {
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            if (response.status === 200) {
+                fetchUsers()
+                toast.success("Email cadastrado com sucesso")
+            }
+
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId, addPostView, resetPassword, addEmailNewsLetter }

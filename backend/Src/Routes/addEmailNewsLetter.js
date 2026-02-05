@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
 
         if (query.affectedRows === 1) {
             console.log("Email cadastrado com sucesso na newsletter")
-            return res.status(201).json({ message: "Email cadastrado com sucesso" })
+            return res.status(200).json({ message: "Email cadastrado com sucesso" })
         }
 
         return res.status(400).json({ message: "Erro ao cadastrar email" })
