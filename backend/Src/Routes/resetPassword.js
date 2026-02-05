@@ -17,7 +17,17 @@ router.post('/', async (req, res) => {
         if (users.length > 0) {
             res.status(200).send("Usuário encontrado")
 
-            const query = `UPDATE USERS SET password `
+            const [query] = await conexao.query(`UPDATE USERS SET password = ? WHERE id = ?`, [data.password]) 
+
+            if (query.affectedRows === 1) {
+                console.log("Senha atualizada com sucesso no banco de dados")
+                res.status(200).send("Senha atualizada com sucesso no banco de dados")
+                return
+            } else {
+                console.log("Falha ao atualizar senha ao banco de dados")
+                res.status(404).send("Falha ao atualizar senha ao banco de dados")
+                return
+            }
 
         } else {
             res.status(404).send("Usuário näo encontrado")
