@@ -126,7 +126,9 @@ const SalusProvider = ({ children }) => {
     const createUser = async (info) => {
         console.log(info)
 
-        const novoUser = { name: info.name, email: info.email, password: info.password, desc: info.desc }
+        const novoUser = { name: info.name, email: info.email, password: info.password, desc: info.desc, created_at: new Date().toISOString().split('T')[0] }
+
+        console.log(novoUser)
 
         try {
             const response = await axios.post("http://localhost:2000/createUser", novoUser, {

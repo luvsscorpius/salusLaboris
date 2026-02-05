@@ -20,7 +20,9 @@ export const EditarUser = () => {
             id: findUser.id,
             name: findUser?.name,
             email: findUser?.email,
-            description: findUser?.description
+            password: findUser?.password,
+            description: findUser?.description,
+            created_at: new Date().toISOString().split('T')[0]
         }
     )
 

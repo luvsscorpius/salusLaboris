@@ -14,7 +14,7 @@ export const AdicionarUsuario = () => {
             name: "",
             email: "",
             password: "",
-            desc: ""
+            desc: "",
         }
     ])
 
