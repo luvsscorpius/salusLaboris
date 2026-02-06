@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const routeNotFound = () => {
+export const RouteNotFound = () => {
   return (
     <div>testeeeeeeeeeeee</div>
   )
