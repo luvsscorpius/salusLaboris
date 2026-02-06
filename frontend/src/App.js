@@ -24,6 +24,7 @@ import { Dashboard } from "./Pages/Dashboard/Dashboard";
 import { PostPage } from "./Pages/PostPage/PostPage";
 import { AdicionarUsuario } from "./Pages/AdicionarUsuario/AdicionarUsuario";
 import { EditarUser } from "./Pages/EditarUser/EditarUser";
+import { routeNotFound } from "./Routes/routeNotFound";
 
 function App() {
 
@@ -49,8 +50,9 @@ function App() {
               <Route path="/adm/dashboard" element={<Dashboard />} />
             </Route>
 
-
+            
             <Route path="/" element={<Home />} />
+            <Route path="*" element={<routeNotFound />} />
             <Route path="/login" element={<Login />} />
             <Route path="/login/esqueceuasenha" element={<EsqueceuSenha />} />
             <Route path="/login/recuperarasenha" element={<RecuperarSenha />} />

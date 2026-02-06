@@ -15,9 +15,12 @@ export const PostPage = () => {
     (post) => post.id === Number(id)
   )
 
+  useEffect(() => {
+
     fetchUsers()
     fetchPosts()
     fetchCategories()
+  })
 
   const findUser = users.find(
     (user) => user.id === foundPost.author_id

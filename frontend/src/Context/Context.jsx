@@ -56,7 +56,7 @@ const SalusProvider = ({ children }) => {
 
     const [isUserLogged, setIsUserLogged] = useState(() => {
         const storedValue = sessionStorage.getItem("isUserLogged");
-        return storedValue === "true" // converte pra boolean
+        return storedValue === "true"
     })
 
     const logout = () => {
@@ -65,12 +65,6 @@ const SalusProvider = ({ children }) => {
         toast.error("Usuário deslogado com sucesso")
     }
 
-    // //        try {
-    //     const response = await axios.put("http://localhost:2000/resetPassword")
-    // } catch (error) {
-    //     console.error(error)
-    // }
-
     // função para enviar e-mail
     const changePassword = async (email) => {
         const userFound = users.find(
@@ -78,17 +72,17 @@ const SalusProvider = ({ children }) => {
         )
 
         if (userFound) {
-
             try {
                 const response = await axios.post("http://localhost:2000/forgotPassword", JSON.stringify(userFound), {
                     headers: { 'Content-Type': 'application/json' }
                 })
 
-                toast.success("Usuário encontrado, enviaremos um link de verificação para o seu e-mail")
-                navigate("/login")
-                localStorage.setItem("emailChangePass", userFound.email)
-
-                return
+                if (response.status === 200) {
+                    toast.success("Usuário encontrado, enviaremos um link de verificação para o seu e-mail")
+                    navigate("/login")
+                    localStorage.setItem("emailChangePass", userFound.email)
+                    return
+                }
             } catch (error) {
                 toast.error(error)
             }
@@ -98,7 +92,6 @@ const SalusProvider = ({ children }) => {
     }
 
     const resetPassword = async (data) => {
-        console.log(data)
 
         try {
             const response = await axios.put("http://localhost:2000/resetPassword", JSON.stringify(data), {
@@ -116,7 +109,6 @@ const SalusProvider = ({ children }) => {
 
     // função para criar categorias 
     const createCategory = async (titulo) => {
-        console.log(titulo)
 
         try {
 
@@ -127,7 +119,6 @@ const SalusProvider = ({ children }) => {
             })
 
             if (response.status === 200) {
-
                 setCategorias((prev) => [...prev, novaCategoria,])
                 sessionStorage.setItem("categories", JSON.stringify(categorias))
                 toast.success("Categoria adicionada com sucesso")
@@ -142,8 +133,6 @@ const SalusProvider = ({ children }) => {
     }
 
     const createUser = async (info) => {
-        console.log(info)
-
         const novoUser = { name: info.name, email: info.email, password: info.password, desc: info.desc, created_at: new Date().toISOString().split('T')[0] }
 
         try {
@@ -164,15 +153,12 @@ const SalusProvider = ({ children }) => {
     // funcao para deletar categorias
     const deleteCategory = async (id) => {
 
-        console.log(id)
-
         try {
             const response = await axios.delete("http://localhost:2000/deleteCategory", { data: { id } })
 
             if (response.status === 200) {
                 const novasCategorias = categorias.splice(1, id)
                 setCategorias(novasCategorias)
-                console.log(novasCategorias)
                 sessionStorage.setItem("categories", novasCategorias)
                 toast.success("Categoria deletada com sucesso")
                 fetchCategories()
@@ -190,8 +176,6 @@ const SalusProvider = ({ children }) => {
 
     // função para editar post
     const editPost = async (info) => {
-
-        console.log(info)
 
         if (info.category === "") {
             toast.warning("Selecione uma categoria antes de editar um post")
@@ -238,20 +222,21 @@ const SalusProvider = ({ children }) => {
             (categoria) => categoria.id === Number(info.id)
         )
 
-        console.log(info)
-
         try {
             const response = await axios.put("http://localhost:2000/editCategory", info, {
                 headers: { 'Content-Type': 'application/json' }
             })
 
-            if (findCategory) {
-                setCategorias(categorias.map(post =>
-                    post.id === info.id ? info : post
-                ))
-                fetchCategories()
-                navigate("adm/categorias")
+            if (response.status === 200) {
+                if (findCategory) {
+                    setCategorias(categorias.map(post =>
+                        post.id === info.id ? info : post
+                    ))
+                    fetchCategories()
+                    navigate("adm/categorias")
+                }
             }
+
         } catch (error) {
             console.error(error)
         }
@@ -322,12 +307,14 @@ const SalusProvider = ({ children }) => {
                 headers: { 'Content-Type': 'application/json' }
             })
 
-            if (findUser) {
-                setUsers(users.map(user =>
-                    user.id === info.id ? info : user
-                ))
-                navigate("adm/usuarios")
-                toast.success("Usuário atualizado com sucesso")
+            if (response.status === 200) {
+                if (findUser) {
+                    setUsers(users.map(user =>
+                        user.id === info.id ? info : user
+                    ))
+                    navigate("adm/usuarios")
+                    toast.success("Usuário atualizado com sucesso")
+                }
             }
         } catch (error) {
             console.error(error)
@@ -337,8 +324,6 @@ const SalusProvider = ({ children }) => {
     // funcao para deletar usuarios
     const deleteUser = async (id) => {
         const ID = Number(sessionStorage.getItem("loggedUserId"))
-
-        console.log(id)
 
         if (ID === id) {
             toast.error("Usuário logado, saia e peça para um administrador para excluir sua conta.")
@@ -367,7 +352,6 @@ const SalusProvider = ({ children }) => {
             )
 
             if (response.status === 200) {
-
                 fetchPosts()
             }
 
@@ -377,8 +361,6 @@ const SalusProvider = ({ children }) => {
     }
 
     const addEmailNewsLetter = async (data) => {
-        console.log(data)
-
         try {
             const response = await axios.post("http://localhost:2000/addEmailNewsLetter", JSON.stringify(data), {
                 headers: { 'Content-Type': 'application/json' }
