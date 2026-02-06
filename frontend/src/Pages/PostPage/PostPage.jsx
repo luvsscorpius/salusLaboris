@@ -7,15 +7,17 @@ import { useParams } from 'react-router-dom'
 
 export const PostPage = () => {
 
-  const { posts, users, addPostView } = useContext(SalusContext)
-
-  console.log(users)
+  const { posts, users, addPostView, fetchUsers, fetchPosts, fetchCategories } = useContext(SalusContext)
 
   const { id } = useParams()
 
   const foundPost = posts.find(
     (post) => post.id === Number(id)
   )
+
+    fetchUsers()
+    fetchPosts()
+    fetchCategories()
 
   const findUser = users.find(
     (user) => user.id === foundPost.author_id

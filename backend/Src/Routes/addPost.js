@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../Config/db')
+const { sendNewsletter } = require('./newsLetterService')
 
 router.post("/", async (req, res) => {
     console.log("Acessando rota para adicionar um novo post")
@@ -18,6 +19,15 @@ router.post("/", async (req, res) => {
         if (query.affectedRows === 1) {
             console.log("Post inserido com sucesso no banco de dados")
             res.status(200).send("Post inserido com sucesso no banco de dados")
+
+            setImmediate(() => {
+                sendNewsletter({
+                    id: query.insertId,
+                    title: novoPost.title,
+                    desc: novoPost.desc
+                })
+            })
+
             return
         } else {
             console.log("Falha ao inserir post ao banco de dados")

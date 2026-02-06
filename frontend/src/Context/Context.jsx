@@ -394,7 +394,7 @@ const SalusProvider = ({ children }) => {
         }
     }
 
-    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId, addPostView, resetPassword, addEmailNewsLetter }
+    const contextValue = { posts, users, isUserLogged, setIsUserLogged, navigate, logout, changePassword, categorias, setCategorias, createCategory, deleteCategory, createPost, deletePost, editPost, categoryId, setCategoryId, editCategory, setPosts, createUser, deleteUser, editUser, userId, setUserId, addPostView, resetPassword, addEmailNewsLetter, fetchCategories, fetchUsers, fetchPosts }
     return (
         <SalusContext.Provider value={contextValue}  >
             {children}

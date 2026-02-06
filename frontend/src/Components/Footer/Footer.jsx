@@ -13,7 +13,7 @@ export const Footer = () => {
     created_at: new Date().toISOString().split('T')[0]
   })
 
-  const check = () => {
+  const check = () => { 
     if (newsLetterEmail.email === "") {
       toast.warn("Por favor informe um e-mail para cadastro")
       return
