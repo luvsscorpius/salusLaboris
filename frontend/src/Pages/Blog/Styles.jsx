@@ -116,6 +116,9 @@ export const card = styled.div`
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);  
     border-radius: 5px;
     padding: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     @media (min-width: 1024px) {
         width: 97%;
