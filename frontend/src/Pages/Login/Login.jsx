@@ -50,8 +50,6 @@ export const Login = () => {
         headers: { 'Content-Type': 'application/json' }
       })
 
-      console.log(response.status)
-
       if (userFound.email === data.email && response.status === 200) {
         setIsUserLogged(true)
         setData({ ...data, name: userFound.name })
@@ -60,12 +58,20 @@ export const Login = () => {
         sessionStorage.setItem("isUserLogged", true)
         navigate('/adm/dashboard')
         toast.success("Login realizado com sucesso")
-      } else if (response.status === 403) {
-        toast.error("Senha incorreta tente novamente")
       }
     } catch (error) {
-      if (!error?.response) {
-        return toast.error("Erro ao acessar o servidor", error)
+      if (error.response) {
+        if (error.response.status === 403) {
+          toast.error("Senha incorreta, tente novamente")
+          return
+        }
+    
+        if (error.response.status === 401) {
+          toast.error("Não autorizado")
+          return
+        }
+      } else {
+        toast.error("Erro ao acessar o servidor")
       }
     }
   }

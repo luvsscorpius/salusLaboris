@@ -18,9 +18,7 @@ export const Blog = () => {
     const handlePageClick = ({ selected }) => {
         setCurrentPage(selected)
     }
-
-    console.log(posts)
-
+    
     const offSet = currentPage * itemsPage
     const currentPageData = posts.slice(offSet, offSet + itemsPage)
 
