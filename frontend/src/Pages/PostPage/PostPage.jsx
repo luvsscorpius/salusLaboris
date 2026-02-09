@@ -4,6 +4,7 @@ import { SalusContext } from '../../Context/Context'
 import WanderDelgado from '../../assets/WanderDelgado.webp'
 import KarinStela from '../../assets/KarinStela.webp'
 import { useParams } from 'react-router-dom'
+import { FaClock } from "react-icons/fa";
 
 export const PostPage = () => {
 
@@ -16,11 +17,10 @@ export const PostPage = () => {
   )
 
   useEffect(() => {
-
     fetchUsers()
     fetchPosts()
     fetchCategories()
-  })
+  }, [])
 
   const findUser = users.find(
     (user) => user.id === foundPost.author_id
@@ -33,7 +33,7 @@ export const PostPage = () => {
       addPostView(Number(id))
       sessionStorage.setItem(`viewed-post-${id}`, 'true')
     }
-  }, [id])  
+  }, [id])
 
   return (
     <P.main>
@@ -50,19 +50,25 @@ export const PostPage = () => {
         </P.postBody>
 
         <P.postFooter>
-          {foundPost.author_id === "Karin Stela" ?
+          {findUser.name === "Karin Stela" && (
             <span>
               <img src={KarinStela} alt="Imagem da presidente da empresa" />
-            </span> :
+            </span>
+          )}
+
+          {findUser.name === "Wander Delgado" && (
             <span>
               <img src={WanderDelgado} alt="Imagem do diretor financeiro da empresa" />
             </span>
-          }
+          )}
 
           <span>
             <h3>Escrito por {findUser.name}</h3>
             <p>{findUser.description}</p>
-            <p>{foundPost.created_at.split('T')[0]}</p>
+            <span style={{display: 'flex', flexDirection: 'row'}}>
+              <FaClock />
+              <p>{foundPost.created_at.split('T')[0]}</p>
+            </span>
           </span>
         </P.postFooter>
       </P.postContainer>

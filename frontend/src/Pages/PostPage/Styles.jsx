@@ -19,7 +19,6 @@ export const postContainer = styled.div`
   border-radius: 12px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.05);
 
-  /* 🔥 DESKTOP */
   @media (min-width: 900px) {
     max-width: 850px;
     padding: 40px;
@@ -71,7 +70,6 @@ export const postContent = styled.div`
     overflow-x: auto;
   }
 
-  /* 🔥 DESKTOP */
   @media (min-width: 900px) {
     line-height: 1.8;
     font-size: 1.15rem;
@@ -102,7 +100,6 @@ export const postBody = styled.div`
 
   ul, ol { margin: 16px 0; padding-left: 20px; list-style-position: outside; }
 
-  /* 🔥 DESKTOP */
   @media (min-width: 900px) {
     gap: 20px;
   }
@@ -118,6 +115,10 @@ export const postFooter = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    svg {
+      color: #4A7C59;
+    }
   }
 
   span h3 {
@@ -136,7 +137,6 @@ export const postFooter = styled.div`
     opacity: 0.8;
   }
 
-  /* 🔥 DESKTOP */
   @media (min-width: 900px) {
     flex-direction: row;
     justify-content: center;
