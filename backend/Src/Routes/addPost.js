@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
                 sendNewsletter({
                     id: query.insertId,
                     title: novoPost.title,
-                    desc: novoPost.desc
+                    desc: truncateText(novoPost.desc, 120)
                 })
             })
 
