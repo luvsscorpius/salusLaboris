@@ -23,7 +23,7 @@ const SalusProvider = ({ children }) => {
     })
 
     const fetchUsers = async () => {
-        const response = await axios.get("http://localhost:2000/users")
+        const response = await axios.get("https://mediumspringgreen-elk-687685.hostingersite.com/users")
         sessionStorage.setItem("users", JSON.stringify(response.data))
         setUsers(response.data)
     }
@@ -33,7 +33,7 @@ const SalusProvider = ({ children }) => {
     }, [])
 
     const fetchCategories = async () => {
-        const response = await axios.get("http://localhost:2000/getCategories")
+        const response = await axios.get("https://mediumspringgreen-elk-687685.hostingersite.com/getCategories")
         sessionStorage.setItem("categories", JSON.stringify(response.data))
         setCategorias(response.data)
     }
@@ -43,7 +43,7 @@ const SalusProvider = ({ children }) => {
     }, [])
 
     const fetchPosts = async () => {
-        const response = await axios.get("http://localhost:2000/getPosts")
+        const response = await axios.get("https://mediumspringgreen-elk-687685.hostingersite.com/getPosts")
         sessionStorage.setItem("posts", JSON.stringify(response.data))
         setPosts(response.data)
     }
@@ -73,7 +73,7 @@ const SalusProvider = ({ children }) => {
 
         if (userFound) {
             try {
-                const response = await axios.post("http://localhost:2000/forgotPassword", JSON.stringify(userFound), {
+                const response = await axios.post("https://mediumspringgreen-elk-687685.hostingersite.com/forgotPassword", JSON.stringify(userFound), {
                     headers: { 'Content-Type': 'application/json' }
                 })
 
@@ -94,7 +94,7 @@ const SalusProvider = ({ children }) => {
     const resetPassword = async (data) => {
 
         try {
-            const response = await axios.put("http://localhost:2000/resetPassword", JSON.stringify(data), {
+            const response = await axios.put("https://mediumspringgreen-elk-687685.hostingersite.com/resetPassword", JSON.stringify(data), {
                 headers: { 'Content-Type': 'application/json' }
             })
 
@@ -114,7 +114,7 @@ const SalusProvider = ({ children }) => {
 
             const novaCategoria = { id: categorias.length + 1, title: titulo, author: sessionStorage.getItem("loggedUser"), authorId: sessionStorage.getItem("loggedUserId"), created_at: new Date().toISOString().split('T')[0] }
 
-            const response = await axios.post("http://localhost:2000/addCategory", novaCategoria, {
+            const response = await axios.post("https://mediumspringgreen-elk-687685.hostingersite.com/addCategory", novaCategoria, {
                 headers: { 'Content-Type': 'application/json' }
             })
 
@@ -136,7 +136,7 @@ const SalusProvider = ({ children }) => {
         const novoUser = { name: info.name, email: info.email, password: info.password, desc: info.desc, created_at: new Date().toISOString().split('T')[0] }
 
         try {
-            const response = await axios.post("http://localhost:2000/createUser", novoUser, {
+            const response = await axios.post("https://mediumspringgreen-elk-687685.hostingersite.com/createUser", novoUser, {
                 headers: { 'Content-Type': 'application/json' }
             })
 
@@ -154,7 +154,7 @@ const SalusProvider = ({ children }) => {
     const deleteCategory = async (id) => {
 
         try {
-            const response = await axios.delete("http://localhost:2000/deleteCategory", { data: { id } })
+            const response = await axios.delete("https://mediumspringgreen-elk-687685.hostingersite.com/deleteCategory", { data: { id } })
 
             if (response.status === 200) {
                 const novasCategorias = categorias.splice(1, id)
@@ -186,7 +186,7 @@ const SalusProvider = ({ children }) => {
 
             if (findPost) {
                 try {
-                    const response = await axios.put("http://localhost:2000/editPost", info, {
+                    const response = await axios.put("https://mediumspringgreen-elk-687685.hostingersite.com/editPost", info, {
                         headers: { 'Content-Type': 'application/json' }
                     })
 
@@ -223,7 +223,7 @@ const SalusProvider = ({ children }) => {
         )
 
         try {
-            const response = await axios.put("http://localhost:2000/editCategory", info, {
+            const response = await axios.put("https://mediumspringgreen-elk-687685.hostingersite.com/editCategory", info, {
                 headers: { 'Content-Type': 'application/json' }
             })
 
@@ -252,7 +252,7 @@ const SalusProvider = ({ children }) => {
             const novoPost = { categoryId: post.categoryId, title: post.title, desc: post.desc, category: post.category, author: sessionStorage.getItem("loggedUser"), authorId: sessionStorage.getItem("loggedUserId"), created_at: new Date().toISOString().split('T')[0], views: 0 }
 
             try {
-                const response = await axios.post("http://localhost:2000/addPost", JSON.stringify(novoPost), {
+                const response = await axios.post("https://mediumspringgreen-elk-687685.hostingersite.com/addPost", JSON.stringify(novoPost), {
                     headers: { 'Content-Type': 'application/json' }
                 })
 
@@ -275,7 +275,7 @@ const SalusProvider = ({ children }) => {
     const deletePost = async (id) => {
 
         try {
-            const response = await axios.delete("http://localhost:2000/deletePost", { data: { id } })
+            const response = await axios.delete("https://mediumspringgreen-elk-687685.hostingersite.com/deletePost", { data: { id } })
 
             if (response.status === 200) {
                 const novosPosts = posts.splice(1, id)
@@ -303,7 +303,7 @@ const SalusProvider = ({ children }) => {
         )
 
         try {
-            const response = await axios.put("http://localhost:2000/editUser", JSON.stringify(info, findUser), {
+            const response = await axios.put("https://mediumspringgreen-elk-687685.hostingersite.com/editUser", JSON.stringify(info, findUser), {
                 headers: { 'Content-Type': 'application/json' }
             })
 
@@ -330,7 +330,7 @@ const SalusProvider = ({ children }) => {
         } else {
 
             try {
-                const response = await axios.delete("http://localhost:2000/deleteUser", { data: { id } })
+                const response = await axios.delete("https://mediumspringgreen-elk-687685.hostingersite.com/deleteUser", { data: { id } })
 
                 if (response.status === 200) {
                     fetchUsers()
@@ -346,7 +346,7 @@ const SalusProvider = ({ children }) => {
     const addPostView = async (postId) => {
         try {
             const response = await axios.put(
-                "http://localhost:2000/addPostView",
+                "https://mediumspringgreen-elk-687685.hostingersite.com/addPostView",
                 { id: postId },
                 { headers: { 'Content-Type': 'application/json' } }
             )
@@ -362,7 +362,7 @@ const SalusProvider = ({ children }) => {
 
     const addEmailNewsLetter = async (data) => {
         try {
-            const response = await axios.post("http://localhost:2000/addEmailNewsLetter", JSON.stringify(data), {
+            const response = await axios.post("https://mediumspringgreen-elk-687685.hostingersite.com/addEmailNewsLetter", JSON.stringify(data), {
                 headers: { 'Content-Type': 'application/json' }
             })
 

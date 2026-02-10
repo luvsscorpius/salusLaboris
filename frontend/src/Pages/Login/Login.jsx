@@ -46,7 +46,7 @@ export const Login = () => {
 
     try {
 
-      const response = await axios.post("http://localhost:2000/login", JSON.stringify(data), {
+      const response = await axios.post("https://mediumspringgreen-elk-687685.hostingersite.com/login", JSON.stringify(data), {
         headers: { 'Content-Type': 'application/json' }
       })
 
