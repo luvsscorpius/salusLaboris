@@ -5,7 +5,7 @@ import background from '../../assets/occupational-health.webp'
 export const Hero = () => {
   return (
     <H.hero>
-      <img src={background} alt="Imagem de fundo" type="image/webp"/>
+      <img src={background} alt="Imagem de fundo" type="image/webp"   fetchpriority="high"/>
 
       <span>
         <H.bar />

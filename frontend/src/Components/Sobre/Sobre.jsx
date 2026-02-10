@@ -31,7 +31,7 @@ export const Sobre = () => {
                 </span>
 
 
-                <img src={sobreImage} alt="Ilustração segurança do trabalho" type="image/webp" />
+                <img src={sobreImage} alt="Ilustração segurança do trabalho" type="image/webp"   fetchpriority="high" />
 
             </S.quemSomosContainer>
 
