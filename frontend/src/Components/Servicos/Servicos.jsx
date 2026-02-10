@@ -18,22 +18,22 @@ export const Servicos = () => {
 
             <S.cardContainer>
                 <S.card>
-                    <img src={Blob} className='background' alt="Imagem de background do card" type="image/png" />
-                    <img src={WorksafetyIcon} className='icon' alt="Icone de segurança do trabalho no card 1" type="image/png"/>
+                    <img src={Blob} className='background' alt="Imagem de background do card" type="image/png"/>
+                    <img src={WorksafetyIcon} className='icon' alt="Icone de segurança do trabalho no card 1" type="image/webp" />
                     <h3>Segurança do Trabalho</h3>
                     <p>Serviços de prevenção de acidentes por meio de programas conforme normas legais – NR, análise de risco e acompanhamento técnico.</p>
                 </S.card>
 
                 <S.card>
-                    <img src={Blob} className='background' alt="" type="image/png" />
-                    <img src={hiegieneOcupacionalIcon} className='icon' alt="Icone de hiegiene ocupacional no card 2" type="image/png"/>
+                    <img src={Blob} className='background' alt="fundo" type="image/webp"/>
+                    <img src={hiegieneOcupacionalIcon} className='icon' alt="Icone de hiegiene ocupacional no card 2" type="image/webp"/>
                     <h3>Higiene Ocupacional</h3>
                     <p>Identificação e controle de agentes de risco (químicos, físicos, biológicos) no ambiente de trabalho.</p>
                 </S.card>
 
                 <S.card>
-                    <img src={Blob} className='background' alt="" type="image/png" />
-                    <img src={auditoriaIcon} className='icon' alt="Icone de auditoria no card 3" type="image/png" />
+                    <img src={Blob} className='background' alt="fundo" type="image/webp" />
+                    <img src={auditoriaIcon} className='icon' alt="Icone de auditoria no card 3" type="image/webp" />
                     <h3>Auditoria e Treinamento</h3>
                     <p>Inclui exames médicos periódicos, programas preventivos e monitoramento da saúde dos colaboradores.</p>
                 </S.card>
@@ -46,28 +46,28 @@ export const Servicos = () => {
                 </S.TitleContainer>
 
                 <S.cardFases>
-                    <img src={Blob} className='background' alt="Imagem de background do card" type="image/png" />
+                    <img src={Blob} className='background' alt="Imagem de background do card" type="image/webp"/>
 
                     <S.headerFasesContainer>
-                        <img src={fasesIcon} className='icon' alt="Icone do container de fases de atendimento" type="image/png"/>
+                        <img src={fasesIcon} className='icon' alt="Icone do container de fases de atendimento" type="image/webp"/>
                         <h2>FASES DE ATENDIMENTO</h2>
                     </S.headerFasesContainer>
 
                     <S.cardsContainer>
                         <S.fasesCard>
-                            <img src={laudoIcon} alt="Icone da fase 1 de laudos" type="image/png" />
+                            <img src={laudoIcon} alt="Icone da fase 1 de laudos" type="image/webp"/>
                             <h3>Laudos e Regularização</h3>
                             <p>Elaboração de documentos técnicos e regularização (LTCAT, PCMSO, PGR etc.).</p>
                         </S.fasesCard>
 
                         <S.fasesCard>
-                            <img src={capacitacaoIcon} alt="Icone da fase 1 de capacitação" type="image/png"/>
+                            <img src={capacitacaoIcon} alt="Icone da fase 1 de capacitação" type="image/webp"/>
                             <h3>Capacitação Contínua</h3>
                             <p>Treinamentos e campanhas práticas para reforçar a segurança.</p>
                         </S.fasesCard>
 
                         <S.fasesCard>
-                            <img src={capacitacaoIcon} alt="Icone da fase 1 de capacitação" type="image/png"/>
+                            <img src={capacitacaoIcon} alt="Icone da fase 1 de capacitação" type="image/webp"/>
                             <h3>Capacitação Contínua</h3>
                             <p>Treinamentos e campanhas práticas para reforçar a segurança.</p>
                         </S.fasesCard>

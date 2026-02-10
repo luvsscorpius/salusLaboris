@@ -5,7 +5,7 @@ import missaoImage from '../../assets/missaoImage.webp'
 export const Missao = () => {
   return (
     <M.main >
-        <img src={missaoImage} alt="Imagem de background do componente missão, visão e valores" type="image/webp" />
+        <img src={missaoImage} alt="Imagem de background do componente missão, visão e valores" type="image/webp" loading='lazy'/>
 
         <M.titleContainer>
           <h1>COMO FAZEMOS?</h1>

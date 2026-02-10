@@ -39,7 +39,7 @@ export const Footer = () => {
             </F.mainlingHeader>
 
             <F.mainlingBody>
-              <img src={Blob} alt="Fundo do card" type="image/svg" />
+              <img src={Blob} alt="Fundo do card" />
 
               <p>Cadastre seu e-mail e faça parte da nossa comunidade comprometida com ambientes de trabalho mais seguros e saudáveis.</p>
 
