@@ -30,7 +30,7 @@ export const Sobre = () => {
                 </span>
 
 
-                <img src={sobreImage} alt="Ilustração segurança do trabalho" type="image/webp"   fetchpriority="high" />
+                <img src={sobreImage} alt="Ilustração segurança do trabalho" type="image/webp"   fetchpriority="high" loading='lazy' />
 
             </S.quemSomosContainer>
 
@@ -46,7 +46,7 @@ export const Sobre = () => {
             <S.cardContainer>
                 {cards.map((card) => (
                     <S.card>
-                        <img src={card.image} alt={card.altImage} type="image/webp" />
+                        <img src={card.image} alt={card.altImage} type="image/webp" loading='lazy' fetchpriority="high" />
                         <h3>{card.nome}</h3>
                         <h2>{card.cargo}</h2>
                         <p>{card.desc}</p>
