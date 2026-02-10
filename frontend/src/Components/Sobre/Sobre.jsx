@@ -1,6 +1,7 @@
 import React from 'react'
 import * as S from './Styles'
 import KarinStela from '../../assets/KarinStela.webp'
+import sobreImage from '../../assets/sobreImage.webp'
 
 export const Sobre = () => {
 
@@ -29,7 +30,7 @@ export const Sobre = () => {
                 </span>
 
 
-                <img src="/sobreImage.webp" alt="Ilustração segurança do trabalho" type="image/webp"   fetchpriority="high" />
+                <img src={sobreImage} alt="Ilustração segurança do trabalho" type="image/webp"   fetchpriority="high" />
 
             </S.quemSomosContainer>
 
