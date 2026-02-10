@@ -24,7 +24,6 @@ import { Dashboard } from "./Pages/Dashboard/Dashboard";
 import { PostPage } from "./Pages/PostPage/PostPage";
 import { AdicionarUsuario } from "./Pages/AdicionarUsuario/AdicionarUsuario";
 import { EditarUser } from "./Pages/EditarUser/EditarUser";
-import { RouteNotFound } from "./Routes/RouteNotFound";
 
 function App() {
 
