@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
         })
     }
 
-    // Normaliza o email
+    // coloca o email em caixa baixa para nao dar erro
     email = email.trim().toLowerCase()
 
     try {
