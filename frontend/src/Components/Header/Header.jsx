@@ -36,7 +36,7 @@ export default function Header() {
 
   return (
     <H.header>
-      <img src={logo} alt="Logo da header" onClick={(e) => navigate("/")} />
+      <img src={logo} alt="Logo da header" onClick={(e) => navigate("/")} type="image/webp" />
 
       <H.navLinks open={open}>
         {isAdmRoute ? (

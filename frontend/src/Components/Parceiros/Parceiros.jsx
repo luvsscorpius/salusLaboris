@@ -53,7 +53,7 @@ export const Parceiros = () => {
             <P.empresasContainer>
                 <div className="logos-track">
                     {[...logos, ...logos].map((logo, index) => (
-                        <img src={logo.path} alt={logo.alt} key={index} />
+                        <img src={logo.path} alt={logo.alt} key={index} type="image/webp"/>
                     ))}
                 </div>
             </P.empresasContainer>

@@ -15,7 +15,7 @@ export const Menu = () => {
     return (
         <B.menu>
             <B.logoContainer>
-                <img src={logo} alt="Imagem da logo da empresa no menu" />
+                <img src={logo} alt="Imagem da logo da empresa no menu" type="image/webp" />
                 <hr />
             </B.logoContainer>
 

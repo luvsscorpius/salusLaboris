@@ -48,7 +48,7 @@ export const RecuperarSenha = () => {
 
                 <div className="containers">
                     <L.loginBody className='firstLogin'>
-                        <img src={logo} alt="Logo da empresa" />
+                        <img src={logo} alt="Logo da empresa" type="image/webp"/>
 
                         <p>Conectando cuidado, segurança e inovação no ambiente de trabalho.</p>
                     </L.loginBody>
@@ -86,7 +86,7 @@ export const RecuperarSenha = () => {
                 </div>
 
                 <L.loginFooter>
-                    <img src={logo} alt="Logo da empresa" />
+                    <img src={logo} alt="Logo da empresa"  type="image/webp"/>
                 </L.loginFooter>
             </L.loginContainer>
         </L.login>

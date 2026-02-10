@@ -55,7 +55,7 @@ export const Blog = () => {
         {posts && posts.length > 0 && currentPageData.map((post, index) => (
           <B.card key={index}>
             <B.cardHeader>
-              <img src={blogSeg} alt="Imagem de fundo do post do blog" />
+              <img src={blogSeg} alt="Imagem de fundo do post do blog" type="image/webp"/>
               <span>
                 <p>{(() => {
                   const title = categorias.find(cat => cat.id === post.category_id)?.title

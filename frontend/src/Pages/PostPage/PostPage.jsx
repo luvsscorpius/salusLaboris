@@ -52,13 +52,13 @@ export const PostPage = () => {
         <P.postFooter>
           {findUser.name === "Karin Stela" && (
             <span>
-              <img src={KarinStela} alt="Imagem da presidente da empresa" />
+              <img src={KarinStela} alt="Imagem da presidente da empresa" type="image/webp" />
             </span>
           )}
 
           {findUser.name === "Wander Delgado" && (
             <span>
-              <img src={WanderDelgado} alt="Imagem do diretor financeiro da empresa" />
+              <img src={WanderDelgado} alt="Imagem do diretor financeiro da empresa" type="image/webp"/>
             </span>
           )}
 

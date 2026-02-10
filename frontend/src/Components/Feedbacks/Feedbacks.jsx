@@ -28,7 +28,7 @@ export const Feedbacks = () => {
             {feedbacks.map((feedback, index) => (
                 <F.card>
                     <F.cardHeader>
-                        <img src={feedback.logo} alt={feedback.empresa} key={index} />
+                        <img src={feedback.logo} alt={feedback.empresa} key={index} type="image/webp" />
                     </F.cardHeader>
 
                     <F.cardBody>
