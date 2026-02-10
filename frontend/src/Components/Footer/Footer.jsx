@@ -23,7 +23,7 @@ export const Footer = () => {
   }
 
   return (
-    <F.footer>
+    <F.footer id='contato'>
       <F.titleContainer>
         <h3>CUIDAR DE QUEM TRABALHA É CONSTRUIR UM FUTURO MAIS SAUDÁVEL PARA TODOS</h3>
         <h2>SEGURANÇA NÃO É CUSTO. <br /> É VALOR.</h2>

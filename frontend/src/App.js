@@ -52,7 +52,6 @@ function App() {
 
             
             <Route path="/" element={<Home />} />
-            <Route path="*" element={<RouteNotFound />} />
             <Route path="/login" element={<Login />} />
             <Route path="/login/esqueceuasenha" element={<EsqueceuSenha />} />
             <Route path="/login/recuperarasenha" element={<RecuperarSenha />} />

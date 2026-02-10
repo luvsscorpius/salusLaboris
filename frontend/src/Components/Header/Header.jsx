@@ -14,16 +14,29 @@ import { SalusContext } from '../../Context/Context';
 export default function Header() {
   const [open, setOpen] = useState(false)
 
-  const { logout } = useContext(SalusContext)
+  const { logout, navigate } = useContext(SalusContext)
 
   const location = useLocation()
   const isAdmRoute = location.pathname.startsWith("/adm")
 
   const [active, setActive] = useState("active")
 
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      })
+    }
+
+    setOpen(false)
+  }
+
   return (
     <H.header>
-      <img src={logo} alt="Logo da header" />
+      <img src={logo} alt="Logo da header" onClick={(e) => navigate("/")} />
 
       <H.navLinks open={open}>
         {isAdmRoute ? (
@@ -49,8 +62,8 @@ export default function Header() {
               <li>
                 <span className={
                   location.pathname === "/adm/gerenciarposts" ||
-                  location.pathname === "/adm/criarpost" ||
-                  location.pathname === "/adm/editarpost"
+                    location.pathname === "/adm/criarpost" ||
+                    location.pathname === "/adm/editarpost"
                     ? active
                     : ""
                 }>
@@ -62,8 +75,8 @@ export default function Header() {
               <li>
                 <span className={
                   location.pathname === "/adm/usuarios" ||
-                  location.pathname === "/adm/criarusuario" ||
-                  location.pathname === "/adm/editarusuario"
+                    location.pathname === "/adm/criarusuario" ||
+                    location.pathname === "/adm/editarusuario"
                     ? active
                     : ""
                 }>
@@ -75,8 +88,8 @@ export default function Header() {
               <li>
                 <span className={
                   location.pathname === "/adm/categorias" ||
-                  location.pathname === "/adm/adicionarcategoria" ||
-                  location.pathname === "/adm/editarcategoria"
+                    location.pathname === "/adm/adicionarcategoria" ||
+                    location.pathname === "/adm/editarcategoria"
                     ? active
                     : ""
                 }>
@@ -107,31 +120,39 @@ export default function Header() {
             <li>
               <span>
                 <MdOutlineMedicalServices />
-                <a href="#servicos">Serviços</a>
+                <button onClick={() => scrollToSection("servicos")}>
+                  Serviços
+                </button>
               </span>
             </li>
 
             <li>
               <span>
                 <IoIosPeople />
-                <a href="#sobre">Sobre</a>
+                <button onClick={() => scrollToSection("sobre")}>
+                  Sobre
+                </button>
               </span>
             </li>
 
             <li>
               <span>
                 <FaBloggerB />
-                <a href="#blog">Blog</a>
+                <button onClick={() => scrollToSection("blog")}>
+                  Blog
+                </button>
               </span>
             </li>
 
             <li>
               <span>
                 <IoCall />
-                <a href="#contato">Contato</a>
+                <button onClick={() => scrollToSection("contato")}>
+                  Contato
+                </button>
               </span>
             </li>
-
+            
             <li>
               <span>
                 <BiSolidLogInCircle />
