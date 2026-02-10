@@ -8,6 +8,7 @@ import { LuEyeClosed } from "react-icons/lu";
 import { SalusContext } from '../../Context/Context';
 import { TbEye } from "react-icons/tb";
 import { toast } from 'react-toastify';
+import axios from 'axios'
 
 export const Login = () => {
 
@@ -25,27 +26,53 @@ export const Login = () => {
     }
   }, [isUserLogged, navigate])
 
-  const checkUsers = (e) => {
+  const checkUsers = async (e) => {
+
     const userFound = users.find(
       (user) => user.email === data.email
     )
 
+    console.log(userFound)
+
     if (data.email === "" || data.password === "") {
       toast.warning("Necessário preencher os campos de e-mail e senha")
+      return
     } else if (!userFound) {
       setIsUserLogged(false)
       sessionStorage.setItem("isUserLogged", false)
-      toast.warning("Usuário não encontrado") 
-    } else if (userFound.email === data.email && userFound.password !== data.password) {
-      toast.error("Senha incorreta, tente novamente")
-    } else if (userFound.email === data.email && userFound.password === data.password) {
-      setIsUserLogged(true)
-      setData({...data, name: userFound.name})
-      sessionStorage.setItem("loggedUser", userFound.name)
-      sessionStorage.setItem("loggedUserId", userFound.id)
-      sessionStorage.setItem("isUserLogged", true)
-      navigate('/adm/dashboard')
-      toast.success("Login realizado com sucesso")
+      toast.warning("Usuário não encontrado")
+      return // return encerra a função imediatamente
+    }
+
+    try {
+
+      const response = await axios.post("http://localhost:2000/login", JSON.stringify(data), {
+        headers: { 'Content-Type': 'application/json' }
+      })
+
+      if (userFound.email === data.email && response.status === 200) {
+        setIsUserLogged(true)
+        setData({ ...data, name: userFound.name })
+        sessionStorage.setItem("loggedUser", userFound.name)
+        sessionStorage.setItem("loggedUserId", userFound.id)
+        sessionStorage.setItem("isUserLogged", true)
+        navigate('/adm/dashboard')
+        toast.success("Login realizado com sucesso")
+      }
+    } catch (error) {
+      if (error.response) {
+        if (error.response.status === 403) {
+          toast.error("Senha incorreta, tente novamente")
+          return
+        }
+    
+        if (error.response.status === 401) {
+          toast.error("Não autorizado")
+          return
+        }
+      } else {
+        toast.error("Erro ao acessar o servidor")
+      }
     }
   }
 
@@ -100,7 +127,7 @@ export const Login = () => {
                   <button id='entrar' type='submit' onClick={((e) => checkUsers())}>ENTRAR</button>
                 </div>
 
-                <a href="/login/esqueceuasenha">Esqueceu a senha?</a>
+                <a href="#/login/esqueceuasenha">Esqueceu a senha?</a>
               </L.inputContainer>
             </form>
           </L.loginBody>

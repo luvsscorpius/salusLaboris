@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Menu } from '../../Components/Menu/Menu';
 import * as B from '../Blog/Styles'
 import * as A from './Styles'
@@ -19,8 +19,26 @@ export const AdicionarPost = () => {
     const [novoPost, setNovoPost] = useState({
         title: "",
         category: "",
-        desc: ""
+        desc: "",
+        categoryId: null,
     })
+
+    useEffect(() => {
+        if (!novoPost.category) return;
+
+        const categoriaEncontrada = categorias.find(
+            (cat) => cat.title === novoPost.category
+        );
+
+        if (categoriaEncontrada) {
+            setNovoPost((prev) => ({
+                ...prev,
+                categoryId: categoriaEncontrada.id,
+            }));
+        }
+    }, [novoPost.category, categorias]);
+
+    console.log(categorias)
 
     // Criar editor do TipTap
     const editor = useEditor({
@@ -86,11 +104,12 @@ export const AdicionarPost = () => {
                             name="categoria"
                             value={novoPost.category}
                             onChange={(e) => setNovoPost({ ...novoPost, category: e.target.value })}
-                        >
+                            onClick={(e) => console.log(e.target.value)}
+                        >.~ryot
                             <option value="">Selecione uma categoria</option>
-                            {categorias.map((cat, index) => (
-                                <option value={cat.title} key={index}>
-                                    {cat.title}
+                            {categorias.map((cat) => (
+                                <option value={cat.title} key={cat.id}>
+                                    {cat.id} - {cat.title}
                                 </option>
                             ))}
                         </select>

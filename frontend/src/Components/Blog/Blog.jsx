@@ -7,7 +7,7 @@ import ReactPaginate from 'react-paginate'
 import { SalusContext } from '../../Context/Context';
 
 export const Blog = () => {
-  const { posts, setPosts, navigate } = useContext(SalusContext)
+  const { posts, setPosts, navigate, users } = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 3
@@ -23,7 +23,7 @@ export const Blog = () => {
   const visitPostNCount = (id) => {
 
     // encontramos o post de acordo com o id
-    const findPost = posts.find((post) => 
+    const findPost = posts.find((post) =>
       post.id === id
     )
 
@@ -31,11 +31,11 @@ export const Blog = () => {
     if (findPost) {
       // atualizamos a propriedade views do objeto
       const updatedPost = {
-        ...findPost, 
+        ...findPost,
         views: (findPost.views || 0) + 1
       }
 
-      setPosts(posts.map(post => 
+      setPosts(posts.map(post =>
         post.id === id ? updatedPost : post
       ))
     }
@@ -52,7 +52,7 @@ export const Blog = () => {
       </B.titleContainer>
 
       <B.cardsContainer>
-        {posts.length > 0 && currentPageData.map((post, index) => (
+        {posts && posts.length > 0 && currentPageData.map((post, index) => (
           <B.card key={index}>
             <B.cardHeader>
               <img src={blogSeg} alt="Imagem de fundo do post do blog" />
@@ -64,12 +64,15 @@ export const Blog = () => {
             <B.postInfo>
               <span>
                 <FaRegCalendarAlt />
-                <p>{post.date}</p>
+                <p>{post.created_at.includes('T')
+                  ? post.created_at.split('T')[0]
+                  : post.created_at
+                }</p>
               </span>
 
               <span>
                 <FaRegUser />
-                <p>{post.author}</p>
+                <p>{users.map((user) => user.id === post.author_id ? user.name : "")}</p>
               </span>
             </B.postInfo>
 
@@ -77,9 +80,11 @@ export const Blog = () => {
               <h3>{post.title}</h3>
               <div
                 className="postContent"
-                dangerouslySetInnerHTML={{ __html: post.desc.length > 120
-                ? post.desc.substring(0, 150) + "..."
-                : post.desc} }
+                dangerouslySetInnerHTML={{
+                  __html: post.description.length > 120
+                    ? post.description.substring(0, 150) + "..."
+                    : post.description
+                }}
               />
               <button onClick={() => visitPostNCount(post.id)}>Ler mais</button>
             </B.cardInfo>

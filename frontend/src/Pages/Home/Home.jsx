@@ -13,7 +13,7 @@ export const Home = () => {
   return (
     <H.home>
         <Hero/>
-        <Sobre />
+        <Sobre/>
         <Servicos />
         <Parceiros/>
         <Missao/>

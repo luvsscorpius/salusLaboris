@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useLocation, Link } from "react-router-dom"
 import * as B from './Styles'
 import logo from '../../assets/logo.webp'
@@ -6,6 +6,7 @@ import { RxDashboard } from "react-icons/rx";
 import { MdPostAdd } from "react-icons/md";
 import { FaUsers } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
+import { SalusContext } from '../../Context/Context';
 
 export const Menu = () => {
     const [active, setActive] = useState("active")

@@ -10,15 +10,15 @@ import { Link } from 'react-router-dom';
 
 export const Blog = () => {
 
-    const { posts, navigate } = useContext(SalusContext)
+    const { posts, navigate, users } = useContext(SalusContext)
 
     const [currentPage, setCurrentPage] = useState(0)
-    const itemsPage = 3
+    const itemsPage = 2
 
     const handlePageClick = ({ selected }) => {
         setCurrentPage(selected)
     }
-
+    
     const offSet = currentPage * itemsPage
     const currentPageData = posts.slice(offSet, offSet + itemsPage)
 
@@ -40,17 +40,21 @@ export const Blog = () => {
 
                 <B.blogBody>
                     <B.cardsContainer>
-                        {posts.length > 0 && currentPageData.map((post, index) => (
+                        {posts && posts.length > 0 && currentPageData.map((post, index) => (
                             <B.card key={index}>
                                 <B.postInfo>
                                     <span>
                                         <FaRegCalendarAlt />
-                                        <p>{post.date}</p>
+                                        <p>{
+                                            post.created_at.includes('T')
+                                                ? post.created_at.split('T')[0]
+                                                : post.created_at
+                                        }</p>
                                     </span>
 
                                     <span>
                                         <FaRegUser />
-                                        <p>{post.author}</p>
+                                        <p>{users.map((user) => user.id === post.author_id ? user.name : "")}</p>
                                     </span>
                                 </B.postInfo>
 
@@ -60,8 +64,9 @@ export const Blog = () => {
                                     <div>
                                         <div
                                             className="postContent"
-                                            dangerouslySetInnerHTML={{ __html:
-                                                post.desc
+                                            dangerouslySetInnerHTML={{
+                                                __html:
+                                                    post.description
                                             }}
                                         />
                                     </div>
@@ -74,7 +79,7 @@ export const Blog = () => {
 
                     <ReactPaginate
                         pageCount={Math.ceil(posts.length / itemsPage)}
-                        pageRangeDisplayed={3} // Número de páginas a serem exibidas
+                        pageRangeDisplayed={2} // Número de páginas a serem exibidas
                         marginPagesDisplayed={1} // Número de páginas a serem exibidas nas extremidades
                         onPageChange={handlePageClick}
                         containerClassName={'pagination'}

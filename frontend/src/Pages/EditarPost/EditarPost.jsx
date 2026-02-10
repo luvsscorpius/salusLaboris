@@ -26,20 +26,43 @@ export const EditarPost = () => {
     const [updatePost, setUpdatePost] = useState({
         id: categoryId,
         title: findPost.title,
-        desc: findPost.desc,
-        category: findPost.category || "",
-        author: sessionStorage.getItem("loggedUser"),
-        date: findPost.date
+        description: findPost.description,
+        category_id: findPost.category_id,
+        category: "",
+        author_id: null,
+        created_at: findPost.created_at,
     });
+
+    useEffect(() => {
+
+        const categoriaEncontrada = categorias.find(
+            (cat) => cat.id === updatePost.category_id
+        );
+
+        console.log(categoriaEncontrada)
+
+        setUpdatePost((prev) => ({
+            ...prev,
+            author_id: sessionStorage.getItem("loggedUserId"),
+        }));
+
+        if (categoriaEncontrada) {
+            setUpdatePost((prev) => ({
+                ...prev,
+                category: categoriaEncontrada.title,
+            }));
+        }
+    }, []);
+
 
     // Inicializar editor TipTap já com o conteúdo
     const editor = useEditor({
         extensions: [StarterKit],
-        content: findPost.desc,   // 🔥 carrega o conteúdo existente
+        content: findPost.description,   // 🔥 carrega o conteúdo existente
         onUpdate: ({ editor }) => {
             setUpdatePost((prev) => ({
                 ...prev,
-                desc: editor.getHTML()
+                description: editor.getHTML()
             }));
         }
     });

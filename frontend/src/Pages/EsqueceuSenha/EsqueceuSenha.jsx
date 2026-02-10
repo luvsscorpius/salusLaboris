@@ -14,8 +14,6 @@ export const EsqueceuSenha = () => {
 
   // função para checar se o input do email esta vazio
   const checkEmailInput = () => {
-    console.log(changePasswordEmail)
-
     if (changePasswordEmail === "") {
       toast.warning("Informe um e-mail antes de prosseguir")
     } else {

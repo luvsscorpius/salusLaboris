@@ -13,39 +13,6 @@ export const Dashboard = () => {
 
     const { posts, users, categorias } = useContext(SalusContext)
 
-    let wander = 0
-    let karin = 0
-
-    const maxUser = posts.forEach((post) => {
-        if (post.author === "Wander Delgado") {
-            wander++
-        } else if (post.author === "Anderson Vitor") {
-            karin++
-        }
-    })
-
-    const autoresData = [
-        { name: "Wander", value: wander, fill: "#4A7C59" },
-        { name: "Karin", value: karin, fill: "#233D4D" }
-    ]
-
-    const renderCustomizedLabel = ({ value, percent, name }) => {
-        const percentage = (percent * 100).toFixed(0);
-        return `${name} ${percentage}%`;
-    };
-
-    // CONTAGEM DAS CATEGORIAS
-    const categoriasCount = posts.reduce((acc, post) => {
-        acc[post.category] = (acc[post.category] || 0) + 1;
-        return acc;
-    }, {});
-
-    // CONTAGEM Dos posts
-    const postsCount = posts.reduce((acc, post) => {
-        acc[post.views] = (acc[post.views] || 0) + 1;
-        return acc;
-    }, {});
-
     const colors = [
         "#4A7C59",
         "#233D4D",
@@ -56,13 +23,48 @@ export const Dashboard = () => {
         "#8D99AE",
     ];
 
-    const categoriasData = Object.entries(categoriasCount).map(([name, value], index) => ({
+    const autoresCount = posts.reduce((acc, post) => {
+        const foundUser = users.find(user => user.id === post.author_id)
+
+        if (!foundUser) return acc
+
+        const authorName = foundUser.name
+
+        acc[authorName] = (acc[authorName] || 0) + 1
+        return acc;
+    }, {});
+
+    const autoresData = Object.entries(autoresCount).map(([name, value], index) => ({
         name,
         value,
         fill: colors[index % colors.length]
     }));
 
-    console.log(postsCount)
+    const renderCustomizedLabel = ({ value, percent, name }) => {
+        const percentage = (percent * 100).toFixed(0);
+        return `${name} ${percentage}%`;
+    };
+
+    // CONTAGEM DAS CATEGORIAS
+    const categoriasCount = posts.reduce((acc, post) => {
+
+        const foundCategory = categorias.find(cat => cat.id === post.category_id)
+
+        acc[foundCategory.title] = (acc[foundCategory.title] || 0) + 1;
+        return acc;
+    }, {});
+
+    // CONTAGEM Dos posts
+    const postsCount = posts.reduce((acc, post) => {
+        acc[post.views] = (acc[post.views] || 0) + 1;
+        return acc;
+    }, {});
+
+    const categoriasData = Object.entries(categoriasCount).map(([name, value], index) => ({
+        name,
+        value,
+        fill: colors[index % colors.length]
+    }));
 
     // achar post mais acessado 
     const postsData = posts.map(post => ({
@@ -176,9 +178,11 @@ export const Dashboard = () => {
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis
                                         dataKey="name"
+                                        nameKey="name"
                                         interval={0}
                                         angle={-25}
                                         textAnchor="end"
+                                        label={renderCustomizedLabel}
                                         height={60}
                                     />
                                     <YAxis />

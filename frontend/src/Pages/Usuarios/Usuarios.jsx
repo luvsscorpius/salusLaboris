@@ -60,7 +60,7 @@ export const Usuarios = () => {
                   ? user.name.substring(0, 200) + "..."
                   : user.name}</td>
                 <td className='data'>{user.email.length > 45 ? user.email.substring(0, 45) + "..." : user.email}</td>
-                <td className='autor'>{user.desc.length > 50 ? user.desc.substring(0, 50) + "..." : user.desc}</td>
+                <td className='autor'>{user.description.length > 50 ? user.description.substring(0, 50) + "..." : user.description}</td>
                 <td className='icon'>
                   <FaRegEdit size={25} onClick={(e) => enviarUsuario(user.id)}  />
                   <MdDeleteOutline size={25} onClick={(e) => deleteUser(user.id)}/>

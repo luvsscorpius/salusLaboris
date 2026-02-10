@@ -10,6 +10,10 @@ export const header = styled.header`
 
     img {
         width: 100px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     svg {
@@ -44,6 +48,10 @@ export const header = styled.header`
             display: none;
         }
     }
+
+    html {
+  scroll-behavior: smooth;
+}
 `
 
 export const navLinks = styled.nav`
