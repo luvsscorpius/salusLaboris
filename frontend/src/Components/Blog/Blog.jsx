@@ -7,7 +7,7 @@ import ReactPaginate from 'react-paginate'
 import { SalusContext } from '../../Context/Context';
 
 export const Blog = () => {
-  const { posts, setPosts, navigate, users } = useContext(SalusContext)
+  const { posts, setPosts, navigate, users, categorias } = useContext(SalusContext)
 
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPage = 3
@@ -57,7 +57,14 @@ export const Blog = () => {
             <B.cardHeader>
               <img src={blogSeg} alt="Imagem de fundo do post do blog" />
               <span>
-                <p>{post.category}</p>
+                <p>{(() => {
+                  const title = categorias.find(cat => cat.id === post.category_id)?.title
+                  return title
+                    ? title.length > 200
+                      ? title.substring(0, 200) + "..."
+                      : title
+                    : ""
+                })()}</p>
               </span>
             </B.cardHeader>
 

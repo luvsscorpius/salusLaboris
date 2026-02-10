@@ -150,7 +150,6 @@ export const navLinks = styled.nav`
     @media (min-width: 768px) {
         width: 25%;
 
-
         ul {
             font-weight: 600;
         }
