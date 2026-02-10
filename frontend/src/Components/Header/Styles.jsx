@@ -79,6 +79,7 @@ export const navLinks = styled.nav`
     a {
         color: #4A7C59;
         list-style: none;
+        font-weight: 800;
     }
 
     div {
@@ -104,6 +105,7 @@ export const navLinks = styled.nav`
         padding: 10px 0 10px 0;
         background: none;
         color: #4A7C59;
+        font-weight: 800;
 
         &:hover {
             cursor: pointer;
@@ -135,6 +137,7 @@ export const navLinks = styled.nav`
             list-style: none;
             transition: transform 0.8s ease;
             text-align: center;
+            font-weight: 800;
 
             &:hover {
                 cursor: pointer;
