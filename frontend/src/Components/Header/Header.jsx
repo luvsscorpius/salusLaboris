@@ -120,36 +120,36 @@ export default function Header() {
             <li>
               <span>
                 <MdOutlineMedicalServices />
-                <button onClick={() => scrollToSection("servicos")}>
+                <Link onClick={() => scrollToSection("servicos")} className='button' to='/'>
                   Serviços
-                </button>
+                </Link>
               </span>
             </li>
 
             <li>
               <span>
                 <IoIosPeople />
-                <button onClick={() => scrollToSection("sobre")}>
+                <Link onClick={() => scrollToSection("sobre")} className='button' to='/'>
                   Sobre
-                </button>
+                </Link>
               </span>
             </li>
 
             <li>
               <span>
                 <FaBloggerB />
-                <button onClick={() => scrollToSection("blog")}>
+                <Link onClick={() => scrollToSection("blog")} className='button' to='/'>
                   Blog
-                </button>
+                </Link>
               </span>
             </li>
 
             <li>
               <span>
                 <IoCall />
-                <button onClick={() => scrollToSection("contato")}>
+                <Link onClick={() => scrollToSection("contato")} className='button' to='/'>
                   Contato
-                </button>
+                </Link>
               </span>
             </li>
             
