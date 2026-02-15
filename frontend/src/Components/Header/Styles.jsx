@@ -36,7 +36,6 @@ export const header = styled.header`
 
     }
 
-
     @media (min-width: 1024px) {
         padding: 50px;
 
@@ -98,6 +97,21 @@ export const navLinks = styled.nav`
     }
 
     button {
+        border: 0;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 10px 0 10px 0;
+        background: none;
+        color: #4A7C59;
+        font-weight: 800;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .button {
         border: 0;
         font-family: "Poppins", sans-serif;
         font-weight: 600;
