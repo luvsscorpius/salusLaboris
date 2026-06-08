@@ -1,70 +1,180 @@
-# Getting Started with Create React App
+# 🏥 Salus Laboris
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sistema web desenvolvido para o Instituto Salus Laboris, com o objetivo de apresentar os serviços da empresa, facilitar o contato com clientes e disponibilizar informações relacionadas à saúde ocupacional, segurança do trabalho e gestão empresarial.
 
-## Available Scripts
+## 📖 Sobre o Projeto
 
-In the project directory, you can run:
+A plataforma foi desenvolvida utilizando uma arquitetura Full Stack, composta por um frontend moderno em React, uma API REST desenvolvida em Node.js e um banco de dados MySQL para armazenamento e gerenciamento das informações.
 
-### `npm start`
+O sistema foi projetado para oferecer uma experiência intuitiva, responsiva e de fácil navegação em diferentes dispositivos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Tecnologias Utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+- React.js
+- React Router DOM
+- Axios
+- Styled Components
+- HTML5
+- CSS3
+- JavaScript (ES6+)
 
-### `npm test`
+### Backend
+- Node.js
+- Express.js
+- JWT Authentication
+- Bcrypt
+- Cors
+- Dotenv
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Banco de Dados
+- MySQL
 
-### `npm run build`
+### Controle de Versão
+- Git
+- GitHub
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✨ Funcionalidades
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Página institucional responsiva
+- Apresentação dos serviços da empresa
+- Formulário de contato
+- Integração com API REST
+- Gerenciamento de informações dinâmicas
+- Sistema de autenticação
+- Comunicação com banco de dados MySQL
+- Layout otimizado para dispositivos móveis e desktops
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📂 Estrutura do Projeto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+salus-laboris/
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   └── styles/
+│   └── package.json
+│
+├── backend/
+│   ├── controllers/
+│   ├── routes/
+│   ├── middlewares/
+│   ├── services/
+│   ├── database/
+│   ├── app.js
+│   └── package.json
+│
+└── README.md
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ⚙️ Instalação e Configuração
 
-## Learn More
+### Clone o repositório
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/seu-usuario/salus-laboris.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend
 
-### Code Splitting
+```bash
+cd frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+npm install
 
-### Analyzing the Bundle Size
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Backend
 
-### Making a Progressive Web App
+```bash
+cd backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+npm install
 
-### Advanced Configuration
+npm run dev
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🔐 Variáveis de Ambiente
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Crie um arquivo `.env` na pasta do backend:
 
-### `npm run build` fails to minify
+```env
+PORT=5000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=sua_senha
+DB_NAME=salus_laboris
+
+JWT_SECRET=sua_chave_secreta
+```
+
+---
+
+## 🔗 API REST
+
+Exemplos de endpoints utilizados pela aplicação:
+
+```http
+GET    /api/services
+POST   /api/contact
+POST   /api/auth/login
+GET    /api/users
+PUT    /api/users/:id
+DELETE /api/users/:id
+```
+
+---
+
+## 📱 Responsividade
+
+A aplicação foi desenvolvida para funcionar adequadamente em:
+
+- Smartphones
+- Tablets
+- Notebooks
+- Computadores Desktop
+
+---
+
+## 🎯 Objetivo
+
+Oferecer uma plataforma moderna e eficiente para divulgação dos serviços da Salus Laboris, fortalecendo sua presença digital e facilitando a comunicação com clientes e parceiros.
+
+---
+
+## 👨‍💻 Desenvolvedor
+
+**Anderson Vitor**
+
+Desenvolvedor Full Stack especializado em:
+
+- React.js
+- Node.js
+- Express.js
+- MySQL
+- APIs REST
+- JavaScript
+
+---
+
+## 📄 Licença
+
+Este projeto foi desenvolvido para uso exclusivo da Salus Laboris.
+
+Todos os direitos reservados.
